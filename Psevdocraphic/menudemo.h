@@ -1,5 +1,5 @@
-/* ---- файл menudemo.h --- */
-// описание функций, которые подключаются к пунктам меню
+/* ---- menudemo.h --- */
+
 void File(void);
 void Do(void);
 void Exit(void);
