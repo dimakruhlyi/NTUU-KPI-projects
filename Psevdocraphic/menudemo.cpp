@@ -1,4 +1,4 @@
-/* ---- файл menudemo.cpp --- */
+/* ----  menudemo.cpp --- */
 #define _win32_winnt 0x500
 #include <windows.h>
 #include <conio.h>
@@ -13,44 +13,48 @@
 #define KEY_ARROW_LEFT 75
 
 using namespace std;
-extern HANDLE hStdOut; //дескриптор консольного окна
-extern CONSOLE_SCREEN_BUFFER_INFO csbInfo; //информация о
-																					 // консольном окне в структуре csbInfo
-extern SMALL_RECT consolRect; //координаты углов консоли
-extern WORD woкkWindowAttributes; //атрибуты рабочей
-																	//области консоли
+extern HANDLE hStdOut; 
+extern CONSOLE_SCREEN_BUFFER_INFO csbInfo; 
+																					
+extern SMALL_RECT consolRect; 
+extern WORD woГЄkWindowAttributes; 
+																	
 
 int main()
 {
 	COORD coord;
 	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, &coord);
 	srand(time(NULL));
-	setlocale(LC_CTYPE, "rus"); // вызов функции настройки
-															// национальных параметров
+	setlocale(LC_CTYPE, "rus"); 
+															
 	HWND hwnd = GetConsoleWindow();
 	HDC hdc = GetDC(GetConsoleWindow());
 	//system("title Console must die");
 	SetConsoleTitle("Menu of program");
-	hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	GetConsoleScreenBufferInfo(hStdOut, &csbInfo);
-	consolRect = csbInfo.srWindow; //координаты углов консоли
-	SetConsoleTextAttribute(hStdOut, woкkWindowAttributes);
-	system("CLS"); // установка атрибутов цвета рабочей области
-	DrawMenu(); // рисуем меню в верхней строке консоли
-	ReleaseDC(NULL, hdc);}
+	consolRect = csbInfo.srWindow; 
+	SetConsoleTextAttribute(hStdOut, woГЄkWindowAttributes);
+	system("CLS"); 
+	DrawMenu(); 
+	ReleaseDC(NULL, hdc);
+}
+
 																	
-																	// ===================== Функции меню ===================
-void setConsoleSize() // Задание размеров окна консоли
+																	
+void setConsoleSize() 
 {
 	const int colConsole = 80;
 	const int rowConsole = 30;
 	HANDLE hNdl = GetStdHandle(STD_OUTPUT_HANDLE);
 	SMALL_RECT windowSize = { 0,0,colConsole - 1,rowConsole - 1 };
 	SetConsoleWindowInfo(hNdl, TRUE, &windowSize);
-	COORD bufferSize = { colConsole, rowConsole }; // размеры буфера
+	COORD bufferSize = { colConsole, rowConsole }; 
 	SetConsoleScreenBufferSize(hNdl, bufferSize);
 }
-void draw(){
+void draw()
+{
 	HDC hdc = GetDC(GetConsoleWindow());
 	char str[] = "Function: y=ln(1+x^2)";
 	TextOutA(hdc, 550, 200, str, strlen(str));
@@ -62,12 +66,30 @@ void draw(){
 	{ 750,640 },{ 760,639.4 },{ 770,638.8 },{ 780,638.2 },{ 790,637.6 },{ 800,636.9 },{ 810,636.3 },{ 820,635.7 },{ 830,635.2 },{ 840,634.8 },{ 850,634.5 },
 	{ 900,632.6 },{ 950,630.8 },{ 1000,629.3 } };
 	Polyline(hdc, ptRect, 24);
-		char str4[] = "OX";
-	TextOutA(hdc, 990, 660, str4, strlen(str4));	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));	POINT ox[2]	{ {300,650},{1000,650} };	Polyline(hdc, ox, 2);	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));	POINT strilka1[3]	{ { 640,311 },{ 650,300 },{660,311} };	Polyline(hdc, strilka1, 3);
-	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));	POINT strilka2[3]	{ { 990,639 },{ 1000,650 },{ 990,661 } };	Polyline(hdc, strilka2, 3);
+
+	
+	char str4[] = "OX";
+	TextOutA(hdc, 990, 660, str4, strlen(str4));
+	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));
+	POINT ox[2]
+	{ {300,650},{1000,650} };
+	Polyline(hdc, ox, 2);
+
+	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));
+	POINT strilka1[3]
+	{ { 640,311 },{ 650,300 },{660,311} };
+	Polyline(hdc, strilka1, 3);
+	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));
+	POINT strilka2[3]
+	{ { 990,639 },{ 1000,650 },{ 990,661 } };
+	Polyline(hdc, strilka2, 3);
 	
 	char str3[] = "OY";
-	TextOutA(hdc, 630, 310, str3, strlen(str3));	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));	POINT oy[2]	{ { 650,300 },{ 650,800 } };	Polyline(hdc, oy, 2);
+	TextOutA(hdc, 630, 310, str3, strlen(str3));
+	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));
+	POINT oy[2]
+	{ { 650,300 },{ 650,800 } };
+	Polyline(hdc, oy, 2);
 	
 	char str5[] = "0";
 	TextOutA(hdc, 640, 660, str5, strlen(str5));
@@ -95,21 +117,23 @@ void draw(){
 	{ { 650,650 } ,{ 640,645.68 },{ 630,644.8 },{ 620,643.4 },{ 610,642.9 },{ 600, 642.13 },{ 590,642 },{ 580, 641.7 },{ 570,641.2 },{ 560,640.5 },
 	{ 550,640 },{ 540,639.4 },{ 530,638.8 },{ 520,638.2 },{ 510,637.6 },{ 500,636.9 },{ 490,636.3 },{ 480,635.7 },{ 470,635.2 },{ 460,634.8 },{ 450,634.5 },
 	{ 400,632.6 },{ 350,630.8 },{ 300,629.3 } };
-	Polyline(hdc, ptRect2, 24);	_getch();}
+	Polyline(hdc, ptRect2, 24);
+	_getch();
+}
 void File()
 {
 	HDC hdc = GetDC(GetConsoleWindow());
-	setConsoleSize(); // задание размеров консоли
+	setConsoleSize(); 
 	Sleep(100);
-	draw(); // функция рисования в консоли
+	draw(); 
 	int iKey = 1;
-	while (iKey != 27) { // Задержка и выход по клавише ESC
+	while (iKey != 27) { 
 		if (_kbhit()) {
 			iKey = _getch();
 			switch (iKey)
 			{
 			case 112: case 80: case 167: case 135:
-				draw(); // перерисовка консоли по клавише 'p'
+				draw(); 
 				break;
 			}
 		}
@@ -117,10 +141,11 @@ void File()
 	//system("CLS");
 }
 //---------------------------------------------------------------------------------------------------------------------------------------
-
 
 
-//Функция меню <Картина>. 
+
+
+
 void drawFish(HDC hdc, HRGN rgntilo, HRGN oko_ryby, HRGN hvist, HRGN verh_plavn, HRGN nyz_plavn, HBRUSH tilo_brush,
 	HBRUSH oko_brush, HBRUSH hvist_brush, HBRUSH verh_plavn_brush, HBRUSH nyz_plavn_brush, HBRUSH bkBrsh, int rght, int dwn)
 {
@@ -148,7 +173,7 @@ void All_My_Life()
 	HWND hwnd = GetConsoleWindow();
 	HDC hdc = GetDC(hwnd);
 
-	//пузырьки воздуха
+	
 	SelectObject(hdc, CreateSolidBrush(RGB(181, 207, 213)));
 	Ellipse(hdc, 15, 650, 35, 630);
 	Ellipse(hdc, 15, 350, 55, 320);
@@ -212,7 +237,7 @@ void All_My_Life()
 	Polyline(hdc, nyz_plavn4, 4);
 
 
-	//водоросли
+	
 	SelectObject(hdc, CreatePen(PS_SOLID, 10, RGB(35, 167, 20)));
 	POINT ptRect[8] =
 	{ { 1100,750 } ,{ 1115,700 },{ 1105,680 },{ 1110,650 },{ 1090,600 },{ 1105, 570 },{ 1110,540 },{ 1090, 500 } };
@@ -239,7 +264,7 @@ void All_My_Life()
 	Polyline(hdc, ptRect6, 5);
 
 
-	//леска и крючек
+	
 	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(212, 212, 212)));
 	POINT leska[2] =
 	{ { 590,0 },{ 590,300 } };
@@ -259,27 +284,31 @@ void main_psevdographic()
 	COORD coord;
 	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, &coord);
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	//SetConsoleTextAttribute(hStdOut, BACKGROUND_BLUE);	//system("cls");
+	//SetConsoleTextAttribute(hStdOut, BACKGROUND_BLUE);
+	//system("cls");
+
 
 	int q = 0;
 	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, &coord);
 	HWND hwnd = GetConsoleWindow();
-	HDC hdc = GetDC(hwnd); // дескриптор консоли
+	HDC hdc = GetDC(hwnd); 
 	RECT clientRect;
-	q = GetClientRect(hwnd, &clientRect); // получаем размеры окна
+	q = GetClientRect(hwnd, &clientRect); 
 	Sleep(100);
 	HBRUSH bkBrush = CreateSolidBrush(RGB(20, 15, 244));
 	HRGN bgRgn = CreateRectRgnIndirect(&clientRect);
-	FillRgn(hdc, bgRgn, bkBrush);
+	FillRgn(hdc, bgRgn, bkBrush);
+
 
 
 
 	Sleep(100);
-	//желтое дно
+	
 	RECT rct = { 1500,900,0,700 };
-	FillRect(hdc, &rct, CreateSolidBrush(RGB(232, 232, 23)));
+	FillRect(hdc, &rct, CreateSolidBrush(RGB(232, 232, 23)));
 
-	//пузырьки воздуха
+
+	
 	SelectObject(hdc, CreateSolidBrush(RGB(181, 207, 213)));
 	Ellipse(hdc, 15, 650, 35, 630);
 	Ellipse(hdc, 15, 350, 55, 320);
@@ -292,7 +321,7 @@ void main_psevdographic()
 	Ellipse(hdc, 1180, 70, 1250, 20);
 
 	Ellipse(hdc, 1300, 300, 1350, 270);
-	//Камушки
+	
 	SelectObject(hdc, CreateSolidBrush(RGB(121, 61, 0)));
 	Ellipse(hdc, 50, 750, 20, 730);
 	Ellipse(hdc, 150, 740, 130, 720);
@@ -395,7 +424,7 @@ void main_psevdographic()
 	{ { 860,595 } ,{ 840,615 },{ 820,615 },{ 850,595 } };
 	Polyline(hdc, nyz_plavn4, 4);
 
-	//водоросли
+	//ГўГ®Г¤Г®Г°Г®Г±Г«ГЁ
 	SelectObject(hdc, CreatePen(PS_SOLID, 10, RGB(35, 167, 20)));
 	POINT ptRect[8] =
 	{ { 1100,750 } ,{ 1115,700 },{ 1105,680 },{ 1110,650 },{ 1090,600 },{ 1105, 570 },{ 1110,540 },{ 1090, 500 } };
@@ -422,7 +451,7 @@ void main_psevdographic()
 	Polyline(hdc, ptRect6, 5);
 
 
-	//леска и крючек
+	//Г«ГҐГ±ГЄГ  ГЁ ГЄГ°ГѕГ·ГҐГЄ
 	SelectObject(hdc, CreatePen(PS_SOLID, 1, RGB(212, 212, 212)));
 	POINT leska[2] =
 	{ { 590,0 },{ 590,300 } };
@@ -440,12 +469,12 @@ void main_psevdographic()
 
 
 
-	//int x1 = 50, y1 = 50, r1 = 40; // координаты центра шара и его радиус
+	//int x1 = 50, y1 = 50, r1 = 40; 
 	//HBRUSH ballBrush1 = CreateSolidBrush(RGB(200, 250, 34));
 	//HRGN rgnBall1 = CreateEllipticRgn(x1 - r1, y1 - r1, x1 + r1, y1 + r1);
 	//FillRgn(hdc, rgnBall1, ballBrush1);
 	int iKey = 67;
-	while (iKey != 27) // Выход по клавише ESC
+	while (iKey != 27) // Г‚Г»ГµГ®Г¤ ГЇГ® ГЄГ«Г ГўГЁГёГҐ ESC
 	{
 		if (_kbhit())
 		{
@@ -506,12 +535,13 @@ void Do() {
 }
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-// Функция меню <Выход>
+
 void Exit(void)
 {
 	//fflush(stdin);
 	int resp;
-	cout << "Вы уверены, что хотите выйти из программы? (y/n)?";
+	cout << "Г‚Г» ГіГўГҐГ°ГҐГ­Г», Г·ГІГ® ГµГ®ГІГЁГІГҐ ГўГ»Г©ГІГЁ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»? (y/n)?";
 	resp = getchar();
 	if (resp == 'y' || resp == 'Y') { cls(1); exit(0); }
-}
+}
+
