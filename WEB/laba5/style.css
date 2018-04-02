@@ -1,0 +1,261 @@
+body{
+	background-color: #FFE4C4;
+	margin: 5px;
+}
+
+#main_head{
+	font-style: normal;
+	font-family: "AR DELANEY";
+	font-size: 40px;
+	color:#000080;
+	text-align: center;
+}
+#descpirpion{
+	font-style: normal;
+	font-family: "Comic Sans MS";
+	font-size: 17px;
+	color:#000000;
+	max-width: 400px;
+	max-height: 400px;
+	margin: 5px 70px;
+	display: inline-block;
+}
+#img1{
+	display: inline-block;
+	margin: 5px 0px;
+	border: 8px solid red;
+	border-radius: 10px;
+	height: 480px;
+}
+#title_image img{
+	max-width: 100%;
+}
+#meny_head{
+	font-style: normal;
+	font-family: "AR DESTINE";
+	font-size: 30px;
+	text-align: center;
+	color:#000080;
+	max-width: 1600px;
+	min-width: 100px;
+}
+#back_to_meny{
+	font-style: normal;
+	font-family: "Times New Roman";
+	font-size: 18px;
+	width: 87px;
+	height: auto;
+	margin-left: 1400px;
+	position: fixed;
+    right: 10px;
+    top: 10px;
+	z-index: 1;
+	background-color: #FF69B4;
+}
+#meny{
+	font-style: normal;
+	font-family: "Calibri";
+	font-size: 20px;
+	margin-left:70px;
+}
+#chooses{
+	width: 400px;
+}
+.style_ol:hover{
+	background: black;
+	color:white;
+}
+.head{
+	font-style: normal;
+	font-family: "Castellar";
+	font-size: 30px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+	color:#4B0082;
+}
+#background_text{
+	font-style: normal;
+	font-family: "AR CENA";
+	font-size: 19px;
+	color:#000000;
+	max-width: 800px;
+	max-height: 400px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 70px;
+	margin-right: 20px;
+	display: inline-block;
+	color: blue;
+	text-align: justify;
+}
+#background_image{
+	display: inline-block;
+	margin: 5px 0px;
+	max-width: 600px;
+	max-height: 250px;
+}
+#background_image_inside img{
+	max-width: 100%;
+}
+#geography_text{
+	font-style: normal;
+	font-family: "AR CENA";
+	font-size: 20px;
+	display: inline-block;
+	margin-left:20px;
+	margin-right: 20px;
+	text-align: justify;
+	color:#008000;
+}
+#geography_image{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+#geography_image_inside img{
+	max-width: 100%;
+}
+#language_text{
+	font-style: normal;
+	font-family: "AR CENA";
+	font-size: 23px;
+	color:red;
+	display: inline-block;
+	margin-left:20px;
+	margin-right: 20px;
+	text-align: justify;
+}
+#language_image1{
+	display: inline-block;
+	margin-left: 50px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+#language_image1_inside img{
+	max-width: 100%;
+}
+#language_image2{
+	display: inline-block;
+	margin-left: 60px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+#language_image2_inside img{
+	max-width: 100%;
+}
+#trailer_video{
+	border: 10px dashed #4B0082;
+	margin-left: 80px;
+	margin-right: 130px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#trailer_video_inside video{
+	max-width: 100%;
+	max-height: 100%;
+}
+#video_games_text{
+	font-style: normal;
+	font-family: "AR CENA";
+	font-size: 19px;
+	max-width: 500px;
+	max-height: 400px;
+	color:#800080;
+	display: inline-block;
+	margin-left:20px;
+	margin-right: 20px;
+	text-align: justify;
+	overflow: auto;
+	padding:10px;
+}
+#video_games_image{
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+#video_games_image_inside img{
+	max-width: 100%;
+}
+.bottom{
+	color: #FF0000;
+	font-family: "CANDARA";
+	size: 20px;
+	font-style: normal;
+}
+#major_characters_head{
+	font-style: normal;
+	font-family: "AR CHRISTY";
+	font-size: 60px;
+	color:#4B0082;
+	text-align: center;
+}
+.head_of_character{
+	font-style: normal;
+	font-family: "AR BERKLEY";
+	font-size: 40px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+	color:#008000;
+}
+.text_of_character{
+	font-style: normal;
+	font-family: "AR JULIAN";
+	font-size: 20px;
+	color:#0000CD;
+	max-width: 600px;
+	max-height: 400px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 30px;
+	margin-right: 20px;
+	display: inline-block;
+	color: blue;
+	text-align: justify;
+	overflow: auto;
+	padding:5px;
+}
+.image_of_character {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+#geralt_image img{
+	border-radius: 50%;
+	padding: 5px;
+	max-width: 100%;
+}
+#yen_image img{
+	border-radius: 50%;
+	padding: 5px;
+	margin-left: 100px;
+	max-width: 100%;
+}
+#ciri_image img{
+	border-radius: 50%;
+	padding: 5px;
+	max-width: 100%;
+}
+#triss_image img{
+	border-radius: 50%;
+	padding: 5px;
+	max-width: 100%;
+}
+#dandelion_image img{
+	border-radius: 50%;
+	padding: 5px;
+	max-width: 100%;
+}
+#eredin_image img{
+	border-radius: 50%;
+	padding: 5px;
+	max-width: 100%;
+}
