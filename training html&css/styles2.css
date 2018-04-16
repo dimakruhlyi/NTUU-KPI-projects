@@ -1,0 +1,265 @@
+							/*--------------------------------------------------TRIANGLE
+.container{
+	width: 150px;
+	height:100px;
+	background-color: red;
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+
+	position: relative;
+}
+.container:after{
+	content:'';
+	position:absolute;
+
+	border-top:20px solid red;
+	border-left:10px solid transparent; 
+	border-right:10px solid transparent;
+
+	bottom:-20px;
+	left:55px;
+}
+---------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------Everything about BACKGROUND
+.container{
+	
+	width:700px;
+	height:400px;
+	border:3px solid #999;
+	
+	background-image:url(http://tattoosme.com/wp-content/uploads/Best-eagle-tattoos-designs-ideas-men-women-21.jpg), url(http://nextluxury.com/wp-content/uploads/eagle-shoulder-tattoo-for-men1.jpg);
+	background-repeat:no-repeat;
+	background-position: left,bottom center;
+	background-color: #455433;
+	background-size: 30%,contain;
+}
+-------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------- FLOAT & CLEAR
+body{
+	font-family: Ariar;
+	color: #444;
+}
+p{
+	padding: 15px;
+}
+img{
+	margin:40px;
+	float:left;
+}
+.container{
+	background: #ccc;
+	border:3px solid red;
+	width:900px;
+}
+.container::after{
+	content: '.';
+	display:block;
+	clear:both;
+	height: 0;
+}
+.text1{
+	float:left;
+	width: 400px;
+}
+.text2{
+	clear:both;
+	
+}
+.clear{
+	clear:both;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------ LISTS
+ul{
+	font-family: Arial;
+	color:#333;
+	padding:0;
+
+	list-style-type: square;
+	list-style-position: inside;
+	list-style-image: url(https://cdn4.iconfinder.com/data/icons/defaulticon/icons/png/256x256/check.png)
+}
+-------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------  BOX-SHADOW (BUTTONS)
+.button{
+	display:inline-block;
+	margin:40px;
+	height: 100px;
+	width: 100px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC);
+
+	cursor: pointer;
+
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	box-shadow: 0 3px 20px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+	-moz-box-shadow: 0 3px 20px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 3px 20px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.6), 0 2px 0 rgba(0,0,0,.1), inset 0 0 20px rgba(0,0,0,.1);
+}
+.button:hover{
+	box-shadow: inset 0 0 20px rgba(0,0,0,.2),  0 2px 0 rgba(255,255,255,.6),inset 0 2px 0 rgba(0,0,0,.1);
+}
+.button::after{
+	content:'';
+	width: 100px;
+	height:100px;
+	display:block;
+	opacity:.7;
+}
+.bth-photo::after{
+	background: url(http://defaulticon.com/images/icons32x32/MD-camera-photo_0.png?itok=kr5dLwub) center no-repeat;
+}
+.bth-settings::after{
+	background: url(http://defaulticon.com/images/icons32x32/settings.png?itok=f3WwNrKf) center no-repeat;
+}
+.bth-tag::after{
+	background: url(http://defaulticon.com/images/icons32x32/tag.png?itok=kt2pY_qZ) center no-repeat;
+}
+.button:hover::after{
+	background-position: center 52%;
+}
+---------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------- TRANSITIONS (creating menu)
+body{
+	background: url(https://avatanplus.com/files/resources/mid/58c970dd2c6d915ad2e0dffe.jpg);
+	font: 1em 'PT Sans', Tahoma, Arial;
+	font-transform: uppercase;
+}
+.nav{
+	list-style: none;
+	padding:0;
+	margin:30px;
+	width: 50px;
+	opacity: 0.5;
+	transition: opacity 0.5s ease-in-out;
+}
+.nav:hover{
+	opacity: 1;
+}
+.nav li{
+	width: 50px;
+	height: 50px;
+	overflow:hidden;
+
+	transition: width .2s ease-in-out, height .2s ease-in-out  .2s;
+}
+.nav li:hover{
+	width: 200px;
+	height:174px;
+}
+.nav li a{
+	display:block;
+	width:200px;
+	height:40px;
+	line-height: 40px;
+	background: #bbb;
+	margin:1px;
+	color:#fff;
+	padding-left: 15px;
+	cursor:pointer;
+
+	transition-property: background;
+	transition-duration: .2s;
+	transition-timing-function: ease-in-out;
+
+}
+.nav li a:hover{
+	background: #2fc5ff;
+}
+.nav li a:first-child{
+	font-size: 1.5em;
+	height:50px;
+	line-height: 50px;
+	position: relative;
+	text-indent:36px;
+}
+.nav li a:first-child::before{
+	content:'';
+	position:absolute;
+	display:block;
+	height:32px;
+	width:32px;
+	top:9px;
+	left:9px;
+}
+
+.main-menu a:firs-child::before{
+	background: url(home.png) center no-repeat;
+}
+.settings a:firs-child::before{
+	background: url(settings.png) center no-repeat;
+}
+.link a:firs-child::before{
+	background: url(link.png) center no-repeat;
+}
+.search a:firs-child::before{
+	background: url(search.png) center no-repeat;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------  GRADIENTS
+body{
+	background: url(https://avatanplus.com/files/resources/mid/58c970dd2c6d915ad2e0dffe.jpg);
+}
+.container{
+	width: 400px;
+	height: 300px;
+	float: left;
+	margin:40px;
+	background: #999;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	
+	border-radius: 5px;
+	box-shadow: 0 8px 15px rgba(0,0,0,.6);
+	//background: linear-gradient(-45deg,#333 30%,#bbb 50%);
+	//background: radial-gradient(#333 30%,red 35%, green 23%,#bbb 50%);
+}
+.container::after{
+	content: '';
+	width: 400px;
+	height: 300px;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+	transition: opacity .3s;
+
+	//background: radial-gradient(transparent, rgba(0,0,0,.7));
+	background: repeating-linear-gradient(-45deg,rgba(0,0,0,.3) 4px,rgba(0,0,0,.3) 8px, transparent 8px, transparent 12px);
+	background: repeating-linear-gradient(45deg,rgba(0,0,0,.3) 4px,rgba(0,0,0,.3) 8px, transparent 8px, transparent 12px);
+}
+.container:hover::after{
+	opacity:0;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------   TRANSFORM
+body{
+	font-size: 1em;
+	background: #fff;
+}
+#wrapper{
+	perspective: 500px;
+	width: 400px;
+	height: 200px;
+}
+#myframe{
+	width: 450px;
+	height: 350px;
+}
+#container{
+	background: rgba(0,0,0,.3);
+	border-radius: 8px;
+	border:3px solid #fff;
+	color:#fff;
+	font-size: 1.2em;
+	height: 350px;
+	line-height: 150px;
+	margin: 80px;
+	text-align: center;
+	width:450px;
+	transform: rotate3d(1,5,1,40deg);
+}
+*/
