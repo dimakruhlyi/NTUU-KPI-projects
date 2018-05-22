@@ -1,0 +1,63 @@
+#div1 {
+    background-color: lightblue;
+    color: black;
+    width: 200px;
+    height: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+} 
+
+#divfon{
+	background-color: brown; 
+	width:200px; 
+	height: 100px
+}
+
+#divint{
+	
+	width: 100px; 
+	height: 100px
+}
+      #list ul {font-family: "Times New Roman";
+                font-size: 20px;}
+      #menu ul{
+        display: none;
+        background-color: #111;
+        position: absolute;
+        top: 100%;
+      }
+      #menu li:hover ul { display: block; }
+      #menu, #menu ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      #menu {
+        height: 30px;
+        background-color: #333;
+        padding-left: 25px;
+        min-width: 470px;
+      }
+      #menu li {
+        float: left;
+        position: relative;
+        height: 100%;
+      }
+      #menu li a {
+        display: block;
+        padding: 6px;
+        width: 150px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      }
+      #menu ul li { float: none; }
+      #menu li:hover { background-color: #111; }
+      #menu ul li:hover { background-color: #333; }
+  
+      #menu ul li li { float: none; }
+      #menu li:hover { background-color: #111; }
+      #menu ul li li :hover { background-color: #333; }
