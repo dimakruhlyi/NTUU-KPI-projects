@@ -27,3 +27,10 @@ alert(b); // 3
 var a = 2;
 var x = 1 + (a *= 2);
 */
+
+/*
+var name = prompt("Введите свое имя:\n");
+alert("Привет "+name);
+var conf = confirm("Вы точно "+name +"?");
+alert(conf);
+*/
