@@ -1,0 +1,98 @@
+.first_form{
+	background: #00FFFF;
+	width: 450px;
+	height: 710px;
+	padding: 20px;
+	align-items:center;
+	margin: 50px;
+	margin-left: 500px;
+	font-style: italic;
+	font-size: 20px;
+	font-family: "Times New Roman";
+	border-radius: 20px;
+	border: 5px solid red;
+}
+#submit{
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+	font-family: "ALGERIAN";
+	border: 3px solid blue;
+	border-radius: 5px;
+}
+.reset{
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+	font-family: "Arial";
+	border: 3px solid black;
+	border-radius: 5px;
+}
+#for_canvas1{
+	margin-top: 100px;
+}
+#for_canvas2{
+	margin-top: 130px;
+}
+#el1{
+	width: 50px;
+	height: 50px;
+	background: blue;
+	border-radius: 50%;
+}
+#el2{
+	width: 75px;
+	height: 75px;
+	background: violet;
+	border-radius: 50%;
+	margin-left: 100px;
+
+}
+#el3{
+	width: 85px;
+	height: 85px;
+	background: green;
+	border-radius: 50%;
+	margin-left: 180px;
+	margin-top: -30px;
+}
+#el4{
+	width: 95px;
+	height: 95px;
+	background: red;
+	border-radius: 50%;
+	margin-left: 250px;
+	margin-top: -40px;
+}
+#el5{
+	width: 105px;
+	height: 110px;
+	background: pink;
+	border-radius: 50%;
+	margin-left: 310px;
+	margin-top: -50px;
+}
+#el6{
+	width: 120px;
+	height: 120px;
+	background: black;
+	border-radius: 50%;
+	margin-left: 370px;
+	margin-top: -75px;
+}
+#el7{
+	width: 150px;
+	height: 150px;
+	background: darkviolet;
+	border-radius: 50%;
+	margin-left: 420px;
+	margin-top: -80px;
+}
+#el8{
+	width: 180px;
+	height: 180px;
+	background: darkgreen;
+	border-radius: 50%;
+	margin-left: 480px;
+	margin-top: -110px;
+}
