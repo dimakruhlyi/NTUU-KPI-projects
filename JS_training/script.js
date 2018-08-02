@@ -45,3 +45,20 @@ else{
 }
 */
 
+/*
+var login = prompt("Enter your login: \n");
+if(login == null){
+	alert("Entrance is cancelled!");
+}
+else if(login == "Админ"){
+	var passw = prompt("Enter your passord:\n");
+	if(passw == null){
+		alert("Entrance is cancelled!");
+	}
+	else{
+		alert("Welcome!");
+	}
+}else{
+	alert("I don't know you!");
+}
+*/
