@@ -34,3 +34,14 @@ alert("Привет "+name);
 var conf = confirm("Вы точно "+name +"?");
 alert(conf);
 */
+
+/*
+var name = prompt("Каково официальное название JS?\n");
+if(name == "EcmaScript"){
+  alert("Congratulate!");
+}
+else{
+  alert("You don't know!");
+}
+*/
+
