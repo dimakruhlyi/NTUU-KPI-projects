@@ -62,3 +62,10 @@ else if(login == "Админ"){
 	alert("I don't know you!");
 }
 */
+
+/*
+var message;
+var login = prompt("Enter you login:\n");
+(login == "Vasia") ? message = "Hello!" : (login == "Manager") ? message = "Good afternoon!" : (login == " ") ? message = "Login doesn't exist!" : message = " ";
+alert(message);
+*/
