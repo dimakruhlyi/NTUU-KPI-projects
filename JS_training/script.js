@@ -69,3 +69,27 @@ var login = prompt("Enter you login:\n");
 (login == "Vasia") ? message = "Hello!" : (login == "Manager") ? message = "Good afternoon!" : (login == " ") ? message = "Login doesn't exist!" : message = " ";
 alert(message);
 */
+
+/*
+var number;
+for(;;){
+	number = prompt("Enter number, than more 100: ");
+	if(number > 100 || number == null)
+		{
+			alert("Well!");
+			break;
+		}
+}
+*/
+
+/*
+nextStep:for(var i = 2;i<10;i++)
+{
+	for(var j = 2;j<i;j++)
+	{
+		if(i % j == 0)
+			continue nextStep;
+	}
+	alert(i);
+}
+*/
