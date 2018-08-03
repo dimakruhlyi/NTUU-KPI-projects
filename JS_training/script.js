@@ -93,3 +93,21 @@ nextStep:for(var i = 2;i<10;i++)
 	alert(i);
 }
 */
+
+/*
+	var a = +prompt("a? ",'');
+	switch(a){
+		case 0:
+			alert(0);
+			break;
+		case 1:
+			alert(1);
+			break;
+		case 2:
+		case 3:
+			alert("2,3");
+			break;
+		default:
+		alert("lol");
+	}
+*/
