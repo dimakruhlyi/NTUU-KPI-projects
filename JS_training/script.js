@@ -111,3 +111,17 @@ nextStep:for(var i = 2;i<10;i++)
 		alert("lol");
 	}
 */
+
+/*
+	function stepin(){
+		 var result=x;
+		 for(var i = 1; i < n; i++){
+		 	result*=x;
+		 }
+		 return result;
+	}
+	var x = prompt("Enter x: ");
+	var n = prompt("Enter n: ");
+	alert(stepin());
+*/
+
