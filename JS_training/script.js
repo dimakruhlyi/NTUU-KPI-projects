@@ -125,3 +125,36 @@ nextStep:for(var i = 2;i<10;i++)
 	alert(stepin());
 */
 
+/*	
+ var firstNumb = +prompt("Enter first number: ","");
+ var secondNumb = +prompt("Enter second number: ","");
+
+ alert("Sum = "+(firstNumb+secondNumb));
+*/
+
+/*
+var price1 = 0.1, price2 = 0.2;
+alert(+(price1+price2).toFixed(2));
+*/
+
+/*
+var i = 0;
+while(i<11)
+{
+	i+=0.2;
+	if(i>9.8 && i<10.2) alert(i);
+}
+*/
+
+/*
+function getDecimal(num){
+	var str = "" + num;
+	var zeroPos = str.indexOf(".");
+	if(zeroPos == -1) return 0;
+	str = str.slice(zeroPos);
+	return +str;
+}
+
+alert(getDecimal(17.3));
+alert(getDecimal(-4.7));
+*/
