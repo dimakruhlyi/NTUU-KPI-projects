@@ -158,3 +158,44 @@ function getDecimal(num){
 alert(getDecimal(17.3));
 alert(getDecimal(-4.7));
 */
+
+/*                                                              Формула Бинне та числа Фиббоначчи
+function fibBinet(n){
+	var Fn = 0;
+	Fn = Math.pow(((1+Math.sqrt(5))/2),n)/Math.sqrt(5);
+	return Math.round(Fn);	
+}
+
+function fib(n){
+	var a = 1, b = 0, x;
+	for(i = 0;i < n; i++){
+		x = a + b;
+		a = b;
+		b = x;
+	}
+	return b;
+}
+
+alert(fibBinet(77));
+alert(fib(77));	
+*/
+
+/*                              				Случайное из интервала (0, max)
+var max = 10;
+alert(Math.random() * max);
+*/
+
+/*                               				Случайное из интервала (min, max)
+var min = 5, max = 10;
+alert(min + Math.random() * (max - min));
+*/
+
+/*                               				Случайное целое от min до max
+function randomIteger(min, max){
+	var rand = min + Math.random() * (max + 1 - min);
+	rand = Math.floor(rand);
+	return rand;
+}
+
+alert(randomIteger(5, 10));
+*/
