@@ -199,3 +199,45 @@ function randomIteger(min, max){
 
 alert(randomIteger(5, 10));
 */
+
+/*									String
+function ucFirst (str){
+	if(!str) return str;
+	return str[0].toUpperCase() + str.slice(1);
+}
+
+alert(ucFirst("dimas"));
+*/
+
+/*
+function checkSpam(str){
+	var lowerStr = str.toLowerCase();
+	return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
+}
+
+alert(checkSpam('buy ViAgRA now'));
+alert(checkSpam('free xxxxxxx'));
+alert(checkSpam('innocence rabbit'));
+*/
+
+/*
+function truncate(str, maxLength){
+	if(str.length <= maxLength) return str;
+	else{
+		var newStr = str.slice(0, maxLength - 3);
+		var threePoints = "...";
+		return newStr + threePoints;
+	}
+}
+
+alert(truncate("Dimas is the best programmer in the world!", 20));
+*/
+
+/*
+function extractCurrencyValue(str)
+{
+	var newStr = str.slice(1, str.length + 1);
+	return +newStr;
+}
+alert(typeof(extractCurrencyValue("$120")));
+*/
