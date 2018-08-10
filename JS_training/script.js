@@ -248,9 +248,9 @@ alert(typeof(extractCurrencyValue("$120")));
 	delete user.name;
 	user.surname = 'Petrov';
 	alert(user.surname);
-	*/
+*/
 
-	/*
+/*
 	function isEmpty(obj){
 		var counter = 0;
 		for(var checker in obj){
@@ -263,9 +263,9 @@ alert(typeof(extractCurrencyValue("$120")));
 	alert(isEmpty(object));
 	object.time = "any time";
 	alert(isEmpty(object));
-	*/
+*/
 
-	/*
+/*
 	var salaries = {
 		"Dima": 400,
 		"Oleg": 350,
@@ -280,9 +280,9 @@ alert(typeof(extractCurrencyValue("$120")));
 	}
 
 	alert(sumSalaries(salaries));
-	*/
+*/
 
-	/*
+/*
 	var salaries = {
 		"Dima": 300,
 		"Oleg": 350,
@@ -299,10 +299,10 @@ alert(typeof(extractCurrencyValue("$120")));
 		}
 		
 	alert(name || "There isn't employees!");
-	*/
+*/
 
 
-	/*
+/*
 	var menu = {
 		width: 200,
 		height: 300,
@@ -322,4 +322,5 @@ alert(typeof(extractCurrencyValue("$120")));
 	alert(menu.width);
 	alert(menu.height);
 	alert(menu.title);
-	*/
+*/
+
