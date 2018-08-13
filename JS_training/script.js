@@ -324,3 +324,129 @@ alert(typeof(extractCurrencyValue("$120")));
 	alert(menu.title);
 */
 
+/*
+	var goods  = [1,2,3,4,5,6,7];
+	var lastChild = goods[goods.length-1];
+	goods.push("Computer");
+	alert(goods[goods.length-1]);
+*/
+
+/*
+	var styles = ["Jazz", "Bliuz"];
+	styles.push("Rock-n-Roll");
+	styles[styles.length-2] = "Classic";
+	var firstChild = styles.shift();
+	styles.unshift("Rap", "Reggi");
+	alert(styles);
+*/
+
+/*
+	var arr = ["Apple", "Orange", "Pear", "Limon"];
+	var rand = Math.floor(Math.random() * arr.length);
+	alert(arr[rand]);
+*/
+
+/*
+	var arr = [];
+	var i =0, sum = 0;
+	while(true){
+		arr[i] = prompt("Enter "+ (i + 1) + " number: ");
+		if(arr[i] == "" || arr[i] == null)
+			break;
+		sum += +arr[i];
+		i++;
+	}
+	alert("Sum = " + sum);
+*/
+
+/*
+	var arr = ["Test", 2, 1.5, false];
+
+	function find(arr,value){
+		for(var i = 0; i < arr.length; i++){
+			if(arr[i] === value) return i; 
+		}
+		return -1;
+	}
+	alert(find(arr,1.5));
+*/
+
+/*
+	var arr = [5,4,3,8,0];
+
+	function filterRange(arr,a,b)
+	{
+		var mas = [];
+		var count = 0;
+		for(var i = 0; i < arr.length; i++){
+			if(i >= a && i <= b)
+			{
+				mas[count] = arr[i];
+				count++;
+			}
+		}
+		return mas;
+	}
+
+	var newArr = filterRange(arr,1,3);
+	alert(newArr);
+	alert(arr);
+*/
+
+/*                                           	Решето Эратосфена
+	//step 1
+	var arr = [];
+
+	for(var i = 2; i < 100; i++){
+		arr[i] = true;
+	}
+
+	//step 2
+	var p = 2;
+
+	do{
+		//step 3
+		for(i = 2*p; i < 100; i += p){
+			arr[i] = false;
+		}
+		//step 4
+		for(i = p + 1; i < 100; i++){
+			if(arr[i]) break;
+		}
+
+		p = i;
+	}while (p * p < 100) //step 5
+
+	// step 6 (done)
+	//count sum
+	var sum = 0;
+	for( i = 0; i < arr.length; i++){
+		if(arr[i])
+			sum += i;
+	}
+
+	alert("Sum = " + sum);
+*/
+
+
+
+/*                                        	Подмассив наибольшей суммы
+	function getMaxSubSum(arr){
+		var maxSum = 0,
+			partialSum = 0;
+
+		for(var i = 0; i < arr.length; i++){
+			partialSum += arr[i];
+			maxSum = Math.max(maxSum, partialSum);
+			if(partialSum < 0) partialSum = 0;
+		}
+		return maxSum;
+	}
+
+	alert(getMaxSubSum([-1,2,3,-9]));
+	alert(getMaxSubSum([-1,2,3,-9,11]));
+	alert(getMaxSubSum([-2,-1,1,2]));
+	alert(getMaxSubSum([1,2,3]));
+	alert(getMaxSubSum([100,-9,2,-3,5]));
+	alert(getMaxSubSum([-1,-2,-3]));
+*/
