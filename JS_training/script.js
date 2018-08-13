@@ -450,3 +450,44 @@ alert(typeof(extractCurrencyValue("$120")));
 	alert(getMaxSubSum([100,-9,2,-3,5]));
 	alert(getMaxSubSum([-1,-2,-3]));
 */
+
+/*										Массивы: методы 
+var obj = {
+	className: 'open menu'
+};
+
+function addClass(obj, cls){
+	var arr = obj.className ? obj.className.split(" ") : [];
+	for(var i = 0; i < arr.length; i++){
+		if(arr[i] == cls){
+			return;
+		}
+	}
+	arr.push(cls);
+
+	obj.className = arr.join(" ");
+}
+
+addClass(obj, "lol");
+addClass(obj, "open");
+addClass(obj,"me");
+
+alert(obj.className);
+*/
+
+
+/*
+function camelize(str){
+	var str_arr = str.split("-");
+	
+	for(var i = 1; i < str_arr.length; i++ ){
+		str_arr[i] = str_arr[i].charAt(0).toUpperCase() + str_arr[i].slice(1);
+	}
+	
+	return str_arr.join("");
+}
+
+alert(camelize("background-color"));
+alert(camelize("list-style-image"));
+alert(camelize("-webkit-transition"));
+*/
