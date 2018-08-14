@@ -491,3 +491,229 @@ alert(camelize("background-color"));
 alert(camelize("list-style-image"));
 alert(camelize("-webkit-transition"));
 */
+
+/*
+function removeClass(obj, cls){
+	var classes = obj.className.split(' ');
+
+	for(i = 0; i < classes.length; i++){
+		if(classes[i] == cls){
+			classes.splice(i, 1); //remove class
+			i--;
+		}
+	}
+	obj.className = classes.join(' ');
+}
+
+var obj = {
+	className: "open menu menu"
+};
+
+removeClass(obj, "lol");
+removeClass(obj, "menu");
+alert(obj.className);
+*/
+
+/*
+var arr = [5,3,8,1];
+
+function filterRangeInPlace(arr, a, b){
+	for(var i = 0; i < arr.length; i++){
+		if(arr[i] < a || arr[i] > b){
+			arr.splice(i--, 1);
+		}
+	}
+}
+
+filterRangeInPlace(arr, 1, 4);
+alert(arr);
+*/
+
+/*
+var arr = [5,2,1,-10,8];
+
+function compareReversed(a, b){
+	return b - a;
+}
+arr.sort(compareReversed);
+alert(arr);
+*/
+
+/*
+var arr = ["HTML", "Javascript", "CSS"];
+
+var arrSorted = arr.slice().sort();
+
+alert(arrSorted);
+alert(arr);
+*/
+
+/*
+var arr = [1,2,3,4,5];
+function randomArray(a, b)
+{
+	return Math.random() - 0.5;
+}
+
+arr.sort(randomArray);
+alert(arr);
+*/
+
+/*
+var vasya = {name:"Vasya", age: 23};
+var masha = { name: "Masha", age: 18};
+var vovochka = { name: "Vovochka", age: 6};
+var people = [ vasya, masha, vovochka];
+
+function compareSort(a , b){
+	return a.age - b.age;
+}
+people.sort(compareSort);
+alert(people[0].age);
+*/
+
+/*                                         Односвязный список
+var list = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null
+			}
+		}
+	}
+};
+
+function printList(list){
+	var tmp = list;
+
+	while(tmp){
+		alert(tmp.value);
+		tmp = tmp.next;
+	}
+}
+printList(list);
+*/
+
+/*                                  Вывод с помощью рекурсии
+var list = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null
+			}
+		}
+	}
+};
+
+function printList( list){
+
+	alert(list.value);
+	if(list.next){
+		printList(list.next);
+	}
+}
+
+printList(list);
+*/
+
+/*
+var list = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null
+			}
+		}
+	}
+};
+
+function printReservedList( list){
+	if(list.next){
+		printReservedList(list.next);
+	}
+	alert(list.value);
+}
+
+printReservedList(list);
+*/
+
+/*                                     Обратный вывод без рекурсии
+var list = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null
+			}
+		}
+	}
+};
+
+function printReservedList( list){
+	var arr = [];
+	var tmp = list;
+
+	while( tmp){
+		arr.push(tmp.value);
+		tmp = tmp.next;
+	}
+
+	for(var i = arr.length - 1; i >= 0; i--){
+		alert(arr[i]);
+	}
+}
+
+printReservedList(list);
+*/
+
+/*                                                					Фильтрация анаграмм
+var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+
+function aclean( arr){
+	var obj = {};
+
+	for(var i = 0; i < arr.length; i++){
+		var sorted = arr[i].toLowerCase().split('').sort().join('');
+
+		obj[sorted] = arr[i];
+	}
+	var result = [];
+
+	for(var key in obj) result.push(obj[key]);
+
+	return result;
+}
+
+alert(aclean(arr));
+*/
+
+/*
+var strings = ["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", "кришна", "8-()"];
+
+function unique( arr){
+	var obj = {};
+
+	for(var i = 0; i < arr.length; i++){
+		var str = arr[i];
+		obj[str] = true;
+	}
+	return Object.keys(obj);
+}
+
+alert(unique(strings));
+*/
