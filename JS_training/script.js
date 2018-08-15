@@ -717,3 +717,29 @@ function unique( arr){
 
 alert(unique(strings));
 */
+
+/*										Map
+	var arr = ["Есть", "жизнь", "на", "Марсе"];
+
+	var arrLength = arr.map(function(arr){
+		return arr.length;
+	});
+	alert(arrLength);
+*/
+
+/*										Reduce
+	function getSums(arr){
+		var result = [];
+
+		var totalSum = arr.reduce(function(sum, item){
+			result.push(sum);
+			return sum + item;
+		});
+		result.push(totalSum);
+
+		return result;
+	}
+
+	alert(getSums([1,2,3,4,5]));
+	alert(getSums([-2,-1,0,1]));
+*/
