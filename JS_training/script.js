@@ -743,3 +743,28 @@ alert(unique(strings));
 	alert(getSums([1,2,3,4,5]));
 	alert(getSums([-2,-1,0,1]));
 */
+
+/*										Псевдомассив arguments
+	function f(x){
+		alert(arguments.length ? 1 : 0);
+	}
+
+	f(undefined);
+	f();
+*/
+
+/*
+	function sum(){
+		var sum = 0;
+		for(let i = 0; i < arguments.length; i++){
+			sum += arguments[i];
+		}
+		return sum;
+	}
+
+	alert(sum());
+	alert(sum(1));
+	alert(sum(1,2));
+	alert(sum(1,2,3));
+	alert(sum(1,2,3,4));
+*/
