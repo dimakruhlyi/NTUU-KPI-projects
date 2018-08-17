@@ -768,3 +768,51 @@ alert(unique(strings));
 	alert(sum(1,2,3));
 	alert(sum(1,2,3,4));
 */
+
+/*										Дата и время
+	var d = new Date(2012, 1, 20, 3, 12 , 0);
+	alert(d);
+*/
+
+/*
+	var date = new Date(2012, 0 , 3);
+
+	function getWeekDay(date){
+		var days  = ["вс","пн", "вт", "ср", "чт", "пт","сб"];
+		return days[date.getDay()];
+	}
+
+	alert(getWeekDay(date));
+*/
+
+/*
+	var date = new Date(2012, 0 , 3);
+
+	function getLocalDay(date)
+	{
+		var day = date.getDay();
+
+		if(day == 0)
+		{
+			day = 7;
+		}
+		return day;
+	}
+
+	alert(getLocalDay(date));
+*/
+
+/*
+	var date = new Date(2012, 0 , 3);
+	
+
+	function getDateAgo(date, daysAgo){
+		var d  = new Date (date);
+		d.setDate(date.getDate() - daysAgo);
+		return d.getDate();
+	}
+
+	alert(getDateAgo(date, 1));
+	alert(getDateAgo(date, 3));
+	alert(getDateAgo(date, 365));
+*/
