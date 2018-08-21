@@ -816,3 +816,91 @@ alert(unique(strings));
 	alert(getDateAgo(date, 3));
 	alert(getDateAgo(date, 365));
 */
+
+/*
+function getLastDayofMonth(year, month){
+	var date = new Date(year, month + 1, 0);
+	return date.getDate();
+}
+
+alert(getLastDayofMonth(2012, 0));
+alert(getLastDayofMonth(2012, 1));
+alert(getLastDayofMonth(2013, 1));
+*/
+
+/*
+function getSecondsToday(){
+	var d  = new Date();
+	return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+}
+
+function getSecondsToTomorrow(){
+	var now  = new Date();
+
+	var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+	var diff = tomorrow - now;
+	return Math.round(diff / 1000);
+}
+alert(getSecondsToTomorrow());
+*/
+
+/*
+function formatDate(date){
+
+	var dd = date.getDate();
+	if(dd < 10) dd = '0' + dd;
+
+	var mm = date.getMonth() + 1;
+	if(mm < 10) mm = '0' + mm;
+
+	var yy = date.getFullYear() % 100;
+	if(yy < 10) yy = '0' + yy;
+
+	return dd + '.' + mm + '.' + yy;
+}
+
+var d = new Date(2001, 0, 1);
+alert(formatDate(d));
+*/
+
+/*
+function formatDate(date){
+	var diff = new Date() - date;
+
+	if(diff < 1000){
+		return "только что";
+	}
+
+	var sec = Math.floor(diff / 1000);
+	if(sec < 60){
+		return sec + 'сек. назад';
+	}
+
+	var min = Math.floor(diff / 60000);
+	if(min < 60){
+		return min + "мин. назад";
+	}
+
+	//форматирование даты с учетом, что месяцы нпчинаются с 0
+	var d = date;
+	d = [
+	'0' + d.getDate(),
+	'0' + (d.getMonth() + 1),
+	'' + d.getFullYear(),
+	"0" + d.getHours(),
+	'0' + d.getMinutes()
+	];
+
+	for(let i = 0; i < d.length; i++){
+		d[i] = d[i].slice(-2);
+	}
+
+	return d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
+}
+
+alert(formatDate(new Date(new Date - 1)));
+alert(formatDate(new Date(new Date - 30 *1000)));
+alert(formatDate(new Date(new Date - 5 * 60 * 1000))); 
+alert(formatDate(new Date(new Date - 86400 * 1000)));
+*/
