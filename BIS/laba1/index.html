@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Caesars Code</title>
+<link rel="stylesheet" href="css/style.css">
+
+
+<div id="container">
+    <style>
+        @media only screen (min-width: 890px){
+            #frame{
+                margin-top: 150px;
+                display: block;
+            }
+        }
+    </style>
+
+
+
+<ul class="nav">
+    <li class="main-menu">
+        <a>Crypt</a>
+        <a href="code.html" target="iframe1">English</a>
+        <a href="code_ukr.html" target="iframe1">Russian</a>
+    </li>
+    <li class="settings">
+       <a >File</a>
+        <a href="file.html" target="iframe1">Open</a>
+        <a href="" > </a>
+    </li>
+    <li class="link">
+        <a >Another</a>
+        <a onclick="window.print()">Print</a>
+        <a href="information.html" target="iframe1">More information</a>
+    </li>
+    <li class="search">
+        <a onclick="var win = window.open(document.location.href,'_self');win.close();" href="javascript:void(0)">Close</a>
+    </li>
+</ul>
+
+<iframe name="iframe1" frameborder="0" width="1000px" height="750px" id="frame"></iframe>
+</div>
+

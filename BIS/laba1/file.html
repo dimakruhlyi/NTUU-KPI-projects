@@ -1,0 +1,145 @@
+
+<link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+
+  <style>
+    #submit{
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-family: "ALGERIAN";
+  border: 3px solid blue;
+  border-radius: 5px;
+}
+
+  </style>
+
+<script>
+	function readFile(object) {
+  var file = object.files[0]
+  var reader = new FileReader()
+  reader.onload = function() {
+    document.getElementById('out').value = reader.result;
+  }
+  reader.readAsText(file)
+}
+</script>
+
+<input type="file" id="file">
+<button onclick="readFile(document.getElementById('file'))" id="submit">Read!</button> <br><br>
+
+<!--<input id="out" type="text">-->
+
+<textarea type ="text" id="out" cols="60" rows="10"></textarea>
+<br><br>
+<a href="" id="download-result-as-file" >Save as</a>
+
+
+
+<p>Type your shift here:</p>
+<input type="text" id="shift" value="0">
+
+<p>Encoded message here:</p>
+<div id="output"></div>
+
+
+
+
+ 	<script>
+	const saveAs = document.getElementById('download-result-as-file');
+saveAs.addEventListener('click', function(e) {
+   let type = 'data:application/octet-stream;base64, ',
+      base = btoa(unescape(encodeURIComponent(document.getElementById('output').textContent))),
+      res = type + base;
+    document.getElementById('download-result-as-file').href = res;
+});
+</script>
+
+<script>
+	function randomInteger(min, max) {
+  var rand = min + Math.random() * (max - min)
+  rand = Math.round(rand);
+  return rand;
+}
+	function CeasarsCipher(obj){
+	//creating alphabet and variables
+
+	var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase(),
+	otherCharacters = "-=~\"\'#$%&*^:<>?/!{(|)}.1234567890\, \\ ",
+	OUTPUT = "",
+	STRING,
+	shiftAmount,
+	shiftedAlphabet;
+
+	//Take values
+	if(typeof obj == "object"){
+		shiftAmount = obj.shift;
+		if(shiftAmount > 26 || shiftAmount<-26)
+			{
+				shiftAmount = randomInteger(1, 25);
+			}
+		STRING = obj.msg.toLowerCase();
+	}else{
+		return;
+	}		
+
+	//Shift alphabet
+	if(typeof STRING === "string" || typeof (STRING + "") === "string"){
+		shiftedAlphabet = alphabet.slice(shiftAmount);
+		shiftedAlphabet += alphabet.slice(0, shiftAmount);
+		shiftedAlphabet +=otherCharacters;
+		alphabet += otherCharacters;
+
+		//Encrypt the message
+		for(var i = 0; i < STRING.length; i++){
+			var NUMBER = alphabet.indexOf(STRING[i]);
+
+			OUTPUT += shiftedAlphabet[NUMBER];
+		}
+	}else{
+		return;
+	}
+	return OUTPUT;
+}
+
+document.getElementById("out").addEventListener("input", function(){
+	var itsValue = this.value;
+	document.getElementById("output").textContent = CeasarsCipher({
+		msg: itsValue,
+		shift: document.getElementById("shift").value
+	});
+});
+document.getElementById("shift").addEventListener("keyup", function(){
+	var itsValue = this.value;
+	document.getElementById("output").textContent = CeasarsCipher({
+		msg: document.getElementById("out").value,
+		shift: itsValue
+	});
+});
+
+document.getElementById("output").textContent = CeasarsCipher({
+	msg: document.getElementById("out").value,
+	shift: document.getElementById("shift").value
+});
+
+
+
+</script>
+
+
+<style>
+
+	#download-result-as-file{
+		font-size: 20px;
+  		font-family: "Broadway";
+  		border: 3px solid #f00;
+  		border-radius: 5px;
+  		text-decoration: none;
+  		color: #00f;
+  		background: #fff;
+
+  		margin-left: 120px;
+	}
+</style>
