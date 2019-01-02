@@ -1,0 +1,72 @@
+E:\SAPR\LAB_1\LAB_1\bin\Debug\LAB_1.exe.config
+E:\SAPR\LAB_1\LAB_1\bin\Debug\LAB_1.exe
+E:\SAPR\LAB_1\LAB_1\bin\Debug\LAB_1.pdb
+E:\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.csprojResolveAssemblyReference.cache
+E:\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.Form1.resources
+E:\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+E:\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.Cache
+E:\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.exe
+E:\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.pdb
+D:\файли\SAPR\LAB_1\LAB_1\bin\Debug\LAB_1.exe.config
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.exe
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.pdb
+D:\файли\SAPR\LAB_1\LAB_1\bin\Debug\LAB_1.exe
+D:\файли\SAPR\LAB_1\LAB_1\bin\Debug\LAB_1.pdb
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.csprojResolveAssemblyReference.cache
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.Form1.resources
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.Cache
+D:\файли\SAPR\LAB_1\LAB_1\obj\Debug\LAB_1.Error_Form.resources
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe.config
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.exe
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.pdb
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.pdb
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csprojResolveAssemblyReference.cache
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Error_Form.resources
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Form1.resources
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+D:\Study_KPI\3_course\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.Cache
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csprojAssemblyReference.cache
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Error_Form.resources
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Form1.resources
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.cache
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csproj.CoreCompileInputs.cache
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.exe
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.pdb
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe.config
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe
+C:\Users\Endry\Desktop\Sapr\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.pdb
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe.config
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.exe
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.pdb
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\bin\Debug\LAB_1.pdb
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csprojResolveAssemblyReference.cache
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Error_Form.resources
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Form1.resources
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+C:\Users\Endry\Desktop\SAPR\LAB_1_2\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe.config
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\bin\Debug\LAB_1.exe
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\bin\Debug\LAB_1.pdb
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.Error_Form.resources
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.Form1.resources
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.exe
+C:\Users\Dima Kruhlyi\Desktop\LAB_1_2\LAB_1\obj\Debug\LAB_1.pdb
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\bin\Debug\LAB_1.exe.config
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\bin\Debug\LAB_1.exe
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\bin\Debug\LAB_1.pdb
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.csprojResolveAssemblyReference.cache
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.Error_Form.resources
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.Form1.resources
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.Properties.Resources.resources
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.csproj.GenerateResource.Cache
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.csproj.CoreCompileInputs.cache
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.exe
+D:\KPI\5-й семестр\Лінгвістичне забезпечення САПР 1(Стативка Ю. І.)\Laba3\Лаб3\LAB_1\obj\Debug\LAB_1.pdb
