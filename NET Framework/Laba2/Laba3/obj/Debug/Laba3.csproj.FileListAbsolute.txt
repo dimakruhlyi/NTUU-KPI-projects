@@ -1,0 +1,9 @@
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\bin\Debug\Laba3.exe.config
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\bin\Debug\Laba3.exe
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\bin\Debug\Laba3.pdb
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\obj\Debug\Laba3.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\obj\Debug\Laba3.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\obj\Debug\Laba3.exe
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\obj\Debug\Laba3.pdb
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\bin\Debug\LinkedList.dll
+C:\Users\Dima Kruhlyi\Desktop\Laba3\Laba3\bin\Debug\LinkedList.pdb
