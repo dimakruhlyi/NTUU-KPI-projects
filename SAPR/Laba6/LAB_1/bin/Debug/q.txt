@@ -1,0 +1,8 @@
+program { 
+    int a;
+     a = 5;
+     a=a+a;
+     do 
+         if 2<5 then write(5);
+     while 1<a;
+}
