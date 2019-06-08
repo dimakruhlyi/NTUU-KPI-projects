@@ -1,0 +1,9 @@
+program a
+{
+	int q;
+	for q = 25 * -5 to 25 step -5 
+	{
+		int w;
+		int e;
+	}
+}

@@ -1,0 +1,10 @@
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.csprojAssemblyReference.cache
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.Form1.resources
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.Properties.Resources.resources
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.csproj.GenerateResource.cache
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.csproj.CoreCompileInputs.cache
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\bin\Debug\LexemAnalizator.exe.config
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\bin\Debug\LexemAnalizator.exe
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\bin\Debug\LexemAnalizator.pdb
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.exe
+D:\Study_KPI\3_course\SAPR\LexemAnalizator\LexemAnalizator\obj\Debug\LexemAnalizator.pdb

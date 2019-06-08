@@ -1,0 +1,55 @@
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.exe.config
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.exe
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.pdb
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.csprojAssemblyReference.cache
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.Properties.Resources.resources
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.csproj.GenerateResource.cache
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.csproj.CoreCompileInputs.cache
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.exe
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.pdb
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.Form1.resources
+D:\Study_KPI\3_course\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.Input.resources
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.exe.config
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.exe
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.pdb
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.csprojAssemblyReference.cache
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.Form1.resources
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.Input.resources
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.Properties.Resources.resources
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.csproj.GenerateResource.cache
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\Coursework.csproj.CoreCompileInputs.cache
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.exe
+D:\Study_KPI\3_course\II semestr\SAPR\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.pdb
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.exe.config
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.exe
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\bin\Debug\LexemAnalizator.pdb
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\Coursework.Form1.resources
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\Coursework.Input.resources
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.Properties.Resources.resources
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\Coursework.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\Coursework.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.exe
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\LexemAnalizator.pdb
+C:\Users\Dima Kruhlyi\Desktop\Курсова\LexemAnalizator\obj\Debug\Coursework.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\bin\Debug\LexemAnalizator.exe.config
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\bin\Debug\LexemAnalizator.exe
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\bin\Debug\LexemAnalizator.pdb
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\Coursework.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\Coursework.Form1.resources
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\Coursework.Input.resources
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\LexemAnalizator.Properties.Resources.resources
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\Coursework.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\Coursework.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\LexemAnalizator.exe
+C:\Users\Dima Kruhlyi\Desktop\Лаба7-8\LexemAnalizator\obj\Debug\LexemAnalizator.pdb
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\bin\Debug\LexemAnalizator.exe.config
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\bin\Debug\LexemAnalizator.exe
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\bin\Debug\LexemAnalizator.pdb
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\Coursework.csprojResolveAssemblyReference.cache
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\Coursework.Form1.resources
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\Coursework.Input.resources
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\LexemAnalizator.Properties.Resources.resources
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\Coursework.csproj.GenerateResource.Cache
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\Coursework.csproj.CoreCompileInputs.cache
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\LexemAnalizator.exe
+D:\KPI\6-й семестр\Лінгвістичне забезпечення САПР-2(Стативка Ю.І.)\Laba7-8\LexemAnalizator\obj\Debug\LexemAnalizator.pdb

@@ -1,0 +1,30 @@
+program a
+{
+	int q, w, e, r, t;
+	
+	q = 5;
+	read(w, e);
+
+	if q > w * 2
+	{
+		r = 10;
+	}
+	else
+	{
+		r = 20;
+	}
+
+	for t = 0 to 5 step 1
+	{
+		r = r + 1;
+		
+		if r != 13
+		{
+			write(r, t);
+		}
+		else
+		{
+			write(0);
+		}
+	}
+}
