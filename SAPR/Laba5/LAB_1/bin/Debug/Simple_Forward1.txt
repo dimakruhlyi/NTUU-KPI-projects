@@ -1,0 +1,19 @@
+Z & PROGRAM1 { LIST_OPER1 }| PROGRAM1 { }
+PROGRAM1 & program id
+LIST_OPER & OPER1 ;| OPER1 ; LIST_OPER
+OPER1 & OPER
+LIST_OPER1 & LIST_OPER
+OPER & READ| WRITE| OGOL| EQUAL| LOOP| IF
+READ & read ( id )
+WRITE & write ( id )
+OGOL & int id| float id
+EQUAL & id = E1
+E1 & E
+E & DOD1| E + DOD1| E - DOD1| - DOD1
+DOD & MNO| DOD * MNO| DOD / MNO
+DOD1 & DOD
+MNO & con| ( E )| id
+LOOP & for id = E1 to E1 step E2 { LIST_OPER1 }| for id = E1 to E1 step E2 { }
+E2 & E1
+IF & if YMOVA1 { LIST_OPER1 }| if YMOVA1 { LIST_OPER1 } else { LIST_OPER1 }
+YMOVA1 & E1 < E1| E1 > E1| E1 != E1| E1 == E1
