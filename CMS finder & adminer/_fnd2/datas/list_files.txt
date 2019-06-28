@@ -1,0 +1,12 @@
+Искали: class="entry-title"
+----------------------------
+wp-content/plugins/fusion-core/libs/theme-compatibility.php
+wp-content/themes/ZoomPlus/bbpress/user-profile.php
+wp-content/themes/ZoomPlus/buddypress.php
+wp-content/themes/ZoomPlus/includes/avada-functions.php
+wp-content/themes/ZoomPlus/single-wpfc_sermon.php
+wp-content/themes/ZoomPlus/single.php
+
+----------------------------
+
+Всего: 6 ( 188 625 байт )
