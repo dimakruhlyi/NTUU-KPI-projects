@@ -1,0 +1,425 @@
+/*
+	Author: Nemets Yury
+	Site: www.sitehere.ru
+	Источник изображений: https://www.iconfinder.com/icons/984102/avatar_casual_male_man_person_user_icon
+*/
+
+/*Таблица сброса Eric Mayer*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+:focus {
+    outline: 0;
+}
+body {
+    line-height: 1;
+    color: black;
+    background: white;
+}
+ol, ul {
+    list-style: none;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
+}
+blockquote, q {
+    quotes: "" "";
+}
+
+
+/*Шрифты*/
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Light'), local('RobotoLt-Regular'),
+        url(../fonts/Roboto/roboto-light.woff) format('woff'),
+        url(../fonts/Roboto/roboto-light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Roboto-Bold'),
+        url(../fonts/Roboto/roboto-bold.woff) format('woff'),
+        url(../fonts/Roboto/roboto-bold.ttf) format('truetype');
+}
+
+/*Стили для демо*/
+/*h2*/.title {
+	background-color: #503d3f;
+	color:#fff;
+	font-family: "Roboto", sans-serif;
+	line-height: 60px;
+	font-weight: 400;
+	position: relative;
+	text-align: center;
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+	/*h2*/.title {
+		line-height: 30px;
+		font-size: 20px;
+		padding: .5em;
+	}
+}
+
+h2.title:after {
+	content: "";
+	position: absolute;
+	bottom:-35px;
+	left:0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1px;
+	border:20px solid transparent;
+	border-top-color: #503d3f;
+	z-index: 10;
+}
+
+h2.title + .owl-carousel .owl-dots .owl-dot.active span {background-color: #503d3f;}
+
+h2.title.five {background-color: #eec643;}
+h2.title.five:after {border-top-color: #eec643;}
+
+h2.title span{
+	color:#fff;
+	font-family: "Roboto", sans-serif;
+	line-height: 40px;
+	font-weight: 700;
+}
+
+.block-one-example {
+	margin:30px 0;
+	position: relative;
+}
+
+header {
+	font-family: "Roboto", sans-serif;
+	background: url("../img/for-demo/brushed-alum.png") #FFFFFF;
+	text-align: center;
+	padding:30px 0;
+}
+
+header h1 {
+	color:#fff;
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 50px;
+	padding:20px 0;
+	text-transform: uppercase;
+	text-shadow:0 3px 0 rgba(0,0,0,.2);
+}
+
+@media screen and (max-width: 768px) {
+	header h1 {
+		font-size: 30px;
+		line-height: 34px;
+		padding:20px 0;
+	}
+}
+
+header .innerBorder {
+	width: 80%;
+	margin:0 auto;
+	max-width: 960px;
+	color:#fff;
+	background: url("../img/for-demo/brushed-alum.png") #01bc78;
+	box-shadow: 0 3px 10px rgba(0,0,0,.3);
+	padding-bottom: 30px;
+}
+
+header .innerBorder a{
+	border:1px solid #fff;
+	color:#01BC78;
+	background-color: #fff;
+	padding:4px 10px;
+	text-decoration: none;
+	font-weight: 600;
+	-webkit-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+@media screen and (max-width: 768px) {
+	header .innerBorder a{
+		display: block;
+	}
+}
+
+header .innerBorder a:hover{
+	color:#fff;
+	background-color: transparent;
+}
+
+header p {
+	text-align: left;
+	padding:20px;
+}
+
+footer {
+	background:url(../img/for-demo/bg2.jpg) #F0F0F0 repeat;
+	padding:30px 0;
+	font-family: "Roboto",sans-serif;
+	text-align: center;
+}
+
+footer p {
+	font-size: 25px;
+}
+
+footer ul {
+	width: 50%;
+	max-width: 300px;
+	margin:0 auto;
+}
+
+footer ul li {
+	margin-top: 20px;
+}
+
+footer a {
+	text-decoration: none;
+	color:#5C5C5C;
+}
+
+.menu-top-demo {
+	margin-top: 30px;
+}
+
+.menu-top-demo ul {
+	text-align: center;
+}
+
+.menu-top-demo ul li{
+	text-align: center;
+	display: inline-block;
+	line-height: 50px;
+}
+
+.menu-top-demo ul li a{
+	display: block;
+	padding:0 20px;
+	color:#fff;
+	font-family: "Roboto", sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 800;
+	margin:10px;
+	color:#4BC096;
+	border:2px solid #4BC096;
+	-webkit-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+.menu-top-demo ul li a:hover{
+	border:2px solid #D8D8D8;
+}
+
+.menu-top-demo ul li a.active,
+.menu-top-demo ul li a.active:hover {
+	background-color: #4BC096;
+	color:#fff;
+	border:2px solid #4BC096;
+}
+
+.icon-download a {
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    top:0;
+    right:0;
+    display: block;
+    line-height: 60px;
+}
+
+.fileSizeDemo{
+	color:#fff;
+	opacity: 1;
+	position: absolute;
+	top:-60px;
+	left:0;
+	right:0;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100px;
+	background-color: #39BE8E;
+	text-align: center;
+	padding: 10px 0;
+	display: block;
+	-webkit-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+	border-radius: 4px;
+	font-size: 24px;
+	box-shadow: 0 0px 4px rgba(0,0,0,.4);
+	opacity: 0;
+}
+
+.fileSizeDemo:after {
+	content:"";
+	position: absolute;
+	bottom:-20px;
+	left: 0;
+	right: 0;
+	margin-right: auto;
+	margin-left: auto;
+	width: 1px;
+	border:10px solid transparent;
+	border-top-color: #39BE8E;
+}
+
+.icon-download a:hover .fileSizeDemo{
+	color:#fff;
+	opacity: 1;
+	position: absolute;
+	top:-70px;
+}
+
+/*Основные стили*/
+
+.container {
+	max-width: 960px;
+	width: 90%;
+	margin:0 auto;
+}
+
+.inner-testimonial {
+	text-align: center;
+	background-color: #fff;
+}
+
+.inner-testimonial > img{
+	max-width: 128px;
+	margin:0 auto 15px;
+	opacity: 0;
+	-webkit-transition:all 1.3s linear;
+	transition:all 1.3s linear;
+}
+
+.owl-item.active .inner-testimonial > img{
+	-webkit-transition:all 1.3s linear;
+	transition:all 1.3s linear;
+}
+
+.owl-item.active .inner-testimonial > img.full-opacity {
+	opacity:1;
+	-webkit-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+
+h3.city-name {
+	padding:10px 0;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+}
+
+/*p*/.text-testimonial {
+	padding:10px 0;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	line-height: 25px;
+}
+
+.block-items {
+	cursor: default;
+}
+
+/*Изменяем внешний вид элементов управления (точки) */
+.owl-theme .owl-dots .owl-dot span {
+	width: 14px;
+	height: 14px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span{
+	width: 18px;
+	height: 18px;
+}
+
+/*Стрелки*/
+.owl-my-nav {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.owl-my-nav .owl-prev,
+.owl-my-nav .owl-next{
+	position: absolute;
+	width: 60px;
+	top:34%;
+	font-size: 100px;
+	z-index: 20;
+	cursor:pointer;
+	opacity: 0.5;
+	-webkit-transition:opacity .3s ease;
+	transition:opacity .3s ease;
+}
+
+.owl-my-nav .owl-prev:hover,
+.owl-my-nav .owl-next:hover{
+	opacity: 0.8;
+}
+
+.owl-my-nav .owl-prev {
+	left: 50px;
+}
+
+.owl-my-nav .owl-next {
+	right: 50px;
+	text-align: right;
+}
+
+
+@media only screen and (max-width : 768px) {
+	/*p*/.text-testimonial {
+		font-size: 14px;
+	}
+
+	.owl-my-nav .owl-prev,
+	.owl-my-nav .owl-next{
+		font-size: 50px;
+	}
+
+	.owl-my-nav .owl-prev {
+		left: 10px;
+	}
+
+	.owl-my-nav .owl-next {
+		right: 10px;
+	}
+}
