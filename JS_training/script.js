@@ -904,3 +904,21 @@ alert(formatDate(new Date(new Date - 30 *1000)));
 alert(formatDate(new Date(new Date - 5 * 60 * 1000))); 
 alert(formatDate(new Date(new Date - 86400 * 1000)));
 */
+
+(function () {
+    function checkTime(i) {
+        return (i < 10) ? "0" + i : i;
+    }
+
+    window.onload  = function startTime() {
+        var today = new Date(),
+            h = checkTime(today.getHours()),
+            m = checkTime(today.getMinutes()),
+            s = checkTime(today.getSeconds());
+       document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+        t = setTimeout(function () {
+            startTime()
+        }, 500);
+    }
+   
+})();
