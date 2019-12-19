@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Lab 1</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1>Lab 1</h1>
+  <div class ="container" >
+    <div class="content" hidden="true">
+      <form class ="group" name="f">
+        <ul class="list-items">
+          <li>
+            Input "A":
+            <input type="text" name="a" id="size_A" value="200">
+          </li>
+          <li>
+            Input "B":
+            <input type="text" name="b" id="size_B" value="180">
+          </li>
+          <li>
+            Input "C":
+            <input type="text" name="c" id="size_C" value="200">
+          </li>
+          <li>
+            Input "R":
+            <input type="text" name="d" id="size_Radius" value="30">
+          </li>
+        </ul>
+      </form>
+  
+    </div>
+  
+    <div class="content block1">
+      <form class ="group" name="centershape">
+        <p>Euclidean transformation:</p>
+        <input name="x" placeholder="Введіть x" value="0"></input>
+        <input name="y" placeholder="Введіть y" value="0"></input>
+      </form>
+    </div>
+    <div class="content block2">
+      <form class ="group" name="turnover">
+        <p>Rotate center:</p>
+        <input name="x" placeholder="Input X:" value="0"></input>
+        <input name="y" placeholder="Input Y:" value="0"></input>
+        <p>Rotate angle: &nbsp; <input name="d" placeholder="Input angle:" value="0"></input></p>
+        
+      </form>
+    </div>
+    <div class="content block3">
+      <form class ="group" name="Afin">
+          <p>Affin transformation:</p>
+  <div class="container" >
+        <div class ="content1">
+        Xx  <input name="Xx"  value="50"></input>
+        Yx  <input name="Yx"  value="0"></input>
+        </div>
+        <div class ="content1">
+        Xy  <input name="Xy"  value="0"></input>
+        Yy  <input name="Yy"  value="50"></input>
+        </div>
+        <div class ="content1">
+        X0 <input name="X0"  value="0"></input>
+        Y0  <input name="Y0"  value="0"></input>
+        </div>
+      <!--<div class ="content1">  W0  <input name="W0"  value="1"></input> </div>
+      <div class ="content1">  Wx  <input name="Wx"  value="1"></input> </div>
+      <div class ="content1">  Wy  <input name="Wy"  value="1"></input> </div>
+      -->
+    </div>
+      </form>
+    </div>
+  </div>
+  <div class="upper">
+    <br>
+    <button class="knopka" onClick = "start()">DRAW</button><br>
+    <canvas width="1500" height="1500"></canvas>
+  </div>
+  
+
+  <script src="./js/main.js"></script>
+
+</body>
+</html>
