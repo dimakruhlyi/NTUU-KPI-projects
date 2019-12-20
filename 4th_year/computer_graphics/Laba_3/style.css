@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.content {
+
+}
+body{
+  font-size: 22px;
+}
+p{
+  font-size: 22px;
+}
+
+input {
+  font-size: 32px;
+  margin: 30px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.knopka {
+  font-size: 20px;
+  margin: 20px;
+  margin-left: 200px;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: rgb(212,75,56);
+  padding: .7em 1.5em;
+  outline: none;
+}
+.knopka:hover { background: rgb(232,95,76); }
+.knopka:active { background: rgb(152,15,0); }
+
+.qwe {
+  transform:scale(3);
+  opacity:0.9;
+  cursor:pointer;
+  }
