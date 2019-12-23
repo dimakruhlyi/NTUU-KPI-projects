@@ -1,0 +1,10 @@
+C:\Users\Endry\Desktop\WPFChat-master\SimplePackets\bin\Debug\SimplePackets.dll
+C:\Users\Endry\Desktop\WPFChat-master\SimplePackets\bin\Debug\SimplePackets.pdb
+C:\Users\Endry\Desktop\WPFChat-master\SimplePackets\obj\Debug\SimplePackets.csprojAssemblyReference.cache
+C:\Users\Endry\Desktop\WPFChat-master\SimplePackets\obj\Debug\SimplePackets.dll
+C:\Users\Endry\Desktop\WPFChat-master\SimplePackets\obj\Debug\SimplePackets.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\SimplePackets\bin\Debug\SimplePackets.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\SimplePackets\bin\Debug\SimplePackets.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\SimplePackets\obj\Debug\SimplePackets.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\SimplePackets\obj\Debug\SimplePackets.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\SimplePackets\obj\Debug\SimplePackets.pdb
