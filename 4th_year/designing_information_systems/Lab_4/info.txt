@@ -1,0 +1,6 @@
+IT-PROGER\SQLEXPRESS
+
+CREATE DATABASE Laba4Database
+COLLATE Cyrillic_General_CI_AS
+
+
