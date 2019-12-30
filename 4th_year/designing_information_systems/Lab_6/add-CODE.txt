@@ -1,0 +1,33 @@
+IT-PROGER\SQLEXPRESS
+
+
+
+
+ static public void Query()
+        {
+            int[] mas = new int[] { 10, 20, 50, 45, 37, 80 };
+
+            int j = 0;
+            //var query = mas.Select(p => new { Num = p, ind = j++ }).Where(p => j % 2 == 0).ToArray();
+
+
+            var query = from u in mas
+                        where u % 2 == 0
+                        select new { p = u * u, q = u * u * u };
+
+
+            foreach (var user in query)
+            {
+                Console.WriteLine(user.p + " " + user.q);
+            }
+        }
+
+
+
+
+
+
+
+
+
+ 

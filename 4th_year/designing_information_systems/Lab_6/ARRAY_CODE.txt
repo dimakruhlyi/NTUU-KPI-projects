@@ -1,0 +1,1 @@
+var query = mas.Where(p => p > 30).Select(p => p + 37).ToArray();
