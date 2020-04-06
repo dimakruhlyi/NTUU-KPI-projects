@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.homeWork7.HomeWork7">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="846.0" prefWidth="801.0">
+            <children>
+                <Canvas fx:id="canvas" height="1000.0" layoutX="180.0" width="1920.0" />
+                <AnchorPane maxWidth="193.0" minHeight="0.0" minWidth="0.0" prefHeight="768.0" prefWidth="180.0">
+               <children>
+                  <Button layoutX="38.0" layoutY="14.0" mnemonicParsing="false" onAction="#task1" prefHeight="25.0" prefWidth="100.0" text="Задание 1" />
+                  <Label layoutX="18.0" layoutY="55.0" text="Количество чисел" />
+                  <TextField fx:id="num" layoutX="125.0" layoutY="51.0" prefHeight="25.0" prefWidth="41.0" text="10" />
+                  <Button layoutX="38.0" layoutY="89.0" mnemonicParsing="false" onAction="#task2" prefHeight="25.0" prefWidth="100.0" text="Задание 2" />
+                  <Button layoutX="38.0" layoutY="128.0" mnemonicParsing="false" onAction="#task3" prefHeight="25.0" prefWidth="100.0" text="Задание 3" />
+                  <Label layoutX="12.0" layoutY="167.0" text="Количество дисков" />
+                  <TextField fx:id="numb" layoutX="125.0" layoutY="163.0" prefHeight="25.0" prefWidth="41.0" text="7" />
+                  <Label layoutX="12.0" layoutY="196.0" text="Конечная игла" />
+                  <Spinner fx:id="nail1" layoutX="98.0" layoutY="192.0" max="3" min="2" prefHeight="25.0" prefWidth="67.0" />
+                  <Button layoutX="38.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" onAction="#runAlg" text="Запустить" />
+               </children>
+                </AnchorPane>
+            </children></AnchorPane>
+    </items>
+</SplitPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.laba7.Laba7">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="846.0" prefWidth="801.0">
+            <children>
+                <Canvas fx:id="canvas" height="1000.0" layoutX="180.0" layoutY="-50.0" width="1920.0" />
+                <AnchorPane maxWidth="193.0" minHeight="0.0" minWidth="0.0" prefHeight="768.0" prefWidth="180.0">
+               <children>
+                        <Button layoutX="38.0" layoutY="14.0" mnemonicParsing="false" onAction="#task1" prefHeight="25.0" prefWidth="100.0" text="Задание 1" />
+                        <Label layoutX="18.0" layoutY="55.0" text="Количество чисел" />
+                        <TextField fx:id="num" layoutX="125.0" layoutY="51.0" prefHeight="25.0" prefWidth="41.0" text="10" />
+                  <Button layoutX="38.0" layoutY="88.0" mnemonicParsing="false" onAction="#task2" prefHeight="25.0" prefWidth="100.0" text="Задание 2" />
+                  <Label layoutX="38.0" layoutY="125.0" text="Число" />
+                  <TextField fx:id="factNum" layoutX="88.0" layoutY="121.0" prefHeight="25.0" prefWidth="41.0" text="10" />
+                  <Button layoutX="38.0" layoutY="162.0" mnemonicParsing="false" onAction="#task3" prefHeight="25.0" prefWidth="100.0" text="Задание 3" />
+                  <Label layoutX="14.0" layoutY="203.0" text="Число" />
+                  <TextField layoutX="51.0" layoutY="199.0" prefHeight="25.0" prefWidth="123.0" fx:id="number" text="54785412"/>
+                    </children></AnchorPane>
+            </children></AnchorPane>
+    </items>
+</SplitPane>
