@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<!--
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<title>Labs-TestPage</title>
+
+<style>
+body{
+  background-color: #2288;
+}
+
+  #button {
+    position: relative;
+    z-index: 1000;
+  }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Not a home</a></li>
+      <li><a href="#">Some no home</a></li>
+      <li><a href="#" id="demo">Else no home</a></li>
+    </ul>
+  </div>
+</nav>
+<button id="button" onMouseOver="buttonClick()" click="finish()">Сдать лабу</button>
+
+</body>
+
+<script>
+  var couner = 0;
+
+  function finish() {
+    alert('Ура! Вы сдали. У вас всего ' + counter + ' ошибок!');
+  }
+
+  function buttonClick() {
+    var el = document.getElementById('button');
+    var w = window.innerWidth || document.documentElement.clientWidth;
+    var h = window.innerHeight || document.documentElement.clientHeight;
+
+    var x;
+    var y;
+
+    do {
+      x = Math.random() * (parseInt(w) - 100);
+      y = Math.random() * (parseInt(h) - 50);
+
+    } while (false);
+
+    el.style.top = y + 'px';
+    el.style.left = x + 'px';
+
+    couner++;
+    document.getElementById('demo').textContent = couner + '';
+  }
+</script>
+
+</html> 

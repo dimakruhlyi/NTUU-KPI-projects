@@ -1,9 +1,0 @@
-AddDefaultCharset UTF-8
-
-Options -Indexes
-
-RewriteEngine On
-RewriteBase /
-
-#RewriteCond %{REQUEST_URI} ^(.*)list_files\.txt$
-#RewriteRule ^(.*)$ core/downloads.php [L]

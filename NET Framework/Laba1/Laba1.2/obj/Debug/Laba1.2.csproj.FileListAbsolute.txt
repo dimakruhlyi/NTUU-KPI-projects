@@ -1,7 +1,0 @@
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\bin\Debug\Laba1.2.exe.config
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\bin\Debug\Laba1.2.exe
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\bin\Debug\Laba1.2.pdb
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\obj\Debug\Laba1.2.csprojResolveAssemblyReference.cache
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\obj\Debug\Laba1.2.csproj.CoreCompileInputs.cache
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\obj\Debug\Laba1.2.exe
-C:\Users\Dima Kruhlyi\Desktop\Laba1.2\Laba1.2\obj\Debug\Laba1.2.pdb

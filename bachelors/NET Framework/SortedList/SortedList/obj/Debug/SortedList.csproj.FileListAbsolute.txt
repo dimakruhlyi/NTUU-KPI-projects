@@ -1,0 +1,12 @@
+C:\Users\Endry\Desktop\Lab2\SortedList\bin\Debug\SortedList.dll
+C:\Users\Endry\Desktop\Lab2\SortedList\bin\Debug\SortedList.pdb
+C:\Users\Endry\Desktop\Lab2\SortedList\obj\Debug\SortedList.csproj.CoreCompileInputs.cache
+C:\Users\Endry\Desktop\Lab2\SortedList\obj\Debug\SortedList.dll
+C:\Users\Endry\Desktop\Lab2\SortedList\obj\Debug\SortedList.pdb
+C:\Users\Endry\Desktop\Lab2\SortedList\obj\Debug\SortedList.csprojAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Lab2\SortedList\bin\Debug\SortedList.dll
+C:\Users\Dima Kruhlyi\Desktop\Lab2\SortedList\bin\Debug\SortedList.pdb
+C:\Users\Dima Kruhlyi\Desktop\Lab2\SortedList\obj\Debug\SortedList.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Lab2\SortedList\obj\Debug\SortedList.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Lab2\SortedList\obj\Debug\SortedList.dll
+C:\Users\Dima Kruhlyi\Desktop\Lab2\SortedList\obj\Debug\SortedList.pdb

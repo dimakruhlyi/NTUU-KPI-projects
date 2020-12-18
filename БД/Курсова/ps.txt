@@ -1,2 +1,0 @@
-login: dimakruhlyi
-ps: 1234

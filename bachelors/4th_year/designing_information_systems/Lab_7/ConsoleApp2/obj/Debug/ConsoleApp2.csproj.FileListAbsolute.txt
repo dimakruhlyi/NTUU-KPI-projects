@@ -1,0 +1,11 @@
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\EntityFramework.dll
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\EntityFramework.xml
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\Dima Kruhlyi\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.pdb

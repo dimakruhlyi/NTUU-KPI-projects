@@ -1,0 +1,14 @@
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\bin\Debug\Lab_3.exe.config
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\bin\Debug\Lab_3.exe
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\bin\Debug\Lab_3.pdb
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\obj\Debug\Lab_3.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\obj\Debug\Lab_3.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\obj\Debug\Lab_3.exe
+C:\Users\Dima Kruhlyi\source\repos\Lab_3\Lab_3\obj\Debug\Lab_3.pdb
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\bin\Debug\Lab_3.exe.config
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\bin\Debug\Lab_3.exe
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\bin\Debug\Lab_3.pdb
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\obj\Debug\Lab_3.csprojResolveAssemblyReference.cache
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\obj\Debug\Lab_3.csproj.CoreCompileInputs.cache
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\obj\Debug\Lab_3.exe
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_3\Lab_3\obj\Debug\Lab_3.pdb

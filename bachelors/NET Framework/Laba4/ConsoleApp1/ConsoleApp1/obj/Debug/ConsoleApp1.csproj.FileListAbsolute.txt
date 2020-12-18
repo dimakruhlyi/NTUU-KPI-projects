@@ -1,0 +1,56 @@
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Vlad\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.dll
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.dll
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.pdb
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+G:\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.dll
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.pdb
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\User\Desktop\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.dll
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.dll
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

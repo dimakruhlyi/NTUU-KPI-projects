@@ -1,0 +1,20 @@
+D:\Varava\Lab8_V\Lab8_V\bin\Debug\Lab8_V.exe.config
+D:\Varava\Lab8_V\Lab8_V\bin\Debug\Lab8_V.exe
+D:\Varava\Lab8_V\Lab8_V\bin\Debug\Lab8_V.pdb
+D:\Varava\Lab8_V\Lab8_V\obj\Debug\Lab8_V.csprojAssemblyReference.cache
+D:\Varava\Lab8_V\Lab8_V\obj\Debug\Lab8_V.exe
+D:\Varava\Lab8_V\Lab8_V\obj\Debug\Lab8_V.pdb
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\bin\Debug\Lab8_V.exe.config
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\bin\Debug\Lab8_V.exe
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\bin\Debug\Lab8_V.pdb
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\obj\Debug\Lab8_V.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\obj\Debug\Lab8_V.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\obj\Debug\Lab8_V.exe
+C:\Users\Dima Kruhlyi\Desktop\Lab8_V\Lab8_V\obj\Debug\Lab8_V.pdb
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\bin\Debug\Lab8_V.exe.config
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\bin\Debug\Lab8_V.exe
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\bin\Debug\Lab8_V.pdb
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\obj\Debug\Lab8_V.csprojResolveAssemblyReference.cache
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\obj\Debug\Lab8_V.csproj.CoreCompileInputs.cache
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\obj\Debug\Lab8_V.exe
+D:\KPI\7-й семестр\Технології розподілених систем та паралельних обчислень (Варава І.А.)\Lab_8\Lab8_V\obj\Debug\Lab8_V.pdb

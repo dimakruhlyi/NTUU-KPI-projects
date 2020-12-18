@@ -1,0 +1,119 @@
+body {
+  background-color: #FFE4C4;
+  margin: 5px, 5px; }
+
+#head_title {
+  font-style: normal;
+  font-family: 'Broadway';
+  font-size: 45px;
+  color: #4B0082;
+  text-align: center; }
+
+#header {
+  margin-left: 80px;
+  font-style: normal;
+  font-family: 'Comic Sans MS';
+  font-size: 20px;
+  max-width: 375px;
+  max-height: 450px;
+  color: #0000FF;
+  display: inline-block; }
+
+#main_img {
+  margin: 10px, 40px;
+  display: inline-block; }
+  #main_img img {
+    margin-left: 100px;
+    max-width: 750px;
+    max-height: 375px;
+    border: 4px solid red; }
+
+#biography_head {
+  margin-top: 20px;
+  font-style: normal;
+  font-family: 'Engravers MT';
+  font-size: 30px;
+  color: #00FF00;
+  text-align: center; }
+
+#biography_inf {
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-family: 'AR CENA';
+  font-size: 20px;
+  max-width: 100%;
+  max-height: 300px;
+  color: black;
+  text-align: justify; }
+
+#row1 {
+  margin: 20px, 30px; }
+  #row1 div {
+    margin-top: 20px;
+    margin-left: 40px;
+    max-width: 40%; }
+    #row1 div img {
+      max-width: 100%;
+      -webkit-border-radius: 40px;
+      -moz-border-radius: 40px;
+      -ms-border-radius: 40px;
+      border-radius: 40px; }
+  #row1 div {
+    margin-left: 40px;
+    max-width: 45%;
+    display: inline-block; }
+    #row1 div img {
+      max-width: 100%;
+      -webkit-border-radius: 80px;
+      -moz-border-radius: 80px;
+      -ms-border-radius: 80px;
+      border-radius: 80px; }
+
+#translations_head {
+  margin-top: 20px;
+  font-style: normal;
+  font-family: 'Engravers MT';
+  font-size: 30px;
+  color: #00FF00;
+  text-align: center; }
+
+#translation_text {
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-family: 'AR CENA';
+  font-size: 20px;
+  max-width: 40%;
+  max-height: 480px;
+  color: red;
+  text-align: justify;
+  overflow: auto;
+  display: inline-block; }
+
+#books {
+  margin-left: 40px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  max-width: 40%;
+  display: inline-block; }
+  #books img {
+    padding: 20px;
+    max-width: 100%;
+    -webkit-border-radius: 400px;
+    -moz-border-radius: 400px;
+    -ms-border-radius: 400px;
+    border-radius: 400px; }
+
+.bottom {
+  color: red;
+  font-family: "CANDARA";
+  size: 20px;
+  font-style: normal; }
+
+/*# sourceMappingURL=output.css.map */

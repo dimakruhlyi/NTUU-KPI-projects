@@ -1,0 +1,20 @@
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\bin\Debug\PoemCipher.exe.config
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\bin\Debug\PoemCipher.exe
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\bin\Debug\PoemCipher.pdb
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.csprojAssemblyReference.cache
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.PoemMain.resources
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.Properties.Resources.resources
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.csproj.GenerateResource.cache
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.exe
+C:\Users\Ivan\source\repos\PoemCipher\PoemCipher\obj\Debug\PoemCipher.pdb
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\bin\Debug\PoemCipher.exe.config
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\bin\Debug\PoemCipher.exe
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\bin\Debug\PoemCipher.pdb
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.PoemMain.resources
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.Properties.Resources.resources
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.exe
+C:\Users\Dima Kruhlyi\Desktop\PoemCipher\PoemCipher\obj\Debug\PoemCipher.pdb

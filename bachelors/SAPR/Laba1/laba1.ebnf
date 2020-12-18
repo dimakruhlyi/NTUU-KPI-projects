@@ -1,0 +1,51 @@
+program = programName  ListOgol listOperat.
+
+name = id.
+
+id = bukv | {bukv  id} | {id  cyphra}.
+
+bukv = a | b | c | "..." | x | y | z | A | B | C | "..." | X | Y | Z.
+
+cyphra = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9".
+
+listOgol = Ogol | listOgol Ogol.
+
+Ogol = "type" listInit. 
+
+type =  integer | float | double.
+
+listInit = id | listInit id.
+
+listOper =  oper | listOper oper.
+
+oper = vvid | vyvid | prysvoiennia | loop | condAction.
+
+prysvoiennia = id "=" vyraz.
+
+vvid = read  (listInit) .
+
+vyvid = write  (listInit) .
+
+loop = {[id "=" vyraz ";" vidnoshennia ";" id "=" vyraz]}.
+
+condAction = if (logicalVyzar) listOper.
+
+logicalVyraz = logTerm | {logicalVyraz | logTerm}.
+
+logTerm = logMnoj | {logTerm logMnoj}.
+
+logMnoj = vidnoshennia | [logicalVyraz] | not logMnoj.
+
+vidnoshennia = vyraz sign vyraz.
+
+sign = ">" | "=" |"<" | ">=" | "<=".
+
+vyraz = term | vyraz "+" term | vyraz "-" term | "-" term.
+
+term = mnoj | term "*" mnoj | term "/" mnoj.
+
+mnoj = firstVyraz | mnoj "**" firstVyraz.
+
+firstVyraz = vyraz | id | const.
+
+const = cyphra | const cyphra.

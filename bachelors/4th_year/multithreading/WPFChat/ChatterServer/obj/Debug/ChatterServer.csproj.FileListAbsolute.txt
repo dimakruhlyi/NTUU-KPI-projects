@@ -1,0 +1,75 @@
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.exe.config
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.exe
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimplePackets.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimpleTcp.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimplePackets.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimpleTcp.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.xml
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csprojAssemblyReference.cache
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\MainWindow.g.cs
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\App.g.cs
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer_MarkupCompile.cache
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer_MarkupCompile.lref
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\App.baml
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\MainWindow.baml
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.g.resources
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.Properties.Resources.resources
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csproj.GenerateResource.cache
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csproj.CopyComplete
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.exe
+C:\Users\Endry\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.pdb
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.exe.config
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.exe
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.pdb
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.dll
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\SimplePackets.dll
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\SimpleTcp.dll
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\System.Windows.Interactivity.dll
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\SimplePackets.pdb
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\SimpleTcp.pdb
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.pdb
+D:\Varava\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.xml
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csprojAssemblyReference.cache
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\MainWindow.g.cs
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\App.g.cs
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer_MarkupCompile.cache
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer_MarkupCompile.lref
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\App.baml
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\MainWindow.baml
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.g.resources
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.Properties.Resources.resources
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csproj.GenerateResource.cache
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csproj.CopyComplete
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.exe
+D:\Varava\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.exe.config
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.exe
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\ChatterServer.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimplePackets.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimpleTcp.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimplePackets.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\SimpleTcp.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\bin\Debug\MahApps.Metro.xml
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\MainWindow.g.cs
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\App.g.cs
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer_MarkupCompile.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer_MarkupCompile.lref
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\App.baml
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\MainWindow.baml
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.g.resources
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.Properties.Resources.resources
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.exe
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterServer\obj\Debug\ChatterServer.pdb

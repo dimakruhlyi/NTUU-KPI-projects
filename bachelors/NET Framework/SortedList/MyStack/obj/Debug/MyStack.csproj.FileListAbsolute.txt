@@ -1,0 +1,6 @@
+C:\Users\Alexandr\Desktop\university\6\Технології проектування\lab2\MyStack\bin\Debug\MyStack.dll
+C:\Users\Alexandr\Desktop\university\6\Технології проектування\lab2\MyStack\bin\Debug\MyStack.pdb
+C:\Users\Alexandr\Desktop\university\6\Технології проектування\lab2\MyStack\obj\Debug\MyStack.csprojAssemblyReference.cache
+C:\Users\Alexandr\Desktop\university\6\Технології проектування\lab2\MyStack\obj\Debug\MyStack.csproj.CoreCompileInputs.cache
+C:\Users\Alexandr\Desktop\university\6\Технології проектування\lab2\MyStack\obj\Debug\MyStack.dll
+C:\Users\Alexandr\Desktop\university\6\Технології проектування\lab2\MyStack\obj\Debug\MyStack.pdb

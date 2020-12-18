@@ -1,0 +1,75 @@
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.exe.config
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.exe
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimplePackets.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimpleTcp.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimplePackets.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimpleTcp.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.pdb
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.xml
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csprojAssemblyReference.cache
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\MainWindow.g.cs
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\App.g.cs
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient_MarkupCompile.cache
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient_MarkupCompile.lref
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\App.baml
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\MainWindow.baml
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.g.resources
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.Properties.Resources.resources
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csproj.GenerateResource.cache
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csproj.CopyComplete
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.exe
+C:\Users\Endry\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.pdb
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.exe.config
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.exe
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.pdb
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.dll
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\SimplePackets.dll
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\SimpleTcp.dll
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\System.Windows.Interactivity.dll
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\SimplePackets.pdb
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\SimpleTcp.pdb
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.pdb
+D:\Varava\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.xml
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csprojAssemblyReference.cache
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\MainWindow.g.cs
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\App.g.cs
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient_MarkupCompile.cache
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient_MarkupCompile.lref
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\App.baml
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\MainWindow.baml
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.g.resources
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.Properties.Resources.resources
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csproj.GenerateResource.cache
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csproj.CopyComplete
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.exe
+D:\Varava\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.exe.config
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.exe
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\ChatterClient.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimplePackets.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimpleTcp.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimplePackets.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\SimpleTcp.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.pdb
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\bin\Debug\MahApps.Metro.xml
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csprojResolveAssemblyReference.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\MainWindow.g.cs
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\App.g.cs
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient_MarkupCompile.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient_MarkupCompile.lref
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\App.baml
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\MainWindow.baml
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.g.resources
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.Properties.Resources.resources
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csproj.GenerateResource.Cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.exe
+C:\Users\Dima Kruhlyi\Desktop\WPFChat-master\ChatterClient\obj\Debug\ChatterClient.pdb

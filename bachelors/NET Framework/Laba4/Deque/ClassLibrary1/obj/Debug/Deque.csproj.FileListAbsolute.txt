@@ -1,0 +1,30 @@
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\Deque\ClassLibrary1\obj\Debug\Deque.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_done\Deque\ClassLibrary1\obj\Debug\Deque.csprojAssemblyReference.cache
+G:\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+G:\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+G:\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csprojAssemblyReference.cache
+G:\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csproj.CoreCompileInputs.cache
+G:\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+G:\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\User\Desktop\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\User\Desktop\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\User\Desktop\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csprojAssemblyReference.cache
+C:\Users\User\Desktop\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\User\Desktop\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csprojAssemblyReference.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Vlad\Desktop\university 3.2\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\Deque\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csproj.CoreCompileInputs.cache
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Dima Kruhlyi\Desktop\Kramar\lab_2_d\Deque\ClassLibrary1\obj\Debug\Deque.csprojResolveAssemblyReference.cache

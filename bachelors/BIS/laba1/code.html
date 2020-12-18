@@ -1,0 +1,65 @@
+<!--
+<link rel="stylesheet" href="css/style.css">
+<h1>Caesars Cipher Encryptor</h1>
+<p>Type your message here:</p>
+<input type="text" id="message" value="I am amazing">
+<p>Type your shift here:</p>
+<input type="text" id="shift" value="1">
+<p>Encoded message here:</p>
+<div id="output"></div>
+
+<script src="js/index.js"></script>
+-->
+
+
+  <script type="text/javascript">
+function caesar_code(a, d) {
+    var c = document.getElementById("b_text1"),
+        g = document.getElementById("b_text1"),
+        b = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        e = "",
+        d = d % b.length || 0,
+        c = c.value.toUpperCase(),
+        f = b.substr(d) + b.substr(0, d);
+    1 == a && (a = b, b = f, f = a);
+    for (i = 0; i < c.length; i++) a = b.lastIndexOf(c.charAt(i)), a = f.charAt(a) || c.charAt(i), e += a;
+    g.value = e
+};
+  </script>
+
+  <br>
+  <div align="center">
+    <strong style="font-family: Algerian; font-size:20px;">Input your text here:</strong><br>
+    <br>
+    <!--<input id="b_text1" type="text" size="80"><br>-->
+     <textarea id="b_text1" cols="100" rows="20"></textarea><br>
+    <input id="sm" type="number" min="0" value="1" step="1">
+   
+    <br>
+    <br>
+    <strong style="font-family: Algerian; font-size:20px;">Choose action:</strong><br>
+    <br>
+    <input onclick="caesar_code(0,+sm.value)" type="button" value="Encode" id="submit">
+    <input onclick="caesar_code(1,+sm.value)" type="button" value="Decode" class="reset">
+    <br>
+   
+    <!--<input id="b_text2" type="text" size="80">-->
+  </div>
+  <style>
+    #submit{
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-family: "ALGERIAN";
+  border: 3px solid blue;
+  border-radius: 5px;
+}
+.reset{
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-family: "Arial";
+  border: 3px solid black;
+  border-radius: 5px;
+}
+  </style>
