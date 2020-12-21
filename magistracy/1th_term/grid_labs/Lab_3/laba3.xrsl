@@ -1,0 +1,6 @@
+&(executable=task3.sh)
+(jobname=testjob)
+(inputFiles=(task3.sh "")(laba3.py ""))
+(stdout=out.txt)
+(stderr=err.txt)
+(outputFiles=("out.txt" "")("err.txt" "")("res2" "")("res1" ""))

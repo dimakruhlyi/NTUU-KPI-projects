@@ -1,0 +1,25 @@
+[
+Type = "job";
+JobType = "normal";
+Executable = "task.sh";
+StdOutput = "task.out";
+StdError = "task.err";
+OutputSandbox = {
+"task.out",
+"task.err",
+"results"
+};
+RetryCount = 0;
+ShallowRetryCount = 1;
+OutputSandboxBaseDestUri = "gsiftp://localhost";
+InputSandbox = {
+"task.sh",
+"laba4.py"
+};
+OutputSandbox = {
+"task.out",
+"task.err",
+"results"
+};
+DefaultRank = -other.GlueCEStateEstimatedResponseTime;
+]
