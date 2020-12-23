@@ -1,0 +1,10 @@
+#cloud-config
+ssh_pwauth: True
+disable_root: false
+password: 1
+chpasswd: {expire: false}
+bootcmd: 
+  - sudo mkdir -p /home/ubuntu/dimakruhlyi
+  - sudo echo 127.0.0.1 cloudtest >> /etc/hosts
+  - sudo sshpass -p "y7Sam>#b" scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null cloud-user3@cloud-11.bitp.kiev.ua:~/kruhlyi/laba5.py /home/ubuntu/dimakruhlyi/
+  - cd /home/ubuntu/dimakruhlyi &&  sudo python3 /home/ubuntu/dimakruhlyi/laba5.py 
