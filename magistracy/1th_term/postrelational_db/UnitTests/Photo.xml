@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2020.1 (Build 215U)" ts="2020-12-07 21:54:40">
+<Class name="UnitTests.Photo">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65719,83677.226895</TimeChanged>
+<TimeCreated>65691,63047.939685</TimeCreated>
+
+<Method name="OnBeforeAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(PhotoGalery.Photo).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(PhotoGalery.Photo).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestPhoto">
+<Implementation><![CDATA[
+		set p = ##class(PhotoGalery.Photo).%New()
+		do $$$AssertTrue($isobject(p), "Create new Photo")
+		
+		set status = p.%Save()
+		do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+		
+		set p.id = 1
+		set p.name = "Beautiful landscape"
+		do p.data.WriteLine("Landscape photo data")
+		do p.compatibleProgramNames.Insert("paint")
+		do p.compatibleProgramNames.Insert("photoshop")
+		set p.size = 1024
+		set p.format = "png"
+		
+		set status = p.%Save()
+		do $$$AssertStatusOK(status, "Save when required Fields are filled")
+		
+		set status = ##class(PhotoGalery.Photo).%DeleteId(p.%Id())
+		do $$$AssertStatusOK(status, "Delete photo data")
+]]></Implementation>
+</Method>
+</Class>
+</Export>

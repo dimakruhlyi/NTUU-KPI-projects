@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2020.1 (Build 215U)" ts="2020-12-07 21:54:51">
+<Class name="UnitTests.Post">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65719,84287.511138</TimeChanged>
+<TimeCreated>65691,67148.352071</TimeCreated>
+
+<Method name="OnBeforeAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	do ##class(PhotoGalery.User).%DeleteExtent()
+	do ##class(PhotoGalery.Photo).%DeleteExtent()
+	do ##class(PhotoGalery.Video).%DeleteExtent()
+	return ##class(PhotoGalery.Post).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	
+	do ##class(PhotoGalery.User).%DeleteExtent()
+	do ##class(PhotoGalery.Photo).%DeleteExtent()
+	do ##class(PhotoGalery.Video).%DeleteExtent()
+	return ##class(PhotoGalery.Post).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestPost">
+<Implementation><![CDATA[
+	
+		set riverPhoto = ##class(PhotoGalery.Photo).%New()
+		set riverPhoto.id = 2
+		set riverPhoto.name = "River photo"
+		do riverPhoto.data.WriteLine("River photo data")
+		do riverPhoto.compatibleProgramNames.Insert("paint")
+		do riverPhoto.compatibleProgramNames.Insert("photoshop")
+		set riverPhoto.size = 521
+		set riverPhoto.format = "jpeg"
+	
+		set landscapeVideo = ##class(PhotoGalery.Video).%New()
+		set landscapeVideo.id = 3
+		set landscapeVideo.name = "Landscape photo"
+		do landscapeVideo.data.WriteLine("Cat photo data")
+		do landscapeVideo.compatibleProgramNames.Insert("VLC player")
+		do landscapeVideo.compatibleProgramNames.Insert("Kmp Player")
+		set landscapeVideo.size = 1024
+		set landscapeVideo.duration = 140
+	
+		set userDima = ##class(PhotoGalery.User).%New()
+		set userDima.id = 1
+		set userDima.name = "Dima"
+		set userDima.created = $PIECE($H, ",", 0, 1)
+		
+		do riverPhoto.%Save()
+		do riverPhoto.%Save()
+		do userDima.%Save()
+	
+	
+		set p = ##class(PhotoGalery.Post).%New()
+		do userDima.posts.Insert(p)
+		do $$$AssertTrue($isobject(p), "Create new Post")
+		
+		set status = p.%Save()
+		do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+		
+		set p.id = 15656
+		do p.text.Write("My first post ever!")
+		do p.notes.SetAt("Testing post creation", "Purpose")
+		do p.notes.SetAt("Cats", "Theme")
+		do p.attachments.Insert(riverPhoto)
+		do p.attachments.Insert(riverPhoto)
+		set p.created =  $PIECE($H, ",", 0, 1)
+		set p.posts = userDima
+		
+		set status = p.%Save()
+		do $$$AssertStatusOK(status, "Save when required Fields are filled")
+		
+		set status = ##class(PhotoGalery.Post).%DeleteId(p.%Id())
+		do $$$AssertStatusNotOK(status, "Can't Delete Post data with references")
+		
+		do p.attachments.Clear()
+		set status = p.%Save()
+		set status = ##class(PhotoGalery.Post).%DeleteId(p.%Id())
+		do $$$AssertStatusOK(status, "Delete Post data")
+		
+		set status = ##class(PhotoGalery.Photo).%ExistsId(riverPhoto.%Id())
+		do $$$AssertEquals(status, 1, "Photo attachment still exists")
+		
+		set status = ##class(PhotoGalery.Video).%ExistsId(landscapeVideo.%Id())
+		do $$$AssertEquals(status, 1, "Video attachment still exists")
+]]></Implementation>
+</Method>
+
+<UDLText name="T">
+<Content><![CDATA[
+// do ##class(%UnitTest.Manager).RunTest("post", "/noload/nodelete")
+
+]]></Content>
+</UDLText>
+</Class>
+</Export>
