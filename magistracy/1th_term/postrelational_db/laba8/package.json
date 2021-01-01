@@ -1,0 +1,19 @@
+{
+  "name": "lab8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "fastify start server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.9.1",
+    "fastify-cli": "^2.5.1",
+    "fastify-mongodb": "^2.0.1",
+    "fastify-plugin": "^3.0.0"
+  }
+}
