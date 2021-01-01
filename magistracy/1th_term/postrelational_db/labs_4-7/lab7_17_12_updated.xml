@@ -1,0 +1,2372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2019.1.1 (Build 612U)" ts="2020-12-17 09:51:09">
+<Routine name="Lab4" type="MAC" languagemode="0" timestamp="65725,49109.348805"><![CDATA[
+ 
+ 
+ do ##class(Library.Contact).%KillExtent()
+ do ##class(Library.Reader).%KillExtent()
+ do ##class(Library.Librarian).%KillExtent()
+ do ##class(Library.Book).%KillExtent()
+ do ##class(Library.Chapter).%KillExtent()
+ do ##class(Library.LibraryHouse).%KillExtent()
+ do ##class(Library.Human).%KillExtent()
+ 
+ // contacts
+ set kyivReaderContact = ##class(Library.Contact).%New()
+ set kyivReaderContact.City = "Kyiv"
+ set kyivReaderContact.Street = "Grushevskogo 4"
+ do kyivReaderContact.Phones.SetAt("380123456789", "phone")
+ do kyivReaderContact.Phones.SetAt("380987654321", "mobile")
+
+ set odessaReaderContact = ##class(Library.Contact).%New()
+ set odessaReaderContact.City = "Odessa"
+ set odessaReaderContact.Street = "Melnyka 2"
+ do odessaReaderContact.Phones.SetAt("380546738920", "phone")
+ do odessaReaderContact.Phones.SetAt("380627684324", "mobile")
+ 
+ 
+ 
+ set kyivLibrarianContact = ##class(Library.Contact).%New()
+ set kyivLibrarianContact.City = "Kyiv"
+ set kyivLibrarianContact.Street = "Poltavska 12"
+ do kyivLibrarianContact.Phones.SetAt("380135235234", "phone")
+ do kyivLibrarianContact.Phones.SetAt("380756745674", "mobile")
+
+ set odessaLibrarianContact = ##class(Library.Contact).%New()
+ set odessaLibrarianContact.City = "Kyiv"
+ set odessaLibrarianContact.Street = "Petlyri 54"
+ do odessaLibrarianContact.Phones.SetAt("380656569295", "phone")
+ do odessaLibrarianContact.Phones.SetAt("380661121327", "mobile")
+ 
+ 
+
+ set kyivLibraryContact = ##class(Library.Contact).%New()
+ set kyivLibraryContact.City = "Kyiv"
+ set kyivLibraryContact.Street = "Internatsionaly 21"
+ do kyivLibraryContact.Phones.SetAt("380354434523", "phone")
+ do kyivLibraryContact.Phones.SetAt("380678235627", "mobile")
+  
+ set odessaLibraryContact = ##class(Library.Contact).%New()
+ set odessaLibraryContact.City = "Odessa"
+ set odessaLibraryContact.Street = "Kavkazka 65"
+ do odessaLibraryContact.Phones.SetAt("380123467908", "phone")
+ do odessaLibraryContact.Phones.SetAt("380896755678", "mobile")
+
+
+ // readers
+ set vasya = ##class(Library.Reader).%New()
+ set vasya.Name = "Vasya"
+ set vasya.Surname = "Pupkin"
+ set vasya.IdReader = 1
+ set vasya.Contact = kyivReaderContact
+ 
+
+ 
+ set petya = ##class(Library.Reader).%New()
+ set petya.Name = "Petya"
+ set petya.Surname = "Nobel"
+ set petya.IdReader = 2
+ set petya.Contact = odessaReaderContact
+
+
+ 
+ // librarians
+ set maria = ##class(Library.Librarian).%New()
+ set maria.Name = "Maria"
+ set maria.Surname = "Pavlovna"
+ set maria.IdLibrarian = 1
+ set maria.Contact = kyivLibrarianContact
+ set maria.Post = "Head"
+ 
+ 
+
+ 
+ set oleg = ##class(Library.Librarian).%New()
+ set oleg.Name = "Oleg"
+ set oleg.Surname = "Tushko"
+ set oleg.IdLibrarian = 2
+ set oleg.Contact = odessaLibrarianContact
+ set oleg.Post = "Trainee"
+
+
+ 
+ 
+ // book harryPotter
+ set harryPotter = ##class(Library.Book).%New()
+ set harryPotter.IdBook = 1
+ set harryPotter.Name = "Harry Potter"
+ set harryPotter.Author = "J. K. Rowling"
+ set harryPotterImage = ##class(%Stream.FileBinary).%New()
+ set harryPotterImage.Filename = "D:\study\postrenationaldbs\lab4\harrypotter.jpg"
+ do harryPotter.Image.CopyFrom(harryPotterImage)
+ 
+ 
+ // harryPotter chapters
+ set harryPotterChapterOne = ##class(Library.Chapter).%New()
+ set harryPotterChapterOne.Page = 1
+ set harryPotterChapterOne.Name = "Harry Potter Chapter One"
+ set harryPotterChapterOne.Book = harryPotter
+ 
+
+ 
+ set harryPotterChapterTwo = ##class(Library.Chapter).%New()
+ set harryPotterChapterTwo.Page = 10
+ set harryPotterChapterTwo.Name = "Harry Potter Chapter Two"
+ set harryPotterChapterTwo.Book = harryPotter
+  
+
+ 
+ do harryPotter.Chapters.Insert(harryPotterChapterOne)
+ do harryPotter.Chapters.Insert(harryPotterChapterTwo)
+ 
+
+ // book Lord Of the Rings
+ set lordOfTheRings = ##class(Library.Book).%New()
+ set lordOfTheRings.IdBook = 2
+ set lordOfTheRings.Name = "Lord Of the Rings"
+ set lordOfTheRings.Author = "J. R. R. Tolkien"
+ set lordOfTheRingsImage = ##class(%Stream.FileBinary).%New()
+ set lordOfTheRingsImage.Filename = "D:\study\postrenationaldbs\lab4\lordoftherings.jpg"
+ do lordOfTheRings.Image.CopyFrom(lordOfTheRingsImage)
+ 
+ 
+ // lordOfTheRings chapters
+ set lordOfTheRingsChapterOne = ##class(Library.Chapter).%New()
+ set lordOfTheRingsChapterOne.Page = 2
+ set lordOfTheRingsChapterOne.Name = "Lord Of the Rings Chapter One"
+ set lordOfTheRingsChapterOne.Book = lordOfTheRings
+ 
+ 
+ 
+ set lordOfTheRingsChapterTwo = ##class(Library.Chapter).%New()
+ set lordOfTheRingsChapterTwo.Page = 5
+ set lordOfTheRingsChapterTwo.Name = "Lord Of the Rings Chapter Two"
+ set lordOfTheRingsChapterTwo.Book = lordOfTheRings
+ 
+ 
+ 
+ do lordOfTheRings.Chapters.Insert(lordOfTheRingsChapterOne)
+ do lordOfTheRings.Chapters.Insert(lordOfTheRingsChapterTwo)
+ 
+
+ 
+ // book The C++ Programming Language
+ set cppBook = ##class(Library.Book).%New()
+ set cppBook.IdBook = 3
+ set cppBook.Name = "The C++ Programming Language"
+ set cppBook.Author = "JBjarne Stroustrup"
+ set cppBookImage = ##class(%Stream.FileBinary).%New()
+ set cppBookImage.Filename = "D:\study\postrenationaldbs\lab4\cpp.jpg"
+ do cppBook.Image.CopyFrom(cppBookImage)
+ 
+ // cpp chapters
+ set cppChapterOne = ##class(Library.Chapter).%New()
+ set cppChapterOne.Page = 1
+ set cppChapterOne.Name = "C++ Chapter One"
+ set cppChapterOne.Book = cppBook
+  
+ 
+ do cppBook.Chapters.Insert(cppChapterOne)
+ 
+ 
+  // book Learning Python
+ set pythonBook = ##class(Library.Book).%New()
+ set pythonBook.IdBook = 4
+ set pythonBook.Name = "Learning Python, 5th Edition"
+ set pythonBook.Author = "Mark Lutz"
+ set pythonBookImage = ##class(%Stream.FileBinary).%New()
+ set pythonBookImage.Filename = "D:\study\postrenationaldbs\lab4\python.jpg"
+ do pythonBook.Image.CopyFrom(pythonBookImage)
+ 
+ // python chapters
+ set pythonChapterOne = ##class(Library.Chapter).%New()
+ set pythonChapterOne.Page = 1
+ set pythonChapterOne.Name = "Python Chapter One"
+ set pythonChapterOne.Book = pythonBook
+   
+ set pythonChapterTwo = ##class(Library.Chapter).%New()
+ set pythonChapterTwo.Page = 200
+ set pythonChapterTwo.Name = "Python Chapter Two"
+ set pythonChapterTwo.Book = pythonBook
+ 
+ do pythonBook.Chapters.Insert(pythonChapterOne)
+ do pythonBook.Chapters.Insert(pythonChapterTwo)
+ 
+ // Libraries
+ 
+ set kyivLibrary = ##class(Library.LibraryHouse).%New()
+ set kyivLibrary.IdLibrary = 1
+ set kyivLibrary.Name = "Kyiv Library"
+ set kyivLibrary.Contact = kyivLibraryContact
+ 
+ set pythonBook.LibraryHouse = kyivLibrary
+ set cppBook.LibraryHouse = kyivLibrary
+ 
+ 
+ do kyivLibrary.Books.Insert(pythonBook)
+ do kyivLibrary.Books.Insert(cppBook)
+ do kyivLibrary.Librarians.Insert(maria)
+ 
+ set odessaLibrary = ##class(Library.LibraryHouse).%New()
+ set odessaLibrary.IdLibrary = 2
+ set odessaLibrary.Name = "Odessa Library"
+ set odessaLibrary.Contact = odessaLibraryContact
+
+ set harryPotter.LibraryHouse = odessaLibrary
+ set lordOfTheRings.LibraryHouse = odessaLibrary
+   
+ do odessaLibrary.Books.Insert(harryPotter)
+ do odessaLibrary.Books.Insert(lordOfTheRings)
+ do odessaLibrary.Librarians.Insert(oleg)
+ 
+ do vasya.Books.Insert(pythonBook)
+ do vasya.Books.Insert(cppBook)
+ 
+ do petya.Books.Insert(harryPotter)
+ do petya.Books.Insert(lordOfTheRings)
+
+#;
+ do ##class(Library.LogHelper).LogUsingStatus(kyivReaderContact.%Save(), "kyivReaderContact")
+ do ##class(Library.LogHelper).LogUsingStatus(odessaReaderContact.%Save(), "odessaReaderContact")
+ do ##class(Library.LogHelper).LogUsingStatus(kyivLibrarianContact.%Save(), "kyivLibrarianContact")
+ do ##class(Library.LogHelper).LogUsingStatus(maria.%Save(), "maria")
+ do ##class(Library.LogHelper).LogUsingStatus(kyivLibrary.%Save(), "kyivLibrary")
+ do ##class(Library.LogHelper).LogUsingStatus(odessaLibrary.%Save(), "odessaLibrary")
+ do ##class(Library.LogHelper).LogUsingStatus(odessaLibrarianContact.%Save(), "odessaLibrarianContact")
+ do ##class(Library.LogHelper).LogUsingStatus(oleg.%Save(), "oleg")
+ do ##class(Library.LogHelper).LogUsingStatus(harryPotterChapterOne.%Save(), "harryPotterChapterOne")
+ do ##class(Library.LogHelper).LogUsingStatus(harryPotterChapterTwo.%Save(), "harryPotterChapterTwo")
+ do ##class(Library.LogHelper).LogUsingStatus(lordOfTheRingsChapterOne.%Save(), "lordOfTheRingsChapterOne")
+ do ##class(Library.LogHelper).LogUsingStatus(lordOfTheRingsChapterTwo.%Save(), "lordOfTheRingsChapterTwo")
+ do ##class(Library.LogHelper).LogUsingStatus(cppChapterOne.%Save(), "cppChapterOne")
+ do ##class(Library.LogHelper).LogUsingStatus(pythonChapterOne.%Save(), "pythonChapterOne")
+ do ##class(Library.LogHelper).LogUsingStatus(pythonChapterTwo.%Save(), "pythonChapterTwo")
+ do ##class(Library.LogHelper).LogUsingStatus(kyivLibraryContact.%Save(), "kyivLibraryContact")
+ do ##class(Library.LogHelper).LogUsingStatus(pythonBook.%Save(), "pythonBook")
+ do ##class(Library.LogHelper).LogUsingStatus(cppBook.%Save(), "cppBook")
+ do ##class(Library.LogHelper).LogUsingStatus(odessaLibraryContact.%Save(), "odessaLibraryContact")
+ do ##class(Library.LogHelper).LogUsingStatus(lordOfTheRings.%Save(), "lordOfTheRings")
+ do ##class(Library.LogHelper).LogUsingStatus(harryPotter.%Save(), "harryPotter")
+ do ##class(Library.LogHelper).LogUsingStatus(vasya.%Save(), "vasya")
+ do ##class(Library.LogHelper).LogUsingStatus(petya.%Save(), "petya")
+
+#; do ##class(Library.Contact).%KillExtent()
+#; do ##class(Library.Reader).%KillExtent()
+#; do ##class(Library.Librarian).%KillExtent()
+#; do ##class(Library.Book).%KillExtent()
+#; do ##class(Library.Chapter).%KillExtent()
+#; do ##class(Library.LibraryHouse).%KillExtent()
+#; do ##class(Library.Human).%KillExtent()
+
+#; // get page of the first chapter of the second book that vasya reads
+#; write !, "Page: ", vasya.Books.GetAt(1).Chapters.GetAt(2).Page
+#; 
+#; // Count of the books from Kyiv library
+#; write !, "Kyiv library has : ",  kyivLibrary.Books.Count(), " books",  !
+#; 
+#; 
+#; // List all the books that reads Petya
+#; for i = 1:1:petya.Books.Count() {
+#; 	write !, i, ": ", petya.Books.GetAt(i).Name
+#; }
+#; 
+#; // get the Street where Odessa's librarian lives
+#; write !, "Street: ", odessaLibrary.Librarians.GetAt(1).Contact.Street, !
+#; 
+#; // get the name of second chapter of the second book that petya reads
+#; write !, "Name of chapter: ", petya.Books.GetAt(2).Chapters.GetAt(2).Name, !
+#; 
+ 
+]]></Routine>
+
+
+<Class name="Library.Book">
+<Super>%Persistent</Super>
+<TimeChanged>65690,51435.763527</TimeChanged>
+<TimeCreated>65690,43297.614275</TimeCreated>
+
+<Property name="Name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Author">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Chapters">
+<Type>Library.Chapter</Type>
+<Cardinality>children</Cardinality>
+<Inverse>Book</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="LibraryHouse">
+<Type>Library.LibraryHouse</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Books</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="LibraryHouseIndex">
+<Properties>LibraryHouse</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Library.BookD</DataLocation>
+<DefaultData>BookDefaultData</DefaultData>
+<IdLocation>^Library.BookD</IdLocation>
+<IndexLocation>^Library.BookI</IndexLocation>
+<StreamLocation>^Library.BookS</StreamLocation>
+<ExtentSize>6</ExtentSize>
+<Data name="BookDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Id</Value>
+</Value>
+<Value name="3">
+<Value>Name</Value>
+</Value>
+<Value name="4">
+<Value>Author</Value>
+</Value>
+<Value name="5">
+<Value>Description</Value>
+</Value>
+<Value name="6">
+<Value>LibraryHouse</Value>
+</Value>
+<Value name="7">
+<Value>IdBook</Value>
+</Value>
+<Value name="8">
+<Value>Image</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="Author">
+<Selectivity>16.6667%</Selectivity>
+<AverageFieldSize>15.67</AverageFieldSize>
+</Property>
+<Property name="IdBook">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="Image">
+<Selectivity>16.6667%</Selectivity>
+<AverageFieldSize/>
+</Property>
+<Property name="LibraryHouse">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="Name">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>6.33</AverageFieldSize>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IdBookIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="LibraryHouseIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="IdBook">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="IdBookIndex">
+<Properties>IdBook</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Property name="Image">
+<Type>%FileBinaryStream</Type>
+</Property>
+</Class>
+
+
+<Class name="Library.Chapter">
+<Super>%Persistent</Super>
+<TimeChanged>65690,46076.232159</TimeChanged>
+<TimeCreated>65690,43156.557085</TimeCreated>
+
+<Property name="Page">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Book">
+<Type>Library.Book</Type>
+<Cardinality>parent</Cardinality>
+<Inverse>Chapters</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>{%%PARENT}("Chapters")</DataLocation>
+<DefaultData>ChapterDefaultData</DefaultData>
+<IdLocation>^Library.BookC("Chapters")</IdLocation>
+<IndexLocation>^Library.ChapterI</IndexLocation>
+<StreamLocation>^Library.ChapterS</StreamLocation>
+<ExtentSize>15</ExtentSize>
+<Data name="ChapterDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Page</Value>
+</Value>
+<Value name="3">
+<Value>Name</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>4.4</AverageFieldSize>
+</Property>
+<Property name="Book">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="Name">
+<Selectivity>16.6667%</Selectivity>
+<AverageFieldSize>22</AverageFieldSize>
+</Property>
+<Property name="Page">
+<Selectivity>6.6667%</Selectivity>
+<AverageFieldSize>4.87</AverageFieldSize>
+</Property>
+<Property name="childsub">
+<Selectivity>6.6667%</Selectivity>
+<AverageFieldSize>1.4</AverageFieldSize>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+</Class>
+
+
+<Class name="Library.Contact">
+<Super>%Persistent</Super>
+<TimeChanged>65690,46076.173529</TimeChanged>
+<TimeCreated>65683,66116.747979</TimeCreated>
+
+<Property name="City">
+<Type>%String</Type>
+</Property>
+
+<Property name="Street">
+<Type>%String</Type>
+</Property>
+
+<Property name="Phones">
+<Type>%String</Type>
+<Collection>array</Collection>
+</Property>
+
+<Property name="Contact">
+<Type>Library.Human</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Contact</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="LibraryContact">
+<Type>Library.LibraryHouse</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Contact</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Library.ContactD</DataLocation>
+<DefaultData>ContactDefaultData</DefaultData>
+<IdLocation>^Library.ContactD</IdLocation>
+<IndexLocation>^Library.ContactI</IndexLocation>
+<StreamLocation>^Library.ContactS</StreamLocation>
+<ExtentSize>6</ExtentSize>
+<Data name="ContactDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>City</Value>
+</Value>
+<Value name="3">
+<Value>Street</Value>
+</Value>
+</Data>
+<Data name="Phones">
+<Attribute>Phones</Attribute>
+<Structure>subnode</Structure>
+<Subscript>"Phones"</Subscript>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="City">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>6</AverageFieldSize>
+</Property>
+<Property name="Street">
+<Selectivity>16.6667%</Selectivity>
+<AverageFieldSize>16</AverageFieldSize>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+</Class>
+
+
+<Class name="Library.Human">
+<Abstract>1</Abstract>
+<Super>%Persistent,%XML.Adaptor</Super>
+<TimeChanged>65726,47239.063739</TimeChanged>
+<TimeCreated>65683,66717.247733</TimeCreated>
+
+<Property name="Name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Surname">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Contact">
+<Type>Library.Contact</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Contact</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="ContactIndex">
+<Properties>Contact</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Library.HumanD</DataLocation>
+<DefaultData>HumanDefaultData</DefaultData>
+<IdLocation>^Library.HumanD</IdLocation>
+<IndexLocation>^Library.HumanI</IndexLocation>
+<StreamLocation>^Library.HumanS</StreamLocation>
+<Data name="HumanDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Name</Value>
+</Value>
+<Value name="3">
+<Value>Surname</Value>
+</Value>
+<Value name="4">
+<Value>Birth</Value>
+</Value>
+<Value name="5">
+<Value>Contact</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Library.Librarian">
+<Super>Library.Human,%XML.Adaptor</Super>
+<TimeChanged>65726,47242.118841</TimeChanged>
+<TimeCreated>65683,66643.962965</TimeCreated>
+
+<Property name="Post">
+<Type>%String</Type>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DefaultData>LibrarianDefaultData</DefaultData>
+<ExtentSize>3</ExtentSize>
+<Data name="LibrarianDefaultData">
+<Subscript>"Librarian"</Subscript>
+<Value name="1">
+<Value>Id</Value>
+</Value>
+<Value name="2">
+<Value>Post</Value>
+</Value>
+<Value name="3">
+<Value>IdLibrarian</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>19</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>3</AverageFieldSize>
+</Property>
+<Property name="Contact">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="FullName">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>8</AverageFieldSize>
+</Property>
+<Property name="IdLibrarian">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>4.67</AverageFieldSize>
+</Property>
+<Property name="Name">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>4</AverageFieldSize>
+</Property>
+<Property name="Post">
+<Selectivity>50.0000%</Selectivity>
+<AverageFieldSize>6</AverageFieldSize>
+</Property>
+<Property name="Surname">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>3</AverageFieldSize>
+</Property>
+<SQLMap name="IdLibrarianIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="IdLibrarian">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="IdLibrarianIndex">
+<Properties>IdLibrarian</Properties>
+<Unique>1</Unique>
+</Index>
+</Class>
+
+
+<Class name="Library.LibraryHouse">
+<Super>%Persistent</Super>
+<TimeChanged>65690,46610.693814</TimeChanged>
+<TimeCreated>65690,45104.841305</TimeCreated>
+
+<Property name="Name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Contact">
+<Type>Library.Contact</Type>
+<Cardinality>one</Cardinality>
+<Inverse>LibraryContact</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="ContactIndex">
+<Properties>Contact</Properties>
+</Index>
+
+<Property name="Books">
+<Type>Library.Book</Type>
+<Cardinality>many</Cardinality>
+<Inverse>LibraryHouse</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Librarians">
+<Type>Librarian</Type>
+<Collection>list</Collection>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Library.LibraryHouseD</DataLocation>
+<DefaultData>LibraryHouseDefaultData</DefaultData>
+<IdLocation>^Library.LibraryHouseD</IdLocation>
+<IndexLocation>^Library.LibraryHouseI</IndexLocation>
+<StreamLocation>^Library.LibraryHouseS</StreamLocation>
+<ExtentSize>3</ExtentSize>
+<Data name="LibraryHouseDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Id</Value>
+</Value>
+<Value name="3">
+<Value>Name</Value>
+</Value>
+<Value name="4">
+<Value>Contact</Value>
+</Value>
+<Value name="5">
+<Value>Librarians</Value>
+</Value>
+<Value name="6">
+<Value>IdLibrary</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="Contact">
+<Selectivity>50.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="IdLibrary">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="Librarians">
+<Selectivity>50.0000%</Selectivity>
+<AverageFieldSize>4.67</AverageFieldSize>
+</Property>
+<Property name="Name">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>14</AverageFieldSize>
+</Property>
+<SQLMap name="ContactIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IdLibraryIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="IdLibrary">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="IdLibraryIndex">
+<Properties>IdLibrary</Properties>
+<Unique>1</Unique>
+</Index>
+</Class>
+
+
+<Class name="Library.LogHelper">
+<TimeChanged>65692,32192.351255</TimeChanged>
+<TimeCreated>65691,36447.125955</TimeCreated>
+
+<Method name="LogUsingStatus">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>StatusCode:%Integer,NameOfObject:%String</FormalSpec>
+<Language>objectscript</Language>
+<Implementation><![CDATA[
+ if (StatusCode '= 1) {
+	write !, "ERROR during saving "_NameOfObject, !
+ } else {
+	write !, "SUCCESS. Object "_NameOfObject_" SAVED to DB", !	 
+ }
+ quit
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Library.LogHelperD</DataLocation>
+<DefaultData>LogHelperDefaultData</DefaultData>
+<IdLocation>^Library.LogHelperD</IdLocation>
+<IndexLocation>^Library.LogHelperI</IndexLocation>
+<StreamLocation>^Library.LogHelperS</StreamLocation>
+<Data name="LogHelperDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Package name="Library" sqlname="Library"/>
+
+
+<Class name="Library.PopspecUtils">
+<TimeChanged>65693,52103.294437</TimeChanged>
+<TimeCreated>65691,45412.525349</TimeCreated>
+
+<Method name="PersonName">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+
+	s t1=$lb("BOB", "Alex", "Noshin")
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="PersonSurname">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+
+	s t1=$lb("Doe", "Melnychenko", "Freeman")
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="Post">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+	s t1=$lb("Head", "Trainee")
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="BookName">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+ 	s t1=$lb("Harry Potter", "Python", "C++", "Lord Of The Rings")
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="ChapterName">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+ 	s t1=$lb("Harry Potter Chapter One",
+ 	 "Harry Potter Chapter Two", 
+ 	 "Python Chapter One", 
+ 	 "Python Chapter Two", 
+ 	 "C++ Chapter One", 
+ 	 "Lord Of The Rings Chapter One", 
+ 	 "Lord Of The Rings Chapter Two"
+ 	 )
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="LibraryHouseName">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+ 	s t1=$lb("Kyiv Library", "Odessa Library", "Lutsk Library", "Lviv Library", "Kherson Library", "Kharkiv Library", "Rivne Library")
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="PhoneArrayKeys">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+ 	s t1=$lb("mobile", "phone")
+
+	return $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="Image">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%FileBinaryStream</ReturnType>
+<Implementation><![CDATA[
+ set image = ##class(%Stream.FileBinary).%New()
+ set image.Filename = "D:\study\postrenationaldbs\lab4\python.jpg"
+ 
+ return image
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Library.PopspecUtilsD</DataLocation>
+<DefaultData>PopspecUtilsDefaultData</DefaultData>
+<IdLocation>^Library.PopspecUtilsD</IdLocation>
+<IndexLocation>^Library.PopspecUtilsI</IndexLocation>
+<StreamLocation>^Library.PopspecUtilsS</StreamLocation>
+<Data name="PopspecUtilsDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Library.RESTService">
+<Super>%CSP.REST</Super>
+<TimeChanged>65726,43899.056892</TimeChanged>
+<TimeCreated>65725,57176.486439</TimeCreated>
+
+<XData name="UrlMap">
+<Data><![CDATA[
+<Routes>
+	<Route Url="/librarian/:id" Method="DELETE" Call="DeleteLibrarian"/>
+  	<Route Url="/librarian/:id" Method="PUT" Call="UpdateLibrarian"/>
+  	<Route Url="/librarian" Method="POST" Call="InsertLibrarian"/>
+  	<Route Url="/librarian/:id" Method="GET" Call="GetLibrarian"/>
+  	<Route Url="/librarians" Method="GET" Call="GetAllLibrarians"/>
+</Routes>
+]]></Data>
+</XData>
+
+<Method name="DeleteLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set st = $$$OK
+	try {
+		set st = ##class(Library.Librarian).%DeleteId(id)
+	}catch (ex){
+		set st = ex.AsStatus()
+	}
+	quit st
+]]></Implementation>
+</Method>
+
+<Method name="UpdateLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set st = $$$OK
+	try {
+		do ##class(%ZEN.Auxiliary.jsonProvider).%ConvertJSONToObject(
+		%request.Content, "Library.Librarian", .temp)
+		set librarian = ##class(Library.Librarian).%OpenId(id)
+		set librarian.Name = temp.Name
+		set librarian.Surname = temp.Surname
+		set librarian.Post = temp.Post
+		set st = librarian.%Save()
+	} catch (ex){
+		set st = ex.AsStatus()
+	}
+	quit st
+]]></Implementation>
+</Method>
+
+<Method name="InsertLibrarian">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set st = $$$OK
+	try {
+		do ##class(%ZEN.Auxiliary.jsonProvider).%ConvertJSONToObject(%request.Content, "Library.Librarian", .librarian)
+		set st = librarian.%Save()
+	} catch (ex) {
+		set st = ex.AsStatus()
+	}
+	quit st
+]]></Implementation>
+</Method>
+
+<Method name="GetLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set st = $$$OK
+	try {
+		do ##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(, "SELECT ID, Name, Surname, Post, IdLibrarian FROM Library.Librarian WHERE ID = "_id)
+	} catch (ex){
+		set st = ex.AsStatus()
+	}
+	quit st
+]]></Implementation>
+</Method>
+
+<Method name="GetAllLibrarians">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set st = $$$OK
+	try {
+		set metaData = $LISTBUILD("ID", "Name", "Surname", "Post", "IdLibrarian")
+		set index = 0
+		&sql(
+		DECLARE LibrarianCursor CURSOR FOR
+		SELECT ID, Name, Surname, Post, IdLibrarian FROM Library.Librarian
+		)
+		&sql(OPEN LibrarianCursor)
+		for
+		{
+			&sql(FETCH LibrarianCursor INTO :id, :name, :surname, :post, :idLibrarian)
+			quit:(SQLCODE '= 0)
+			set index = index + 1
+			set data(index) = $LISTBUILD(id, name, surname, post, idLibrarian)
+		}
+		&sql(CLOSE LibrarianCursor)
+		do ##class(%ZEN.Auxiliary.jsonProvider).%ArrayToJSON(.metaData, .data)
+	}
+	catch (ex){
+		set st = ex.AsStatus()
+	}
+	quit st
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Library.Reader">
+<Super>Library.Human</Super>
+<TimeChanged>65690,46610.74948</TimeChanged>
+<TimeCreated>65683,66706.295026</TimeCreated>
+
+<Property name="Books">
+<Type>Book</Type>
+<Collection>list</Collection>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DefaultData>ReaderDefaultData</DefaultData>
+<ExtentSize>4</ExtentSize>
+<Data name="ReaderDefaultData">
+<Subscript>"Reader"</Subscript>
+<Value name="1">
+<Value>Id</Value>
+</Value>
+<Value name="2">
+<Value>Books</Value>
+</Value>
+<Value name="3">
+<Value>IdReader</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>16</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>3</AverageFieldSize>
+</Property>
+<Property name="Books">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="Contact">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="FullName">
+<Selectivity>25.0000%</Selectivity>
+<AverageFieldSize>11.25</AverageFieldSize>
+</Property>
+<Property name="IdReader">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="Name">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>4.25</AverageFieldSize>
+</Property>
+<Property name="Surname">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>6</AverageFieldSize>
+</Property>
+<SQLMap name="IdReaderIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="IdReader">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="IdReaderIndex">
+<Properties>IdReader</Properties>
+<Unique>1</Unique>
+</Index>
+</Class>
+
+
+<Class name="Library.RestClient">
+<TimeChanged>65726,36947.514727</TimeChanged>
+<TimeCreated>65725,63694.950527</TimeCreated>
+
+<Method name="DeleteLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%Integer</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set request = ##class(%Net.HttpRequest).%New()
+	set sc = request.Delete("http://localhost:52773/rest/librarian/"_id)
+	Quit:$System.Status.IsError(sc) sc
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%Integer</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set request = ##class(%Net.HttpRequest).%New()
+	set sc = request.Get("http://localhost:52773/rest/librarian/"_id)
+	Quit:$System.Status.IsError(sc) sc
+	Set responseStream = ##class(%Stream.GlobalBinary).%New()
+	Set response = request.HttpResponse.Data.Read()
+	set sc = ##class(%ZEN.Auxiliary.jsonProvider).%ConvertJSONToObject(response, , .librarian)
+	Quit:$System.Status.IsError(sc) sc
+	write librarian.Name, !, librarian.Surname, !
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetLibrarians">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set request = ##class(%Net.HttpRequest).%New()
+	set sc = request.Get("http://localhost:52773/rest/librarians")
+	Quit:$System.Status.IsError(sc) sc
+	Set responseStream = ##class(%Stream.GlobalBinary).%New()
+	Set response = request.HttpResponse.Data.Read()
+	w response, !
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="UpdateLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%Integer,Name:%String,Surname:%String,Post:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	#; WHAT THE FUCK
+	set request = ##class(%Net.HttpRequest).%New()
+	Set body = ##class(%ZEN.proxyObject).%New()
+	set body.Name = Name
+	set body.Surname = Surname
+	set body.Post = Post
+	w body.%ToJSON(), !
+	do request.EntityBody.Write( body.%ToJSON() )
+	w request, !
+	set sc = request.Post("http://localhost:52773/rest/librarian/"_id)
+	Quit:$System.Status.IsError(sc) sc
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="CreateLibrarian">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>Name:%String,Surname:%String,Post:%String,idLibrarian:%Integer</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	#; WHAT THE FUCK
+	set request = ##class(%Net.HttpRequest).%New()
+#;	Set body = ##class(%ZEN.proxyObject).%New()
+#;	set body.Name = Name
+#;	set body.Surname = Surname
+#;	set body.Post = Post
+#;	set body.idLibrarian = idLibrarian
+
+	do request.InsertFormData("Name", Name)
+	do request.InsertFormData("Surname", Surname)
+	do request.InsertFormData("Post", Post)
+	do request.InsertFormData("idLibrarian", idLibrarian)
+#;	do request.EntityBody.Write( body.%ToJSON() )
+	w request, !!
+	set sc = request.Post("http://localhost:52773/rest/librarian")
+	w sc, !
+	Quit:$System.Status.IsError(sc) sc
+	Quit $$$OK
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Library.TestLibraryHouse">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,46669.579751</TimeChanged>
+<TimeCreated>65691,41294.546409</TimeCreated>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  do ##class(Library.Book).%KillExtent()
+  return ##class(Library.LibraryHouse).%KillExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestDeletingObject">
+<Implementation><![CDATA[
+	set libraryHouse = ##class(Library.LibraryHouse).%New()
+	set libraryHouse.Name = "KyivLibrary"
+	set libraryHouse.IdLibrary = 1
+ 
+    set status = libraryHouse.%Save()
+
+    do $$$AssertStatusOK(libraryHouse, "Library saved")
+    
+    set libraryHouseId = libraryHouse.%Id()
+    set status = ##class(Library.LibraryHouse).%DeleteId(libraryHouseId)
+    
+    do $$$AssertStatusOK(status, "Library Deleted from DB")
+]]></Implementation>
+</Method>
+
+<Method name="TestDeletingOneToMany">
+<Implementation><![CDATA[
+	set kyivLibrary = ##class(Library.LibraryHouse).%New()
+	set kyivLibrary.Name = "KyivLibrary"
+	set kyivLibrary.IdLibrary = 1
+ 
+ 	set cppBook = ##class(Library.Book).%New()
+ 	set cppBook.IdBook = 3
+ 	set cppBook.Name = "The C++ Programming Language"
+ 	set cppBook.Author = "JBjarne Stroustrup"
+ 	
+ 	set cppBook.LibraryHouse = kyivLibrary
+ 	do kyivLibrary.Books.Insert(cppBook)
+ 	do $$$AssertEquals(kyivLibrary.Books.Count(), 1, "Kyiv library should have one book")
+ 	
+ 	
+ 	set status = cppBook.%Save()
+ 	do $$$AssertStatusOK(cppBook, "CPP Book saved")
+ 	
+ 	set status = kyivLibrary.%Save()
+ 	do $$$AssertStatusOK(kyivLibrary, "Kyiv Library saved")
+ 	
+ 	set kyivLibraryId = kyivLibrary.%Id()
+    set status = ##class(Library.LibraryHouse).%DeleteId(kyivLibraryId)
+    
+    do $$$AssertStatusNotOK(status, "It should fail until cpp book points to kyivLibrary")
+    
+    do kyivLibrary.Books.Clear()
+    do ##class(Library.Book).%DeleteId(cppBook.%Id())
+    do kyivLibrary.%Save()
+
+    set kyivLibraryId = kyivLibrary.%Id()
+    
+    write !, "Library Id: "_kyivLibraryId, !
+    
+    set status = ##class(Library.LibraryHouse).%DeleteId(kyivLibraryId)
+    
+    do $$$AssertStatusOK(status, "Successfully delete Kyiv library from DB")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Library.TestReader">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,39839.779639</TimeChanged>
+<TimeCreated>65690,69742.784236</TimeCreated>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ##class(Library.Reader).%KillExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestPersonCreation">
+<Implementation><![CDATA[
+
+ set reader = ##class(Library.Reader).%New()
+ 
+ do $$$AssertTrue($isobject(reader), "Create new reader")
+
+ set status = reader.%Save()
+
+ do $$$AssertStatusNotOK(status, "Name is required")
+
+ set reader.Name = "John"
+ 
+ set status = reader.%Save()
+
+ do $$$AssertStatusNotOK(status, "Surname is required")
+ 
+ set reader.Surname = "Doe"
+ 
+ set status = reader.%Save()
+
+ do $$$AssertStatusNotOK(status, "Id reader is required")
+ 
+ set reader.IdReader = 6
+
+ set status = reader.%Save()
+
+ do $$$AssertStatusOK(reader, "Person saved")
+]]></Implementation>
+</Method>
+
+<Method name="TestQniquePerson">
+<Implementation><![CDATA[
+
+ set reader = ##class(Library.Reader).%New()
+ set reader.Name = "John"
+ set reader.Surname = "Doe"
+ set reader.IdReader = 6
+ set status = reader.%Save()
+
+ do $$$AssertStatusNotOK(status, "Id reader should be unique")
+ 
+ set reader.IdReader = 5
+ set status = reader.%Save()
+ do $$$AssertStatusOK(reader, "Person saved")
+]]></Implementation>
+</Method>
+
+<Method name="TestConstraintFields">
+<Implementation><![CDATA[
+ set reader = ##class(Library.Reader).%New()
+ 
+ set reader.Name = "" 
+ set status = reader.%Save()
+ do $$$AssertStatusNotOK(status, "MIN Length for Name is 1")
+ 
+ 
+ set reader.Name = "1111111111111111111111111111111" // 31 - chars
+ set status = reader.%Save()
+ do $$$AssertStatusNotOK(status, "MAX Length for Name is 30")
+   
+   
+ set reader.Name = "John"
+ 
+ 
+ set reader.Surname = "" 
+ set status = reader.%Save()
+ do $$$AssertStatusNotOK(status, "MIN Length for Surname is 1")
+ 
+ 
+ set reader.Surname = "2222222222222222222222222222222" // 31 - chars
+ set status = reader.%Save()
+ do $$$AssertStatusNotOK(status, "MAX Length for Surname is 30")
+ 
+ set reader.Surname = "Doe" 
+ set reader.IdReader = 1
+
+ set status = reader.%Save()
+ do $$$AssertStatusOK(reader, "Person saved")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Soap.SoapService">
+<ProcedureBlock>1</ProcedureBlock>
+<Super>%SOAP.WebService</Super>
+<TimeChanged>65727,75840.545977</TimeChanged>
+<TimeCreated>65726,48591.956415</TimeCreated>
+
+<Parameter name="SERVICENAME">
+<Description>
+Name of the WebService.</Description>
+<Default>SoapService</Default>
+</Parameter>
+
+<Parameter name="NAMESPACE">
+<Description>
+TODO: change this to actual SOAP namespace.
+SOAP Namespace for the WebService</Description>
+<Default>http://tempuri.org</Default>
+</Parameter>
+
+<Parameter name="USECLASSNAMESPACES">
+<Description>
+Namespaces of referenced classes will be used in the WSDL.</Description>
+<Default>2</Default>
+</Parameter>
+
+<Method name="Test">
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[    Quit "This works"
+]]></Implementation>
+</Method>
+
+<Method name="GetLibrarians">
+<ReturnType>%XML.DataSet</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+  set dataset=##class(%XML.DataSet).%New("%DynamicQuery:SQL")
+  set mysql = "SELECT ID, Name, Surname, Post, IdLibrarian FROM Library.Librarian"
+  set status=dataset.Prepare(mysql)
+  Quit dataset
+]]></Implementation>
+</Method>
+
+<Method name="DeleteLibrarianById">
+<FormalSpec>id:%String</FormalSpec>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+ set sc = ##class(Library.Librarian).%DeleteId(id)
+
+ if sc {
+   Quit "true"
+ } else {
+   set fault=..MakeStatusFault($$$FAULTSender,"Delete librarian ISSUE",sc)
+   Do ..ReturnFault(fault)
+
+ Quit "false"
+}
+]]></Implementation>
+</Method>
+
+<Method name="CreateLibrarian">
+<FormalSpec>librarian:Library.Librarian</FormalSpec>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+ set sc = librarian.%Save()
+
+ if sc {
+   Quit "true"
+ } else {
+   set fault=..MakeStatusFault($$$FAULTSender,"Save librarian ISSUE",sc)
+   Do ..ReturnFault(fault)
+
+ Quit "false"
+}
+]]></Implementation>
+</Method>
+
+<Method name="UpdateLibrarian">
+<FormalSpec>id:%String,librarian:Library.Librarian</FormalSpec>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+ set librarianFromDB = ##class(Library.Librarian).%OpenId(id)  
+ 
+ if librarianFromDB = ""{
+   set fault=..MakeStatusFault($$$FAULTServer,"Librarian doesn't exist", "Please input correct librarian ID")
+    Do ..ReturnFault(fault)
+    
+    Quit "false"
+ }
+
+ if librarianFromDB '= ""{
+  set librarianFromDB.Name = librarian.Name
+  set librarianFromDB.Surname = librarian.Surname
+  set librarianFromDB.Post = librarian.Post
+  set librarianFromDB.IdLibrarian = librarian.IdLibrarian
+   set sc = librarianFromDB.%Save()
+   
+   if sc {
+     Quit "true"
+    } else {
+     set fault=..MakeStatusFault($$$FAULTServer,"Save Librarian ISSUE", sc)
+     Do ..ReturnFault(fault)
+
+     Quit "false"
+   }
+ }
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="SoapService.Human">
+<Description>
+Создано из: http://localhost:52773/csp/user/Soap.SoapService.cls?wsdl</Description>
+<Abstract>1</Abstract>
+<ProcedureBlock>1</ProcedureBlock>
+<Super>%RegisteredObject,%XML.Adaptor</Super>
+<TimeChanged>65726,50210.598565</TimeChanged>
+<TimeCreated>65726,50210.595796</TimeCreated>
+
+<Parameter name="ELEMENTQUALIFIED">
+<Default>1</Default>
+</Parameter>
+
+<Parameter name="NAMESPACE">
+<Default>http://tempuri.org</Default>
+</Parameter>
+
+<Parameter name="XMLNAME">
+<Default>Human</Default>
+</Parameter>
+
+<Parameter name="XMLSEQUENCE">
+<Default>1</Default>
+</Parameter>
+
+<Property name="Name">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="MAXLEN"/>
+<Parameter name="XMLNAME" value="Name"/>
+</Property>
+
+<Property name="Surname">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="MAXLEN"/>
+<Parameter name="XMLNAME" value="Surname"/>
+</Property>
+</Class>
+
+
+<Class name="SoapService.Librarian">
+<Description>
+Создано из: http://localhost:52773/csp/user/Soap.SoapService.cls?wsdl</Description>
+<ProcedureBlock>1</ProcedureBlock>
+<Super>SoapService.Human</Super>
+<TimeChanged>65726,50210.599917</TimeChanged>
+<TimeCreated>65726,50210.598849</TimeCreated>
+
+<Parameter name="ELEMENTQUALIFIED">
+<Default>1</Default>
+</Parameter>
+
+<Parameter name="NAMESPACE">
+<Default>http://tempuri.org</Default>
+</Parameter>
+
+<Parameter name="XMLNAME">
+<Default>Librarian</Default>
+</Parameter>
+
+<Property name="Post">
+<Type>%String</Type>
+<Parameter name="MAXLEN"/>
+<Parameter name="XMLNAME" value="Post"/>
+</Property>
+
+<Property name="IdLibrarian">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="XMLNAME" value="IdLibrarian"/>
+</Property>
+</Class>
+
+
+<Class name="SoapService.SoapServiceSoap">
+<ProcedureBlock>1</ProcedureBlock>
+<Super>%SOAP.WebClient</Super>
+<TimeChanged>65726,50210.594835</TimeChanged>
+<TimeCreated>65726,50210.592299</TimeCreated>
+
+<Method name="CreateLibrarian">
+<Final>1</Final>
+<FormalSpec>librarian:SoapService.Librarian</FormalSpec>
+<ProcedureBlock>1</ProcedureBlock>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<SoapBindingStyle>document</SoapBindingStyle>
+<SoapBodyUse>literal</SoapBodyUse>
+<Implementation><![CDATA[ Quit ..WebMethod("CreateLibrarian").Invoke($this,"http://tempuri.org/Soap.SoapService.CreateLibrarian",.librarian)
+]]></Implementation>
+</Method>
+
+<Method name="DeleteLibrarianById">
+<Final>1</Final>
+<FormalSpec>id:%String</FormalSpec>
+<ProcedureBlock>1</ProcedureBlock>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<SoapBindingStyle>document</SoapBindingStyle>
+<SoapBodyUse>literal</SoapBodyUse>
+<Implementation><![CDATA[ Quit ..WebMethod("DeleteLibrarianById").Invoke($this,"http://tempuri.org/Soap.SoapService.DeleteLibrarianById",.id)
+]]></Implementation>
+</Method>
+
+<Method name="Forecast">
+<Final>1</Final>
+<FormalSpec>StockName:%String</FormalSpec>
+<ProcedureBlock>1</ProcedureBlock>
+<ReturnType>%Integer</ReturnType>
+<WebMethod>1</WebMethod>
+<SoapBindingStyle>document</SoapBindingStyle>
+<SoapBodyUse>literal</SoapBodyUse>
+<Implementation><![CDATA[ Quit ..WebMethod("Forecast").Invoke($this,"http://tempuri.org/Soap.SoapService.Forecast",.StockName)
+]]></Implementation>
+</Method>
+
+<Method name="GetLibrarians">
+<Final>1</Final>
+<ProcedureBlock>1</ProcedureBlock>
+<ReturnType>%XML.DataSet</ReturnType>
+<WebMethod>1</WebMethod>
+<SoapBindingStyle>document</SoapBindingStyle>
+<SoapBodyUse>literal</SoapBodyUse>
+<Implementation><![CDATA[ Quit ..WebMethod("GetLibrarians").Invoke($this,"http://tempuri.org/Soap.SoapService.GetLibrarians")
+]]></Implementation>
+</Method>
+
+<Method name="UpdateLibrarian">
+<Final>1</Final>
+<FormalSpec>id:%String,librarian:SoapService.Librarian</FormalSpec>
+<ProcedureBlock>1</ProcedureBlock>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<SoapBindingStyle>document</SoapBindingStyle>
+<SoapBodyUse>literal</SoapBodyUse>
+<Implementation><![CDATA[ Quit ..WebMethod("UpdateLibrarian").Invoke($this,"http://tempuri.org/Soap.SoapService.UpdateLibrarian",.id,.librarian)
+]]></Implementation>
+</Method>
+
+<Parameter name="LOCATION">
+<Description>
+This is the URL used to access the web service.</Description>
+<Default>http://localhost:52773/csp/user/Soap.SoapService.cls</Default>
+</Parameter>
+
+<Parameter name="NAMESPACE">
+<Description>
+This is the namespace used by the Service</Description>
+<Default>http://tempuri.org</Default>
+</Parameter>
+
+<Parameter name="OUTPUTTYPEATTRIBUTE">
+<Description>
+Use xsi:type attribute for literal types.</Description>
+<Default>1</Default>
+</Parameter>
+
+<Parameter name="SECURITYIN">
+<Description>
+Determines handling of Security header.</Description>
+<Default>ALLOW</Default>
+</Parameter>
+
+<Parameter name="SERVICENAME">
+<Description>
+This is the name of the Service</Description>
+<Default>SoapService</Default>
+</Parameter>
+
+<Parameter name="SOAPVERSION">
+<Description>
+This is the SOAP version supported by the service.</Description>
+<Default>1.1</Default>
+</Parameter>
+</Class>
+
+
+<Package name="User"/>
+
+
+<CSP name="ContactUpdated.CSP" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Lab7</title>
+</head>
+<body>
+	<p>Create Contact</p>
+	<form name="Create" method="POST" action="ContactUpdated.csp">
+		<table>
+			<tr>
+				<td>City <input type="Text" name="City"></td>
+				<td>Street <input type="Text" name="Street"></td>
+				<td><input type="submit" name="Action" value="Create"></td>
+			</tr>
+		</table>
+	</form>
+	<p>Update Contact</p>
+	<form name="Update" method="POST" action="ContactUpdated.csp">
+		<table>
+			<tr>
+				<td>ID: <input type="Text" name="ID"></td>
+				<td>City <input type="Text" name="City"></td>
+				<td>Street <input type="Text" name="Street"></td>
+				<td><input type="submit" name="Action" value="Update"></td>
+			</tr>
+		</table>
+	</form>
+	<p>Delete Contact by ID</p>
+	<form name="Delete" method="POST" action="ContactUpdated.csp">
+		<table>
+			<tr>
+				<td>ID: <input type="Text" name="ID"></td>
+				<td><input type="submit" name="Action" value="Delete"></td>
+				</tr>
+		</table>
+	</form>
+	<table style="width: 100%; background: #ddd; text-align: center">
+		<csp:SQLQUERY NAME='query'>
+			SELECT ID, City, Street FROM Library.Contact
+		</csp:SQLQUERY>
+		<tr style="font-size: 24px; font-weight: bold; text-transform: uppercase">
+				<td width="200">ID</td>
+				<td width="400" >City</td>
+				<td width="600">Street</td>
+		</tr>
+		<csp:while condition="query.Next()">
+			<tr>
+				<td width="200">#(query.Get("ID"))#</td>
+				<td width="400">#(query.Get("City"))#</td>
+				<td width="600">#(query.Get("Street"))#</td>
+			</tr>
+		</csp:while>
+	</table>
+	<a href="/csp/user/ContactUpdated.csp">Reload</a>
+</body>
+</html>
+<script language="Cache" runat="SERVER">  
+   If ($Data(%request.Data("Action",1))) {
+
+      If (%request.Data("Action", 1)="Create"){
+	      set city = %request.Data("City", 1)
+	      set street = %request.Data("Street", 1)
+	      
+	      SET myquery="INSERT INTO Library.Contact (City, Street) VALUES(:city, :street)"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(city, street)
+ 		 
+      }
+      If (%request.Data("Action", 1)="Delete"){
+	      set ID = %request.Data("ID", 1)
+	      SET myquery="Delete Library.Contact Where ID = :ID"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(ID)
+      }
+      If (%request.Data("Action", 1)="Update"){
+	      set id = %request.Data("ID", 1)
+	      set city = %request.Data("City", 1)
+	      set street = %request.Data("Street", 1)
+	      
+	      SET myquery="UPDATE Library.Contact SET City = :city, Street = :street WHERE ID = :id"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(city, street, id)
+      }
+   }
+   
+   quit "/csp/user/ContactUpdated.csp"
+</script>
+
+
+]]></CSP>
+
+
+<CSP name="LibrarianUpdated.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Lab7</title>
+<style>
+ tr:nth-child(odd) {background: #CCC}
+ form {
+	text-align: center; 
+	padding: 10px;
+  }
+ form > div {
+	 padding: 5px 0;
+ }
+ p {
+	 text-transform: uppercase;
+	 text-decoration: underline;
+	 text-align: center;
+ }
+</style>
+</head>
+<body>
+	<p>Create Librarian</p>
+	<form name="Create" method="POST" action="LibrarianUpdated.csp" style="background: rgba(255, 0, 0, 0.1);">
+		<div>Name <input type="Text" name="Name"></div>
+		<div>Surname <input type="Text" name="Surname"></div>
+		<div>IdLibrarian <input type="Text" name="IdLibrarian"></div>
+		<div>Post <input type="Text" name="Post"></div>
+		<div><input type="submit" name="Action" value="Create"></div>
+	</form>
+	<p>Update Librarian</p>
+	<form name="Update" method="POST" action="LibrarianUpdated.csp" style="background: rgba(0, 255, 0, 0.1);">
+		<div>ID: <input type="Text" name="ID"></div>
+		<div>Name <input type="Text" name="Name"></div>
+		<div>Surname <input type="Text" name="Surname"></div>
+		<div>IdLibrarian <input type="Text" name="IdLibrarian"></div>
+		<div>Post <input type="Text" name="Post"></div>
+		<div><input type="submit" name="Action" value="Update"></div>
+	</form>
+	<p>Delete Librarian by ID</p>
+	<form name="Delete" method="POST" action="LibrarianUpdated.csp" style="background: rgba(0, 0, 255, 0.1);">
+		<div>ID: <input type="Text" name="ID"></div>
+		<div><input type="submit" name="Action" value="Delete"></div>
+	</form>
+	<table style="width: 100%; text-align: center">
+		<csp:SQLQUERY NAME='query'>
+			SELECT ID, Name, Surname, IdLibrarian, Post FROM Library.Librarian
+		</csp:SQLQUERY>
+		<tr style="font-size: 24px; background: #fff; font-weight: bold; text-transform: uppercase">
+				<td width="200">ID</td>
+				<td>Name</td>
+				<td>Surname</td>
+				<td>IdLibrarian</td>
+				<td>Post</td>
+		</tr>
+		<csp:while condition="query.Next()">
+			<tr>
+				<td width="200">#(query.Get("ID"))#</td>
+				<td width="400">#(query.Get("Name"))#</td>
+				<td width="600">#(query.Get("Surname"))#</td>
+				<td width="600">#(query.Get("IdLibrarian"))#</td>
+				<td width="600">#(query.Get("Post"))#</td>
+			</tr>
+		</csp:while>
+	</table>
+	<a href="/csp/user/LibrarianUpdated.csp">Reload</a>
+</body>
+</html>
+<script language="Cache" runat="SERVER">  
+   If ($Data(%request.Data("Action",1))) {
+
+      If (%request.Data("Action", 1)="Create"){
+	      set name = %request.Data("Name", 1)
+	      set surname = %request.Data("Surname", 1)
+	      set idLibrarian = %request.Data("IdLibrarian", 1)
+	      set post = %request.Data("Post", 1)
+	      
+	      SET myquery="INSERT INTO Library.Librarian (Name, Surname, IdLibrarian, Post) VALUES(:name, :surname, :idLibrarian, :post)"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(name, surname, idLibrarian, post)
+ 		 
+      }
+      If (%request.Data("Action", 1)="Delete"){
+	      set ID = %request.Data("ID", 1)
+	      SET myquery="Delete Library.Librarian Where ID = :ID"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(ID)
+      }
+      If (%request.Data("Action", 1)="Update"){
+	      set id = %request.Data("ID", 1)
+	      set name = %request.Data("Name", 1)
+	      set surname = %request.Data("Surname", 1)
+	      set idLibrarian = %request.Data("IdLibrarian", 1)
+	      set post = %request.Data("Post", 1)
+	      
+	      SET myquery="UPDATE Library.Librarian SET Name = :name, Surname = :surname, IdLibrarian = :idLibrarian, Post = :post WHERE ID = :id"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(name, surname, idLibrarian, post, id)
+      }
+   }
+      
+   quit "/csp/user/LibrarianUpdated.csp"
+</script>
+
+
+]]></CSP>
+
+
+<CSP name="book.csp" application="/csp/user/" default="1"><![CDATA[
+
+<head>
+<title>Cache Server Page - Library.Book (USER)</title>
+</head>
+<h1 align='center'>Library.Book</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+<!--
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+// -->
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Book' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Book' where='IdBook' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><b><div align='right'>*Author:</div></b></td>
+		<td><input type='text' name='Author' cspbind='Author' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*IdBook:</div></b></td>
+		<td><input type='text' name='IdBook' cspbind='IdBook' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+]]></CSP>
+
+
+<CSP name="chapter.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.Chapter (USER)</title>
+</head>
+
+<body>
+
+<h1 align='center'>Library.Chapter</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Chapter' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Chapter' where='%Id()' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><font color='#666666'><b><div align='right'>*Book:</div></b></font></td>
+		<td><input type='text' name='Book' cspbind='Book' size='10' csprequired readonly></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Page:</div></b></td>
+		<td><input type='text' name='Page' cspbind='Page' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="contact.csp" application="/csp/user/" default="1"><![CDATA[
+
+<head>
+<title>Cache Server Page - Library.Contact (USER)</title>
+</head>
+<h1 align='center'>Library.Contact</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+<!--
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+// -->
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Contact' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Contact' where='%Id()' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><b><div align='right'>Street:</div></b></td>
+		<td><input type='text' name='Street' cspbind='Street' size='50'></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>City:</div></b></td>
+		<td><input type='text' name='City' cspbind='City' size='50'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+</table>
+</center>
+</form>
+]]></CSP>
+
+
+<CSP name="librarian.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.Librarian (USER)</title>
+</head>
+<body>
+<h1 align='center'>Library.Librarian</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+function updateContact(id)
+{
+     #server(..formContactLoad(id))#;
+     return true;
+}
+
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Librarian' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Librarian' where='IdLibrarian' options='popup,nopredicates' onselect='update'>
+
+<csp:search name='findContact' classname='Library.Contact' where='City' options='popup,nopredicates' caption='Contact City' startvalues='ContactCity' onselect='updateContact'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><input type='hidden' size='10' name='ContactID' cspbind='Contact'>
+	<a href='javascript:findContact();'><b><div align='right'>Contact City:</div></b></a></td>
+		<td><input type='text' name='Contact' cspbind='Contact.City' size='10' readonly></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*IdLibrarian:</div></b></td>
+		<td><input type='text' name='IdLibrarian' cspbind='IdLibrarian' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>Post:</div></b></td>
+		<td><input type='text' name='Post' cspbind='Post' size='50'></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Surname:</div></b></td>
+		<td><input type='text' name='Surname' cspbind='Surname' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="libraryhouse.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.LibraryHouse (USER)</title>
+</head>
+<body>
+<h1 align='center'>Library.LibraryHouse</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+function updateContact(id)
+{
+     #server(..formContactLoad(id))#;
+     return true;
+}
+
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.LibraryHouse' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.LibraryHouse' where='IdLibrary' options='popup,nopredicates' onselect='update'>
+
+<csp:search name='findContact' classname='Library.Contact' where='City' options='popup,nopredicates' caption='Contact City' startvalues='ContactCity' onselect='updateContact'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><input type='hidden' size='10' name='ContactID' cspbind='Contact'>
+	<a href='javascript:findContact();'><b><div align='right'>Contact City:</div></b></a></td>
+		<td><input type='text' name='Contact' cspbind='Contact.City' size='10' readonly></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*IdLibrary:</div></b></td>
+		<td><input type='text' name='IdLibrary' cspbind='IdLibrary' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="mycspProgram.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+
+<!-- Put your page Title here -->
+<title>	Cache Server Page </title>
+
+</head>
+
+<body>
+
+		<!-- Put your page code here -->
+		My page body 1
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="reader.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.Reader (USER)</title>
+</head>
+<body>
+<h1 align='center'>Library.Reader</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Reader' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Reader' where='IdReader,IdReader' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><b><div align='right'>*IdReader:</div></b></td>
+		<td><input type='text' name='IdReader' cspbind='IdReader' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Surname:</div></b></td>
+		<td><input type='text' name='Surname' cspbind='Surname' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="rest.CSP" application="/csp/user/" default="1"><![CDATA[
+<!doctype html>
+<html>
+<head>
+<title>REST</title>
+<script language="javascript">
+var data = [];
+var url = "http://localhost:52773/rest";
+
+
+function getLibrarians() {
+    // ?????? GET ? RESTful web API
+    fetch(url + "/librarians", { method: "GET" }).then(function(response) { return response.json() }).then(function(data) {
+		var div = document.createElement("div");
+		div.textContent = JSON.stringify(data);
+		document.body.append(div);    
+	})
+};
+
+getLibrarians();
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>]]></CSP>
+
+
+<Routine name="lab7" type="MAC" languagemode="0" timestamp="65726,40122.771367"><![CDATA[
+#; do ##class(Library.RestClient).GetLibrarian(1)
+ do ##class(Library.RestClient).GetLibrarians()
+ do ##class(Library.RestClient).CreateLibrarian("NEW NAME", "NEW SURNAME", "NEW POST", 10)
+ do ##class(Library.RestClient).GetLibrarians()
+#; do ##class(Library.RestClient).UpdateLibrarian(5, "NEW NAME 1", "NEW SURNAME 1", "NEW POST 1")
+ do ##class(Library.RestClient).GetLibrarians()
+#; do ##class(Library.RestClient).DeleteLibrarian(5)
+
+]]></Routine>
+
+
+<Project name="lab7" LastModified="2020-12-14 20:31:47.37067" Target="^Lab4" TargetType="2">
+  <Items>
+    <ProjectItem name="Lab4.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="Library" type="PKG"></ProjectItem>
+    <ProjectItem name="Soap.SoapService" type="CLS"></ProjectItem>
+    <ProjectItem name="SoapService.Human" type="CLS"></ProjectItem>
+    <ProjectItem name="SoapService.Librarian" type="CLS"></ProjectItem>
+    <ProjectItem name="SoapService.SoapServiceSoap" type="CLS"></ProjectItem>
+    <ProjectItem name="User" type="PKG"></ProjectItem>
+    <ProjectItem name="csp/user/ContactUpdated.CSP" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/LibrarianUpdated.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/book.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/chapter.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/contact.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/librarian.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/libraryhouse.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/mycspProgram.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/reader.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/rest.CSP" type="CSP"></ProjectItem>
+    <ProjectItem name="lab7.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="lab7soap.MAC" type="MAC"></ProjectItem>
+  </Items>
+</Project>
+
+
+<Routine name="lab7soap" type="MAC" languagemode="0" timestamp="65726,50913.369493"><![CDATA[
+ set t = ##class(Soap.SoapService).%New()
+ set statement = t.GetLibrarians()
+ w statement, !
+ set resultSet = statement.%Execute()
+ w resultSet, !
+		if (resultSet.%SQLCODE = 0) {
+			do resultSet.%Display()
+		} else {
+			w resultSet.%SQLCODE 
+		}
+]]></Routine>
+</Export>

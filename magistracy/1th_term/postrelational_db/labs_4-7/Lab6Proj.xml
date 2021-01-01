@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2020.1 (Build 215U)" ts="2020-12-17 17:16:08">
+<Class name="Blog.Media">
+<Description>
+Abstract class for different media.</Description>
+<DdlAllowed>1</DdlAllowed>
+<Super>%Persistent,%Library.Populate</Super>
+<TimeChanged>65716,79166.847453</TimeChanged>
+<TimeCreated>65676,74639.213252</TimeCreated>
+
+<Property name="compatibleProgramNames">
+<Type>%String</Type>
+<Collection>list</Collection>
+<Parameter name="POPSPEC" value="Product():5"/>
+</Property>
+
+<Property name="data">
+<Type>%Stream.FileBinary</Type>
+<Parameter name="POPSPEC" value=".getData()"/>
+</Property>
+
+<Property name="size">
+<Type>%Integer</Type>
+<InitialExpression>0</InitialExpression>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+<Parameter name="POPSPEC" value="Integer(0, 100000)"/>
+</Property>
+
+<Property name="name">
+<Type>%String</Type>
+<InitialExpression>"Default"</InitialExpression>
+<Required>1</Required>
+<Parameter name="MAXLEN" value="300"/>
+<Parameter name="MINLEN" value="1"/>
+<Parameter name="POPSPEC" value="Name(&quot;M&quot;)"/>
+</Property>
+
+<Index name="nameIndex">
+<Properties>name</Properties>
+</Index>
+
+<Property name="id">
+<Type>%Integer</Type>
+<InitialExpression>45623423423432</InitialExpression>
+<Required>1</Required>
+<Parameter name="POPSPEC" value="Integer(0, 100000)"/>
+</Property>
+
+<Index name="IDKEY">
+<IdKey>1</IdKey>
+<Properties>id</Properties>
+</Index>
+
+<Property name="attachments">
+<Type>Blog.Post</Type>
+<Cardinality>one</Cardinality>
+<Inverse>attachments</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="attachmentsIndex">
+<Properties>attachments</Properties>
+</Index>
+
+<Property name="stringVal">
+<Type>%String</Type>
+<Calculated>1</Calculated>
+<SqlComputeCode> set {*} = {name}_"@"_{size} </SqlComputeCode>
+<SqlComputed>1</SqlComputed>
+</Property>
+
+<Query name="FindMediaByName">
+<Type>%SQLQuery</Type>
+<FormalSpec>name:%String=""</FormalSpec>
+<SqlName>FindMediaByName</SqlName>
+<SqlProc>1</SqlProc>
+<SqlQuery>	SELECT ID, Name
+            FROM Blog.Media
+            WHERE (Name %STARTSWITH :name)
+            ORDER BY Name</SqlQuery>
+<Parameter name="CONTAINID" value="1"/>
+</Query>
+
+<Query name="GetAllMedia">
+<Type>%Query</Type>
+<SqlName>GetAllMedia</SqlName>
+<SqlProc>1</SqlProc>
+<Parameter name="CONTAINID" value="1"/>
+<Parameter name="ROWSPEC" value="ID:%String,Name:%String"/>
+</Query>
+
+<Method name="GetAllMediaExecute">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&qHandle:%Binary]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	#include %occInclude
+	set statement = ##class(%SQL.Statement).%New()
+	set status = statement.%PrepareClassQuery("Blog.Media", "FindMediaByName")
+	if $$$ISERR(status) { quit status }
+	set resultset=statement.%Execute("")
+	
+	set qHandle = resultset
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetAllMediaFetch">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&qHandle:%Binary,&Row:%List,&AtEnd:%Integer]]></FormalSpec>
+<PlaceAfter>GetAllMediaExecute</PlaceAfter>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set rs = $get(qHandle)
+	if rs="" quit $$$OK
+	
+	if rs.%Next() {
+		// write !, rs.%GetData(1), " ", rs.%GetData(2)
+		set Row= $lb(rs.%GetData(1), rs.%GetData(2))
+		set AtEnd = 0	
+	} else {
+		set Row = ""
+		set AtEnd=1
+	}
+	
+	quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetAllMediaClose">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&qHandle:%Binary]]></FormalSpec>
+<PlaceAfter>GetAllMediaFetch</PlaceAfter>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	Set qHandle = ""
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Trigger name="LogEvent">
+<Code><![CDATA[        NEW id
+    	SET id = {ID}
+		&sql(INSERT INTO Blog.LogTable (TableName, IDValue) VALUES ('Blog.Media', :id))]]></Code>
+<Event>INSERT</Event>
+<Time>AFTER</Time>
+</Trigger>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Blog.MediaD</DataLocation>
+<DefaultData>MediaDefaultData</DefaultData>
+<IdLocation>^Blog.MediaD</IdLocation>
+<IndexLocation>^Blog.MediaI</IndexLocation>
+<StreamLocation>^Blog.MediaS</StreamLocation>
+<ExtentSize>5</ExtentSize>
+<Data name="MediaDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>compatibleProgramNames</Value>
+</Value>
+<Value name="3">
+<Value>data</Value>
+</Value>
+<Value name="4">
+<Value>size</Value>
+</Value>
+<Value name="5">
+<Value>name</Value>
+</Value>
+<Value name="6">
+<Value>id</Value>
+</Value>
+<Value name="7">
+<Value>attachments</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="attachments">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="compatibleProgramNames">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>15.6</AverageFieldSize>
+</Property>
+<Property name="data">
+<Selectivity>20.0000%</Selectivity>
+</Property>
+<Property name="id">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>4.8</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>17</AverageFieldSize>
+</Property>
+<Property name="size">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>4.8</AverageFieldSize>
+</Property>
+<Property name="stringVal">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>22.8</AverageFieldSize>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="attachmentsIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="idIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="nameIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="programCount">
+<Type>%Integer</Type>
+<Calculated>1</Calculated>
+</Property>
+
+<Method name="programCountGet">
+<ReturnType>%Integer</ReturnType>
+<ServerOnly>1</ServerOnly>
+<Implementation><![CDATA[	Quit ..compatibleProgramNames.Size
+]]></Implementation>
+</Method>
+
+<Method name="getData">
+<Language>objectscript</Language>
+<ReturnType>%Stream.FileBinary</ReturnType>
+<Implementation><![CDATA[
+ Set stream=##class(%Stream.FileBinary).%New()
+ do stream.WriteLine("saxfkjsdfjsdjklfjsldkfj")
+ quit stream
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Blog.Photo">
+<Super>Blog.Media</Super>
+<TimeChanged>65716,79713.104569</TimeChanged>
+<TimeCreated>65676,77152.718978</TimeCreated>
+
+<Property name="format">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="POPSPEC" value=".getFormat()"/>
+</Property>
+
+<Query name="GetAllPhoto">
+<Type>%SQLQuery</Type>
+<SqlName>GetAllPhoto</SqlName>
+<SqlProc>1</SqlProc>
+<SqlQuery>		SELECT ID, NAME FROM Blog.Photo
+		ORDER BY NAME</SqlQuery>
+<Parameter name="CONTAINID" value="1"/>
+</Query>
+
+<Method name="getFormat">
+<Language>objectscript</Language>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+ set formats = $lb("png", "jpg", "svg")
+ quit $LG(formats, $R(3) + 1)
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DefaultData>PhotoDefaultData</DefaultData>
+<ExtentSize>1</ExtentSize>
+<Data name="PhotoDefaultData">
+<Subscript>"Photo"</Subscript>
+<Value name="1">
+<Value>format</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>12</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>14</AverageFieldSize>
+</Property>
+<Property name="compatibleProgramNames">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>26</AverageFieldSize>
+</Property>
+<Property name="data">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize/>
+</Property>
+<Property name="format">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>3</AverageFieldSize>
+</Property>
+<Property name="id">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>14</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>7</AverageFieldSize>
+</Property>
+<Property name="size">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="stringVal">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>9</AverageFieldSize>
+</Property>
+</Storage>
+</Class>
+
+
+<Class name="Blog.PopUtils">
+<Super>%RegisteredObject</Super>
+<TimeChanged>65691,53904.933368</TimeChanged>
+<TimeCreated>65691,53904.933368</TimeCreated>
+</Class>
+
+
+<Class name="Blog.Post">
+<Super>%Persistent,%Library.Populate</Super>
+<TimeChanged>65718,59927.968083</TimeChanged>
+<TimeCreated>65677,52740.290124</TimeCreated>
+
+<Property name="id">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="POPSPEC" value="Integer(0, 100000)"/>
+</Property>
+
+<Index name="idIndex">
+<Properties>id</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Property name="text">
+<Type>%Stream.FileCharacter</Type>
+<Parameter name="POPSPEC" value=".getData()"/>
+</Property>
+
+<Property name="notes">
+<Type>%String</Type>
+<Collection>array</Collection>
+<Parameter name="POPSPEC" value="String(3):15:Name()"/>
+</Property>
+
+<Property name="created">
+<Type>%Date</Type>
+<Parameter name="POPSPEC" value=".getCurrentDate()"/>
+</Property>
+
+<Property name="posts">
+<Type>Blog.User</Type>
+<Cardinality>parent</Cardinality>
+<Inverse>posts</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="attachments">
+<Type>Blog.Media</Type>
+<Cardinality>many</Cardinality>
+<Inverse>attachments</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Query name="GetAllPosts">
+<Type>%SQLQuery</Type>
+<SqlName>GetAllPosts</SqlName>
+<SqlProc>1</SqlProc>
+<SqlQuery>		SELECT ID, CREATED FROM Blog.Post
+		ORDER BY CREATED</SqlQuery>
+<Parameter name="CONTAINID" value="1"/>
+</Query>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>{%%PARENT}("posts")</DataLocation>
+<DefaultData>PostDefaultData</DefaultData>
+<IdLocation>^Blog.UserC("posts")</IdLocation>
+<IndexLocation>^Blog.PostI</IndexLocation>
+<StreamLocation>^Blog.PostS</StreamLocation>
+<ExtentSize>5</ExtentSize>
+<Data name="PostDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>id</Value>
+</Value>
+<Value name="3">
+<Value>text</Value>
+</Value>
+<Value name="4">
+<Value>created</Value>
+</Value>
+<Value name="5">
+<Value>owner</Value>
+</Value>
+</Data>
+<Data name="notes">
+<Attribute>notes</Attribute>
+<Structure>subnode</Structure>
+<Subscript>"notes"</Subscript>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>8</AverageFieldSize>
+</Property>
+<Property name="childsub">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="created">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="id">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>4.8</AverageFieldSize>
+</Property>
+<Property name="posts">
+<Selectivity>33.3333%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="text">
+<Selectivity>20.0000%</Selectivity>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="idIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Method name="getData">
+<Language>objectscript</Language>
+<ReturnType>%Stream.FileBinary</ReturnType>
+<Implementation><![CDATA[
+ Set stream=##class(%Stream.FileCharacter).%New()
+ do stream.WriteLine("saxfkjsdfjsdjklfjsldkfj")
+ quit stream
+]]></Implementation>
+</Method>
+
+<Method name="getCurrentDate">
+<Language>objectscript</Language>
+<ReturnType>%Date</ReturnType>
+<Implementation><![CDATA[ quit $PIECE($H, ",", 0, 1)
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Blog.User">
+<Super>%Persistent,%Library.Populate</Super>
+<TimeChanged>65716,79713.136218</TimeChanged>
+<TimeCreated>65677,53193.309305</TimeCreated>
+
+<Property name="id">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="POPSPEC" value="Integer(0, 100000)"/>
+</Property>
+
+<Index name="IDKEY">
+<IdKey>1</IdKey>
+<Properties>id</Properties>
+</Index>
+
+<Property name="created">
+<Type>%Date</Type>
+<Required>1</Required>
+<Parameter name="POPSPEC" value=".getCurrentDate()"/>
+</Property>
+
+<Property name="name">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="MAXLEN" value="150"/>
+<Parameter name="MINLEN" value="3"/>
+<Parameter name="POPSPEC" value="Name()"/>
+</Property>
+
+<Index name="nameIndex">
+<Properties>name</Properties>
+</Index>
+
+<Property name="posts">
+<Type>Blog.Post</Type>
+<Cardinality>children</Cardinality>
+<Inverse>posts</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Query name="GetAllUsers">
+<Type>%SQLQuery</Type>
+<SqlName>GetAllUsers</SqlName>
+<SqlProc>1</SqlProc>
+<SqlQuery>		SELECT ID, NAME FROM Blog."User"
+		ORDER BY NAME</SqlQuery>
+<Parameter name="CONTAINID" value="1"/>
+</Query>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Blog.UserD</DataLocation>
+<DefaultData>UserDefaultData</DefaultData>
+<IdLocation>^Blog.UserD</IdLocation>
+<IndexLocation>^Blog.UserI</IndexLocation>
+<StreamLocation>^Blog.UserS</StreamLocation>
+<ExtentSize>5</ExtentSize>
+<Data name="UserDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>id</Value>
+</Value>
+<Value name="3">
+<Value>created</Value>
+</Value>
+<Value name="4">
+<Value>name</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="created">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="id">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>15.4</AverageFieldSize>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="idIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="nameIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Method name="getCurrentDate">
+<Language>objectscript</Language>
+<ReturnType>%Date</ReturnType>
+<Implementation><![CDATA[ quit $PIECE($H, ",", 0, 1)
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Blog.Video">
+<Super>Blog.Media</Super>
+<TimeChanged>65704,62901.177063</TimeChanged>
+<TimeCreated>65676,77375.649764</TimeCreated>
+
+<Query name="GetAllVideo">
+<Type>%SQLQuery</Type>
+<SqlName>GetAllVideo</SqlName>
+<SqlProc>1</SqlProc>
+<SqlQuery>		SELECT ID, NAME FROM Blog.Video
+		ORDER BY NAME</SqlQuery>
+<Parameter name="CONTAINID" value="1"/>
+</Query>
+
+<Property name="duration">
+<Description>
+duration in seconds</Description>
+<Type>%Integer</Type>
+<Parameter name="MINVAL" value="0"/>
+<Parameter name="POPSPEC" value="Integer(1, 360)"/>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DefaultData>VideoDefaultData</DefaultData>
+<Data name="VideoDefaultData">
+<Subscript>"Video"</Subscript>
+<Value name="1">
+<Value>duration</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>12</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.2</AverageFieldSize>
+</Property>
+<Property name="compatibleProgramNames">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>26.8</AverageFieldSize>
+</Property>
+<Property name="duration">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>2.8</AverageFieldSize>
+</Property>
+<Property name="id">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>16.2</AverageFieldSize>
+</Property>
+<Property name="size">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="stringVal">
+<Selectivity>20.0000%</Selectivity>
+<AverageFieldSize>22.2</AverageFieldSize>
+</Property>
+</Storage>
+</Class>
+
+
+<Routine name="Lab1" type="MAC" languagemode="0" timestamp="65655,74037.98319"><![CDATA[
+RightTriangle  /* compute area and hypotenuse of a right triangle
+                  this routine contains examples of 
+                  new ObjectScript features */
+    Write !, "Compute the area and hypotenuse of a right triangle",
+          !, "given the lengths of its two sides."
+    Read !!, "First, choose a unit of measurement. ",
+          !, "(i)nches, (f)eet, (m)iles, ",
+             "(c)entimeters, m(e)ters, (k)ilometers: ", units
+    // translate units to a full word
+    Set units = $case( $extract( units, 1), "i":"inches", 
+                                            "f":"feet",
+                                            "m":"miles",  
+                                            "c":"centimeters",
+                                            "e":"meters", 
+                                            "k":"kilometers",
+                                               :"units" )
+    Do { 
+        Read !!, "Length of side 1: ", side1
+        Quit:(side1 = "")  // exit the do loop
+    }
+    While $$IsNegative( side1 )
+    Quit:(side1 = "")  // exit the routine
+    Do { 
+        Read !, "Length of side 2: ", side2
+        Quit:(side2 = "")   // exit the do loop
+       }
+    While $$IsNegative( side2 )
+    Quit:(side2 = "")  // exit the routine
+    Do Compute( units, side1, side2)
+    Write !!, "Current date: "
+    Do ^%D
+    Write !, "Current time:"
+    Do ^%T
+    Quit
+    
+IsNegative(num) PUBLIC // is num negative?
+{ 
+    If (num '> 0) {
+        Write "  Enter a positive number."
+        Quit 1 // return "true"
+       }
+     Else {
+        Write "  Accepted."
+        Quit 0 // return "false"
+     }
+}
+
+Compute(units,A,B) // compute and display area and hypotenuse
+{ 
+    Set area  = ( A * B ) / 2, 
+        area = $justify( area, 0, 2),
+        squaredSides = ( A ** 2 ) + ( B ** 2 )  
+    
+    // $zsqr function computes square root
+    Set hypot = $zsqr(squaredSides)                
+    
+    // round hypot to 2 places
+    Set hypot = $justify( hypot, 0, 2)
+    
+    Write !!, "The area of this triangle is ", area, " square ", units, ".",
+          !!, "The hypotenuse is ", hypot, " ", units, "."
+}
+]]></Routine>
+
+
+<Project name="LabsProject" LastModified="2020-11-21 17:15:36.669866" Target="^lab4" TargetType="0">
+  <Items>
+    <ProjectItem name="Blog.Media" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.Photo" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.PopUtils" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.Post" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.TestPhoto" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.User" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.Video" type="CLS"></ProjectItem>
+    <ProjectItem name="Lab1.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="UnitTests.Photo" type="CLS"></ProjectItem>
+    <ProjectItem name="UnitTests.Photo1" type="CLS"></ProjectItem>
+    <ProjectItem name="UnitTests.Post" type="CLS"></ProjectItem>
+    <ProjectItem name="UnitTests.User" type="CLS"></ProjectItem>
+    <ProjectItem name="UnitTests.Video" type="CLS"></ProjectItem>
+    <ProjectItem name="lab4.MAC" type="MAC"></ProjectItem>
+  </Items>
+</Project>
+
+
+<Class name="UnitTests.Photo">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,64898.250681</TimeChanged>
+<TimeCreated>65691,63047.939685</TimeCreated>
+
+<Method name="OnBeforeAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(Blog.Photo).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(Blog.Photo).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestPhoto">
+<Implementation><![CDATA[
+		set p = ##class(Blog.Photo).%New()
+		do $$$AssertTrue($isobject(p), "Create new Photo")
+		
+		set status = p.%Save()
+		do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+		
+		set p.id = 143543
+		set p.name = "Cat photo"
+		do p.data.WriteLine("Cat photo data")
+		do p.compatibleProgramNames.Insert("paint")
+		do p.compatibleProgramNames.Insert("photoshop")
+		set p.size = 1024
+		set p.format = "png"
+		
+		set status = p.%Save()
+		do $$$AssertStatusOK(status, "Save when required Fields are filled")
+		
+		set status = ##class(Blog.Photo).%DeleteId(p.%Id())
+		do $$$AssertStatusOK(status, "Delete photo data")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="UnitTests.Photo1">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,62904.765186</TimeChanged>
+<TimeCreated>65691,62749.677857</TimeCreated>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(Blog.Photo).%KillExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestPhoto">
+<Implementation><![CDATA[
+		set p = ##class(Blog.Photo).%KillExtent()
+		do $$$AssertTrue($isobject(p), "Create new Photo")
+		
+		set status = p.%Save()
+		do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="UnitTests.Post">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,69412.159159</TimeChanged>
+<TimeCreated>65691,67148.352071</TimeCreated>
+
+<Method name="OnBeforeAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	do ##class(Blog.User).%DeleteExtent()
+	do ##class(Blog.Photo).%DeleteExtent()
+	do ##class(Blog.Video).%DeleteExtent()
+	return ##class(Blog.Post).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	
+	do ##class(Blog.User).%DeleteExtent()
+	do ##class(Blog.Photo).%DeleteExtent()
+	do ##class(Blog.Video).%DeleteExtent()
+	return ##class(Blog.Post).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestPost">
+<Implementation><![CDATA[
+	
+		set dogPhoto = ##class(Blog.Photo).%New()
+		set dogPhoto.id = 4566457
+		set dogPhoto.name = "Dog photo"
+		do dogPhoto.data.WriteLine("Dog photo data")
+		do dogPhoto.compatibleProgramNames.Insert("paint")
+		do dogPhoto.compatibleProgramNames.Insert("photoshop")
+		set dogPhoto.size = 38989
+		set dogPhoto.format = "jpeg"
+	
+		set catVideo = ##class(Blog.Video).%New()
+		set catVideo.id = 3455787
+		set catVideo.name = "Cat photo"
+		do catVideo.data.WriteLine("Cat photo data")
+		do catVideo.compatibleProgramNames.Insert("VLC player")
+		do catVideo.compatibleProgramNames.Insert("Kmp Player")
+		set catVideo.size = 1024
+		set catVideo.duration = 140
+	
+		set user1 = ##class(Blog.User).%New()
+		set user1.id = 156568
+		set user1.name = "Oleksii"
+		set user1.created = $PIECE($H, ",", 0, 1)
+		
+		do dogPhoto.%Save()
+		do catVideo.%Save()
+		do user1.%Save()
+	
+	
+		set p = ##class(Blog.Post).%New()
+		do user1.posts.Insert(p)
+		do $$$AssertTrue($isobject(p), "Create new Post")
+		
+		set status = p.%Save()
+		do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+		
+		set p.id = 15656
+		do p.text.Write("My first post ever!")
+		do p.notes.SetAt("Testing post creation", "Purpose")
+		do p.notes.SetAt("Cats", "Theme")
+		do p.attachments.Insert(dogPhoto)
+		do p.attachments.Insert(catVideo)
+		set p.created =  $PIECE($H, ",", 0, 1)
+		set p.posts = user1
+		
+		set status = p.%Save()
+		do $$$AssertStatusOK(status, "Save when required Fields are filled")
+		
+		set status = ##class(Blog.Post).%DeleteId(p.%Id())
+		do $$$AssertStatusNotOK(status, "Can't Delete Post data with references")
+		
+		do p.attachments.Clear()
+		set status = p.%Save()
+		set status = ##class(Blog.Post).%DeleteId(p.%Id())
+		do $$$AssertStatusOK(status, "Delete Post data")
+		
+		set status = ##class(Blog.Photo).%ExistsId(dogPhoto.%Id())
+		do $$$AssertEquals(status, 1, "Photo attachment still exists")
+		
+		set status = ##class(Blog.Video).%ExistsId(catVideo.%Id())
+		do $$$AssertEquals(status, 1, "Video attachment still exists")
+]]></Implementation>
+</Method>
+
+<UDLText name="T">
+<Content><![CDATA[
+// do ##class(%UnitTest.Manager).RunTest("post", "/noload/nodelete")
+
+]]></Content>
+</UDLText>
+</Class>
+
+
+<Class name="UnitTests.User">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,70006.418178</TimeChanged>
+<TimeCreated>65691,69496.572271</TimeCreated>
+
+<Method name="OnBeforeAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	do ##class(Blog.Post).%DeleteExtent()
+	return ##class(Blog.User).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	do ##class(Blog.Post).%DeleteExtent()
+	return ##class(Blog.User).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestUser">
+<Implementation><![CDATA[
+	set p = ##class(Blog.User).%New()
+	do $$$AssertTrue($isobject(p), "Create new User")
+	
+	set status = p.%Save()
+	do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+	
+	set firstPost = ##class(Blog.Post).%New()
+	set firstPost.id = 1
+	do firstPost.text.Write("My first post ever!")
+	do firstPost.notes.SetAt("Testing post creation", "Purpose")
+	do firstPost.notes.SetAt("Cats", "Theme")
+	set firstPost.created =  $PIECE($H, ",", 0, 1)
+	set firstPost.posts = p
+	
+	set p.id = 1
+	set p.name = "Oleksii"
+	set p.created = $PIECE($H, ",", 0, 1)
+	do p.posts.Insert(firstPost)
+	
+	set status = p.%Save()
+	do $$$AssertStatusOK(status, "Save when required Fields are filled")
+	
+	set status = ##class(Blog.Post).%ExistsId(firstPost.%Id())
+	do $$$AssertEquals(status, 1, "Post is also saved")
+	
+	set status = ##class(Blog.User).%DeleteId(p.%Id())
+	do $$$AssertStatusOK(status, "Delete user data")
+	
+	set status = ##class(Blog.Post).%ExistsId(firstPost.%Id())
+	do $$$AssertEquals(status, 0, "Post is also deleted")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="UnitTests.Video">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65691,66293.52306</TimeChanged>
+<TimeCreated>65691,64953.047551</TimeCreated>
+
+<Method name="OnBeforeAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(Blog.Video).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[	return ##class(Blog.Video).%DeleteExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestVideo">
+<Implementation><![CDATA[
+		set p = ##class(Blog.Video).%New()
+		do $$$AssertTrue($isobject(p), "Create new Video")
+		
+		set status = p.%Save()
+		do $$$AssertStatusNotOK(status, "Do not save when required Fields are missing")
+		
+		set p.id = 3
+		set p.name = "Cat photo"
+		do p.data.WriteLine("Cat photo data")
+		do p.compatibleProgramNames.Insert("VLC player")
+		do p.compatibleProgramNames.Insert("Kmp Player")
+		set p.size = 1024
+		set p.duration = 140
+		
+		set status = p.%Save()
+		do $$$AssertStatusOK(status, "Save when required Fields are filled")
+		
+		set status = ##class(Blog.Video).%DeleteId(p.%Id())
+		do $$$AssertStatusOK(status, "Delete Video data")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Routine name="lab4" type="MAC" languagemode="0" timestamp="65716,79709.526778"><![CDATA[
+#include %occInclude
+
+lab4
+	set deleteStatus = ##class(Blog.Photo).%DeleteExtent()
+	set deleteStatus = ##class(Blog.Video).%DeleteExtent()
+	set deleteStatus = ##class(Blog.Media).%DeleteExtent()
+	set deleteStatus = ##class(Blog.Post).%DeleteExtent()
+	set deleteStatus = ##class(Blog.User).%DeleteExtent()
+	
+	do ##class(Blog.Photo).Populate(5)
+	do ##class(Blog.Video).Populate(5)
+	do ##class(Blog.User).Populate(5)
+	do ##class(Blog.Post).Populate(5)
+		
+	set catPhoto = ##class(Blog.Photo).%New()
+	set catPhoto.id = 1
+	set catPhoto.name = "Cat photo"
+	do catPhoto.data.WriteLine("Cat photo data")
+	do catPhoto.compatibleProgramNames.Insert("paint")
+	do catPhoto.compatibleProgramNames.Insert("photoshop")
+	set catPhoto.size = 1024
+	set catPhoto.format = "png"
+	
+	set dogPhoto = ##class(Blog.Photo).%New()
+	set dogPhoto.id = 2
+	set dogPhoto.name = "Dog photo"
+	do dogPhoto.data.WriteLine("Dog photo data")
+	do dogPhoto.compatibleProgramNames.Insert("paint")
+	do dogPhoto.compatibleProgramNames.Insert("photoshop")
+	set dogPhoto.size = 38989
+	set dogPhoto.format = "jpeg"
+	
+	set catVideo = ##class(Blog.Video).%New()
+	set catVideo.id = 3
+	set catVideo.name = "Cat video"
+	do catVideo.data.WriteLine("Cat photo data")
+	do catVideo.compatibleProgramNames.Insert("VLC player")
+	do catVideo.compatibleProgramNames.Insert("Kmp Player")
+	set catVideo.size = 1024
+	set catVideo.duration = 140
+	
+	set dogVideo = ##class(Blog.Video).%New()
+	set dogVideo.id = 4
+	set dogVideo.name = "Dog video"
+	do dogVideo.data.WriteLine("Dog photo data")
+	do dogVideo.compatibleProgramNames.Insert("VLC player")
+	do dogVideo.compatibleProgramNames.Insert("Kmp Player")
+	set dogVideo.size = 38989
+	set dogVideo.duration = 100
+	
+	set user1 = ##class(Blog.User).%New()
+	set user2 = ##class(Blog.User).%New()
+	
+	set firstPost = ##class(Blog.Post).%New()
+	set firstPost.id = 1
+	do firstPost.text.Write("My first post ever!")
+	do firstPost.notes.SetAt("Testing post creation", "Purpose")
+	do firstPost.notes.SetAt("Cats", "Theme")
+	do firstPost.attachments.Insert(catPhoto)
+	do firstPost.attachments.Insert(catVideo)
+	set firstPost.created =  $PIECE($H, ",", 0, 1)
+	set firstPost.posts = user2
+	
+	set secondPost = ##class(Blog.Post).%New()
+	set secondPost.id = 2
+	do secondPost.text.Write("Doggos")
+	do secondPost.notes.SetAt("Some dogs", "Purpose")
+	do secondPost.notes.SetAt("Dogs", "Theme")
+	do secondPost.attachments.Insert(dogPhoto)
+	do secondPost.attachments.Insert(dogVideo)
+	set secondPost.created = $PIECE($H, ",", 0, 1)
+	set secondPost.posts = user1
+	
+	set user1.id = 1
+	set user1.name = "Oleksii"
+	set user1.created = $PIECE($H, ",", 0, 1)
+	do user1.posts.Insert(firstPost)
+	
+	set user2.id = 2
+	set user2.name = "Eugene"
+	set user2.created = $PIECE($H, ",", 0, 1)
+	do user2.posts.Insert(secondPost)
+
+	
+	do catPhoto.%Save()
+	do dogPhoto.%Save()
+	do catVideo.%Save()
+	do dogVideo.%Save()
+	do firstPost.%Save()
+	do secondPost.%Save()
+	do user1.%Save()
+	do user2.%Save()
+	
+	write !, catPhoto.programCount
+	
+	NEW SQLCODE,%msg
+	
+
+	write !, "Starting dynamic  SQL Query"
+	set query = "SELECT id, name FROM Blog.Media WHERE id > ?"
+	SET tStatement = ##class(%SQL.Statement).%New()
+	SET qStatus = tStatement.%Prepare(query)
+	if $$$ISERR(qStatus) { do $system.OBJ.DisplayError(qStatus) }
+	set resultset = tStatement.%Execute("5")
+	while resultset.%Next() {
+		write !, "ID: ", resultset.%GetData(1), " NAME: ", resultset.%GetData(2)
+	}
+	write !, "Ending dymamic  SQL Query"
+	
+	set query = "INSERT INTO Blog.Photo (id, size, name, format) VALUES (?, ?, ?, ?)"
+	SET tStatement = ##class(%SQL.Statement).%New()
+	SET qStatus = tStatement.%Prepare(query)
+	if $$$ISERR(qStatus) { do $system.OBJ.DisplayError(qStatus) }
+	set qStatus = tStatement.%Execute(44444, 2344, "KEK", "KEK")
+	write !, "Hey", qStatus
+	
+	write !, "Starting embedded  SQL Query"
+	new SQLCODE, postId, userId, userName
+	&sql(SELECT id, posts->id, posts->name INTO :postId, :userId, :userName FROM Blog.Post)
+	  IF SQLCODE<0 {WRITE "SQLCODE error ",SQLCODE," ",%msg  QUIT}
+      ELSEIF SQLCODE=100 {WRITE "Query returns no results"  QUIT}
+    write !, "The user name is ", userName, " userId is ", userId, " post id is ", postId
+    
+    // &sql(INSERT INTO Blog.Media DEFAULT VALUES)
+    // IF SQLCODE<0 {WRITE "SQLCODE error ",SQLCODE," ",%msg  QUIT}
+    // ELSEIF SQLCODE=100 {WRITE "Query returns no results"  QUIT}
+	// write !, "Ending embedded  SQL Query"
+	
+	write !, "Starting Dynamic SQL Query"
+	set statement = ##class(%SQL.Statement).%New()
+	set status = statement.%PrepareClassQuery("Blog.Media", "FindMediaByName")
+	if $$$ISERR(status) { do $system.OBJ.DisplayError(status) }
+	set resultset = statement.%Execute("Dog")
+	while resultset.%Next() {
+		write !, resultset.%Get("name")	
+	}
+	write !, "Ending Dynamic SQL Query"
+	
+	write !, "Starting Custom SQL Query"
+	set statement = ##class(%SQL.Statement).%New()
+	set status = statement.%PrepareClassQuery("Blog.Media", "GetAllMedia")
+	if $$$ISERR(status) { do $system.OBJ.DisplayError(status) }
+	set resultset = statement.%Execute()
+	while resultset.%Next() {
+		// zwrite resultset
+		write !, "ID: ", resultset.%GetData(1), " NAME: ", resultset.%GetData(2)
+	}
+	write !, "Ending Custom SQL Query"
+	
+	write !, "Job Finished"
+]]></Routine>
+</Export>

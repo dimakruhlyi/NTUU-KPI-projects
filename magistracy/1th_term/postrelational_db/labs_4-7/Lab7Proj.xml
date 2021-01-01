@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2020.1 (Build 215U)" ts="2020-12-17 17:14:32">
+<Class name="Blog.PhotoService">
+<Description>
+Blog.PhotoService</Description>
+<Language>objectscript</Language>
+<ProcedureBlock>1</ProcedureBlock>
+<Super>%SOAP.WebService</Super>
+<TimeChanged>65719,46546.944741</TimeChanged>
+<TimeCreated>65718,76424.5913</TimeCreated>
+
+<Parameter name="SERVICENAME">
+<Description>
+Имя Веб-Сервиса.</Description>
+<Default>PhotoService</Default>
+</Parameter>
+
+<Parameter name="NAMESPACE">
+<Description>
+TODO: change this to actual SOAP namespace.
+Область SOAP для Веб-Сервиса</Description>
+<Default>http://tempuri.org</Default>
+</Parameter>
+
+<Parameter name="USECLASSNAMESPACES">
+<Description>
+Пространство имен задействованных классов будет использовано в WSDL.</Description>
+<Default>1</Default>
+</Parameter>
+
+<Parameter name="XMLSEQUENCE">
+<Default>0</Default>
+</Parameter>
+
+<Method name="AllPhotos">
+<Description>
+TODO: add arguments and implementation.
+AllPhotos</Description>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+	set tArr = []
+		set rs = ##class(%SQL.Statement).%ExecDirect(,"SELECT * FROM Blog.Photo")
+		While rs.%Next() {
+			Do tArr.%Push({
+				"id": 	(rs.%Get("id")),
+				"name":	(rs.%Get("name")),
+				"size": (rs.%Get("size")),
+				"format": (rs.%Get("format"))
+				
+				})
+				
+			
+		}
+		
+	return tArr.%ToJSON()
+]]></Implementation>
+</Method>
+
+<Method name="CreatePhoto">
+<Description>
+TODO: add arguments and implementation.
+CreatePhoto</Description>
+<FormalSpec>JsonBody:%String</FormalSpec>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+	try {
+		set obj = {}.%FromJSON(JsonBody)
+	} catch e {
+		set error = {"errorMessage": "Json not found"}.%ToJSON()
+		return error
+	}
+	
+	set photo = ##class(Blog.Photo).%New()
+	set photo.id = obj.%Get("id")
+	set photo.name = obj.%Get("name")
+	set photo.size = obj.%Get("size")
+	set photo.format = obj.%Get("format")
+	
+	Set sc = photo.%Save()
+	
+	if ($$$ISERR(sc)) {
+		set error = {"errorMessage": "Failed to save object"}
+		return error.%ToJson()
+	}
+	
+	set resp = {
+				"id": 	(photo.id),
+				"name":	(photo.name),
+				"size": (photo.size),
+				"format": (photo.format)
+				
+				}.%ToJSON()
+				
+	return resp
+]]></Implementation>
+</Method>
+
+<Method name="EditPhoto">
+<Description>
+TODO: add arguments and implementation.
+EditPhoto</Description>
+<FormalSpec>id:%Integer,JsonBody:%String</FormalSpec>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+	set sc = ##class(Blog.Photo).%ExistsId(id)
+	if ($$$ISERR(sc)) {
+		set error = {"errorMessage": "Photo with specified ID wasn't found" }.%ToJSON()
+		return error
+	}
+	
+	try {
+		set obj = {}.%FromJSON(JsonBody)
+	} catch e {
+		set error = {"errorMessage": "Json not found"}.%ToJSON()
+		return error
+	}
+	
+	set photo = ##class(Blog.Photo).%OpenId(id)
+	set photo.name = obj.%Get("name")
+	set photo.size = obj.%Get("size")
+	set photo.format = obj.%Get("format")
+	
+	Set sc = photo.%Save()
+	
+	if ($$$ISERR(sc)) {
+		set error = {"errorMessage": "Failed to save object"}
+		return error.%ToJson()
+	}
+	
+	set resp = {
+				"id": 	(photo.id),
+				"name":	(photo.name),
+				"size": (photo.size),
+				"format": (photo.format)
+				
+				}.%ToJSON()
+				
+	return resp
+]]></Implementation>
+</Method>
+
+<Method name="DeletePhoto">
+<Description>
+TODO: add arguments and implementation.
+DeletePhoto</Description>
+<FormalSpec>id:%Integer</FormalSpec>
+<ReturnType>%String</ReturnType>
+<WebMethod>1</WebMethod>
+<Implementation><![CDATA[
+	set sc = ##class(Blog.Photo).%ExistsId(id)
+	if ($$$ISERR(sc)) {
+		set error = {"errorMessage": "Photo with specified ID wasn't found" }.%ToJSON()
+		return error
+	}
+	
+	set photo = ##class(Blog.Photo).%OpenId(id)
+	set status = ##class(Blog.Photo).%DeleteId(id)
+	if ($$$ISERR(sc)) {
+		set error = {"errorMessage": "Failed to delete object"}
+		return error.%ToJson()
+	}
+	
+	set resp = {
+				"id": 	(photo.id),
+				"name":	(photo.name),
+				"size": (photo.size),
+				"format": (photo.format)
+				
+				}.%ToJSON()
+				
+	return resp
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Blog.RestService">
+<Super>%CSP.REST</Super>
+<TimeChanged>65718,68160.259121</TimeChanged>
+<TimeCreated>65715,80672.30006</TimeCreated>
+
+<Parameter name="HandleCorsRequest">
+<Default>1</Default>
+</Parameter>
+
+<XData name="UrlMap">
+<XMLNamespace>http://www.intersystems.com/urlmap</XMLNamespace>
+<Data><![CDATA[
+<Routes>
+		<Route Url="/photos" Method="GET" Call="GetAll" />
+		<Route Url="/photo" Method="POST" Call="NewPhoto" />
+		<Route Url="/photo/:id" Method="PUT" Call="EditPhoto" />
+		<Route Url="/photo/:id" Method="DELETE" Call="DeletePhoto" />
+		</Routes>
+]]></Data>
+</XData>
+
+<Method name="GetAll">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+		set tArr = []
+		set rs = ##class(%SQL.Statement).%ExecDirect(,"SELECT * FROM Blog.Photo")
+		While rs.%Next() {
+			Do tArr.%Push({
+				"id": 	(rs.%Get("id")),
+				"name":	(rs.%Get("name")),
+				"size": (rs.%Get("size")),
+				"format": (rs.%Get("format"))
+				
+				})
+				
+			
+		}
+		
+		Write tArr.%ToJSON()
+		Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="NewPhoto">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	try {
+		set obj = {}.%FromJSON(%request.Content)
+	} catch e {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Json not found"}.%ToJSON()
+		write error
+		Quit
+	}
+	
+	if ($Data(error)) {
+		Quit $$$OK
+	}
+	
+	set photo = ##class(Blog.Photo).%New()
+	set photo.id = obj.%Get("id")
+	set photo.name = obj.%Get("name")
+	set photo.size = obj.%Get("size")
+	set photo.format = obj.%Get("format")
+	
+	Set sc = photo.%Save()
+	
+	if ($$$ISERR(sc)) {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Failed to save object"}
+		write error.%ToJson()
+		Quit $$$OK
+	}
+	
+	set %response.Status = ..#HTTP201CREATED
+	set resp = {
+				"id": 	(photo.id),
+				"name":	(photo.name),
+				"size": (photo.size),
+				"format": (photo.format)
+				
+				}.%ToJSON()
+				
+	write resp
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="EditPhoto">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set sc = ##class(Blog.Photo).%ExistsId(id)
+	if ($$$ISERR(sc)) {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Photo with specified ID wasn't found" }.%ToJSON()
+		write error
+		Quit $$$OK
+	}
+	
+	try {
+		set obj = {}.%FromJSON(%request.Content)
+	} catch e {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Json not found"}.%ToJSON()
+		write error
+		Quit
+	}
+	
+	if ($Data(error)) {
+		Quit $$$OK
+	}
+	
+	set photo = ##class(Blog.Photo).%OpenId(id)
+	set photo.name = obj.%Get("name")
+	set photo.size = obj.%Get("size")
+	set photo.format = obj.%Get("format")
+	
+	Set sc = photo.%Save()
+	
+	if ($$$ISERR(sc)) {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Failed to save object"}
+		write error.%ToJson()
+		Quit $$$OK
+	}
+	
+	set %response.Status = ..#HTTP200OK
+	set resp = {
+				"id": 	(photo.id),
+				"name":	(photo.name),
+				"size": (photo.size),
+				"format": (photo.format)
+				
+				}.%ToJSON()
+				
+	write resp
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="DeletePhoto">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set sc = ##class(Blog.Photo).%ExistsId(id)
+	if ($$$ISERR(sc)) {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Photo with specified ID wasn't found" }.%ToJSON()
+		write error
+		Quit $$$OK
+	}
+	
+	set photo = ##class(Blog.Photo).%OpenId(id)
+	set status = ##class(Blog.Photo).%DeleteId(id)
+	if ($$$ISERR(sc)) {
+		set %response.Status = ..#HTTP400BADREQUEST
+		set error = {"errorMessage": "Failed to delete object"}
+		write error.%ToJson()
+		Quit $$$OK
+	}
+	
+	set %response.Status = ..#HTTP200OK
+	set resp = {
+				"id": 	(photo.id),
+				"name":	(photo.name),
+				"size": (photo.size),
+				"format": (photo.format)
+				
+				}.%ToJSON()
+				
+	write resp
+	Quit $$$OK
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Routine name="Lab1" type="MAC" languagemode="0" timestamp="65655,74037.98319"><![CDATA[
+RightTriangle  /* compute area and hypotenuse of a right triangle
+                  this routine contains examples of 
+                  new ObjectScript features */
+    Write !, "Compute the area and hypotenuse of a right triangle",
+          !, "given the lengths of its two sides."
+    Read !!, "First, choose a unit of measurement. ",
+          !, "(i)nches, (f)eet, (m)iles, ",
+             "(c)entimeters, m(e)ters, (k)ilometers: ", units
+    // translate units to a full word
+    Set units = $case( $extract( units, 1), "i":"inches", 
+                                            "f":"feet",
+                                            "m":"miles",  
+                                            "c":"centimeters",
+                                            "e":"meters", 
+                                            "k":"kilometers",
+                                               :"units" )
+    Do { 
+        Read !!, "Length of side 1: ", side1
+        Quit:(side1 = "")  // exit the do loop
+    }
+    While $$IsNegative( side1 )
+    Quit:(side1 = "")  // exit the routine
+    Do { 
+        Read !, "Length of side 2: ", side2
+        Quit:(side2 = "")   // exit the do loop
+       }
+    While $$IsNegative( side2 )
+    Quit:(side2 = "")  // exit the routine
+    Do Compute( units, side1, side2)
+    Write !!, "Current date: "
+    Do ^%D
+    Write !, "Current time:"
+    Do ^%T
+    Quit
+    
+IsNegative(num) PUBLIC // is num negative?
+{ 
+    If (num '> 0) {
+        Write "  Enter a positive number."
+        Quit 1 // return "true"
+       }
+     Else {
+        Write "  Accepted."
+        Quit 0 // return "false"
+     }
+}
+
+Compute(units,A,B) // compute and display area and hypotenuse
+{ 
+    Set area  = ( A * B ) / 2, 
+        area = $justify( area, 0, 2),
+        squaredSides = ( A ** 2 ) + ( B ** 2 )  
+    
+    // $zsqr function computes square root
+    Set hypot = $zsqr(squaredSides)                
+    
+    // round hypot to 2 places
+    Set hypot = $justify( hypot, 0, 2)
+    
+    Write !!, "The area of this triangle is ", area, " square ", units, ".",
+          !!, "The hypotenuse is ", hypot, " ", units, "."
+}
+]]></Routine>
+
+
+<Routine name="Lab2" type="MAC" languagemode="0" timestamp="65659,31343.713697"><![CDATA[
+Lab2
+	set ^Entities("enemies", "trooper", "health") = 100
+	set ^Entities("enemies", "elite trooper", "health") = 300
+	
+	set ^Entities("enemies", "trooper", "name") = "Trooper"
+	set ^Entities("enemies", "elite trooper", "name") = "Elite Trooper"
+	
+	set ^Entities("enemies", "trooper", "attackTypes") = "meele/bullet"
+	set ^Entities("enemies", "elite trooper", "attackTypes") = "meele/bullet/rocket"
+	
+	set ^Entities("enemies", "trooper", "attackPowers") = $listbuild(20, 10)
+	set ^Entities("enemies", "elite trooper", "attackPowers") = $listbuild(40, 20, 100)
+	
+	write !, "Get information about diffetent types of enemies",
+		   !, "given the name of entity",
+		   !, "Available enemies: ", !
+		   
+	set temp = ""
+	do {
+		set temp = $order(^Entities("enemies", temp))
+		write temp, !
+	} while temp '= ""
+		   
+	read !!, "Enter the name of entity", !, name
+	
+	if ($data(^Entities("enemies", name)) = 0) {
+		write !, "There's no entity with name ", name, !
+		quit	
+	}
+	
+	write !, "Entity with name ", name, " exists", !
+	
+	set attacks = $length(^Entities("enemies", name, "attackTypes"), "/")
+	set healthpoints = $get(^Entities("enemies", name, "health"), "unknown")
+	
+	write !, "Enity health is: ", healthpoints
+	write !, "Amonut of attack types is: ", attacks 
+	
+	write !!, "Get information about diffetent types of attack",
+		   !, "Available attack types: ", !
+		   
+	set attackTypes = $get(^Entities("enemies", name, "attackTypes"), "")
+	for i = 1:1:$length(attackTypes) {
+		write $piece(attackTypes, "/", i), !	
+	}
+	
+	read !, "Enter the name of attack type", !, attackType
+	
+	if ($find(^Entities("enemies", name, "attackTypes"), attackType) = 0) {
+		write !, "There's no attack type ", attackType, !
+		quit	
+	}
+	
+	for i = 1:1:$length(attackTypes) {
+		if $piece(attackTypes, "/", i) = attackType {
+		   set attackTypeIndex = i	
+		}	
+	}
+	
+	set attackPowers = ^Entities("enemies", name, "attackPowers")
+	write !, "Power of the ", attackType, " attack is: ", $listget(attackPowers, attackTypeIndex), !
+	
+	write !, "contents of array", !
+	zwrite ^Entities
+	
+	quit
+]]></Routine>
+
+
+<Project name="Lab7Project" LastModified="2020-12-17 17:14:17.84343" Target="^Lab1" TargetType="0">
+  <Items>
+    <ProjectItem name="Blog.PhotoService" type="CLS"></ProjectItem>
+    <ProjectItem name="Blog.RestService" type="CLS"></ProjectItem>
+    <ProjectItem name="Lab1.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="Lab2.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="csp/user/lab7.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/lab7Rest.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/lab7Soap.csp" type="CSP"></ProjectItem>
+  </Items>
+</Project>
+
+
+<CSP name="lab7.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+
+<!-- Put your page Title here -->
+<title>	Cache Server Page </title>
+<script language="JavaScript">
+function deletePhoto(id) {
+	#server(..DeletePhoto(id))#;
+	window.location.reload();	
+}
+
+function createPhoto()
+{
+	var formElements = document.forms["createForm"].elements;
+	var id = parseInt(formElements["id"].value, 10);
+	var size = parseInt(formElements["size"].value, 10);
+	var name = formElements["name"].value;
+	var format = formElements["format"].value;
+	console.log(formElements);
+	#server(..CreatePhoto(id, size, name, format))#;
+	window.location.reload();
+}
+
+function editPhoto()
+{
+	var formElements = document.forms["editForm"].elements;
+	var id = parseInt(formElements["id"].value, 10);
+	var size = parseInt(formElements["size"].value, 10);
+	var name = formElements["name"].value;
+	var format = formElements["format"].value;
+	console.log(formElements);
+	#server(..EditPhoto(size, name, format, id))#;
+}
+
+
+</script>
+
+ <script language="Cache" method="DeletePhoto" arguments="id">
+ 	set query = "DELETE FROM Blog.Photo WHERE id = :id"
+	SET tStatement = ##class(%SQL.Statement).%New()
+	SET qStatus = tStatement.%Prepare(query)
+	do tStatement.%Execute()
+ </script>
+
+	<script language="Cache" method="CreatePhoto" arguments="id, size, name, format">
+ 		set query = "INSERT INTO Blog.Photo (id, size, name, format) VALUES (?, ?, ?, ?)"
+		SET tStatement = ##class(%SQL.Statement).%New()
+		SET qStatus = tStatement.%Prepare(query)
+		do tStatement.%Execute(id, size, name, format)
+ 	</script>
+ 	
+ 	<script language="Cache" method="EditPhoto" arguments="size, name, format, id">
+ 		set query = "UPDATE Blog.Photo (size, name, format) VALUES (?, ?, ?) WHERE id = ?"
+		SET tStatement = ##class(%SQL.Statement).%New()
+		SET qStatus = tStatement.%Prepare(query)
+		do tStatement.%Execute(size, name, format, id)
+ 	</script>
+</head>
+
+<body>
+
+	<!-- Put your page code here -->
+	<h1>My awesome lab 7 <span style="color: white">(Jesus save me pls)</span></h1>
+	<h2>Photos<h2>
+		
+	<script language=SQL name="query">SELECT * FROM Blog.Photo</script>
+	
+<table border=1 bgcolor="">
+	<tr>
+	<csp:while counter=queryCol condition="(queryCol<query.GetColumnCount())">
+		<th align=left><b>#(query.GetColumnHeader(queryCol))#</b></th>
+	</csp:while>
+	</tr>
+
+	<csp:while counter=queryRow condition=query.Next()>
+	<tr class='#($S(queryRow#2:"DarkRow",1:"LightRow"))#'>
+		<csp:while counter=queryCol condition="(queryCol<query.GetColumnCount())">
+			<td>#(query.GetData(queryCol))#</td>
+		</csp:while>
+		<td>
+			<button onclick='deletePhoto(#(query.GetData(1))#)'>Delete</button>
+		</td>
+	</tr>
+	</csp:while>
+</table>
+
+<h3>Create Photo</h3>
+
+<form id="createForm">
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">ID:</span>
+			<input type="number" name="id" placeholder="ID">
+		</label>
+	</div>
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">Name:</span>
+			<input type="text" name="name" placeholder="Name">
+		</label>
+	</div>
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">Size:</span>
+			<input type="number" name="size" placeholder="size">
+		</label>
+	</div>
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">Format:</span>
+			<input type="text" name="format" placeholder="Format">
+		</label>
+	</div>
+	<button onclick="createPhoto()">Create</button>
+</form>
+
+<h3>Edit Photo</h3>
+<form id="editForm">
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">ID:</span>
+			<input type="number" name="id" placeholder="ID">
+		</label>
+	</div>
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">Name:</span>
+			<input type="text" name="name" placeholder="Name">
+		</label>
+	</div>
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">Size:</span>
+			<input type="number" name="size" placeholder="size">
+		</label>
+	</div>
+	<div>
+		<label>
+			<span style="display: inline-block; min-width: 80px">Format:</span>
+			<input type="text" name="format" placeholder="format">
+		</label>
+	</div>
+	<button onclick="editPhoto()">Edit</button>
+</form>
+		
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="lab7Rest.csp" application="/csp/user/" default="1"><![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab7 Rest</title>
+    <style>
+       table {
+            border-collapse: collapse;
+    		border-spacing: 0;
+    		width: 100%;
+    		display: table;
+        }
+        
+        th {
+	     text-align: left;   
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab7 REST API</h1>
+    <table id="table">
+       <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Format</th>
+        </tr>
+       </thead>
+       <tbody>
+           
+       </tbody>
+    </table>
+    <form id="theForm">
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">ID:</span>
+                <input type="number" name="id" placeholder="ID">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">Name:</span>
+                <input type="text" name="name" placeholder="Name">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">Size:</span>
+                <input type="number" name="size" placeholder="size">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">Format:</span>
+                <input type="text" name="format" placeholder="Format">
+            </label>
+        </div>
+        <button type="button" id="createButton">Create</button>
+        <button type="button" id="editButton">Edit</button>
+        <button type="button" id="deleteButton">Delete</button>
+    </form>
+    <script language="javascript">
+        console.log('Hello world');
+        fetch('http://localhost:52773/csp/lab7/photos')
+            .then(res => res.json())
+            .then(photos => {
+                const table = document.getElementById('table');
+                const tbody = table.tBodies[0];
+                for (const photo of photos) {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${photo.id}</td>
+                        <td>${photo.name}</td>
+                        <td>${photo.size}</td>
+                        <td>${photo.format}</td>
+                    `;
+                    tbody.appendChild(tr);
+                }
+            });
+
+            const createButton = document.getElementById('createButton');
+            const editButton = document.getElementById('editButton');
+            const deleteButton = document.getElementById('deleteButton');
+
+            createButton.addEventListener('click', (event) => createPhoto(event));
+            editButton.addEventListener('click', (event) => editPhoto(event));
+            deleteButton.addEventListener('click', (event) => deletePhoto(event));
+
+
+            async function createPhoto(event) {
+                const form = document.getElementById('theForm');
+                const data = new FormData(form);
+                const body = JSON.stringify(Object.fromEntries(data.entries()));
+
+                const response = await fetch('http://localhost:52773/csp/lab7/photo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body
+                }).then((res) => res.json());
+
+                if (response.errorMessage) {
+                    alert(response.errorMessage);
+                } else {
+                    window.location.reload();
+                }
+
+                event.preventDefault();
+            }
+
+            async function editPhoto(event) {
+                const form = document.getElementById('theForm');
+                const data = new FormData(form);
+                const obj = Object.fromEntries(data.entries())
+                const body = JSON.stringify(obj);
+                const photoId = obj.id;
+
+                const response = await fetch('http://localhost:52773/csp/lab7/photo/' + photoId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body
+                }).then((res) => res.json());
+
+                if (response.errorMessage) {
+                    alert(response.errorMessage);
+                } else {
+                    window.location.reload();
+                }
+
+                event.preventDefault();
+            }
+
+            async function deletePhoto(event) {
+                const form = document.getElementById('theForm');
+                const data = new FormData(form);
+                const obj = Object.fromEntries(data.entries())
+                const photoId = obj.id;
+
+                const response = await fetch('http://localhost:52773/csp/lab7/photo/' + photoId, {
+                    method: 'DELETE',
+                }).then((res) => res.json());
+
+                if (response.errorMessage) {
+                    alert(response.errorMessage);
+                } else {
+                    window.location.reload();
+                }
+
+                event.preventDefault();
+            }
+    </script>
+</body>
+</html>]]></CSP>
+
+
+<CSP name="lab7Soap.csp" application="/csp/user/" default="1"><![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab7 Rest</title>
+    <style>
+       table {
+            border-collapse: collapse;
+    		border-spacing: 0;
+    		width: 100%;
+    		display: table;
+        }
+        
+        th {
+	     text-align: left;   
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab7 REST API</h1>
+    <table id="table">
+       <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Format</th>
+        </tr>
+       </thead>
+       <tbody>
+           
+       </tbody>
+    </table>
+    <form id="theForm">
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">ID:</span>
+                <input type="number" name="id" placeholder="ID">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">Name:</span>
+                <input type="text" name="name" placeholder="Name">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">Size:</span>
+                <input type="number" name="size" placeholder="size">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span style="display: inline-block; min-width: 80px">Format:</span>
+                <input type="text" name="format" placeholder="Format">
+            </label>
+        </div>
+        <button type="button" id="createButton">Create</button>
+        <button type="button" id="editButton">Edit</button>
+        <button type="button" id="deleteButton">Delete</button>
+    </form>
+    <script language="javascript">
+        console.log('Hello world');
+        fetch('http://localhost:52773/csp/user/Blog.PhotoService.cls', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/xml; charset=utf-8',
+                'SOAPAction': '"urn:http://tempuri.org/AllPhotos"'
+            },
+            body: `<?xml version="1.0" encoding="UTF-8" ?>
+            <SOAP-ENV:Envelope 
+                xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' 
+                xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+                xmlns:s='http://www.w3.org/2001/XMLSchema'>
+                    <SOAP-ENV:Body>
+                        <AllPhotos xmlns="http://tempuri.org"></AllPhotos>
+                    </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>
+            `
+        })
+            .then(res => res.text())
+            .then(resp => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(resp,"text/xml");
+                const result = xml.querySelector('AllPhotosResult')
+                const photos = JSON.parse(result.innerHTML);
+
+                const table = document.getElementById('table');
+                const tbody = table.tBodies[0];
+
+                for (const photo of photos) {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${photo.id}</td>
+                        <td>${photo.name}</td>
+                        <td>${photo.size}</td>
+                        <td>${photo.format}</td>
+                    `;
+                    tbody.appendChild(tr);
+                }
+            });
+
+            const createButton = document.getElementById('createButton');
+            const editButton = document.getElementById('editButton');
+            const deleteButton = document.getElementById('deleteButton');
+
+            createButton.addEventListener('click', (event) => createPhoto(event));
+            editButton.addEventListener('click', (event) => editPhoto(event));
+            deleteButton.addEventListener('click', (event) => deletePhoto(event));
+
+
+            async function createPhoto(event) {
+                const form = document.getElementById('theForm');
+                const data = new FormData(form);
+                const body = JSON.stringify(Object.fromEntries(data.entries()));
+
+                const response = await fetch('http://localhost:52773/csp/user/Blog.PhotoService.cls', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/xml; charset=utf-8',
+                        'SOAPAction': '"urn:http://tempuri.org/CreatePhoto"'
+                    },
+                    body: `<?xml version="1.0" encoding="UTF-8" ?>
+                    <SOAP-ENV:Envelope 
+                        xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' 
+                        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+                        xmlns:s='http://www.w3.org/2001/XMLSchema'>
+                            <SOAP-ENV:Body>
+                                <CreatePhoto xmlns="http://tempuri.org">
+                                    <JsonBody>${body}</JsonBody>
+                                </CreatePhoto>
+                            </SOAP-ENV:Body>
+                    </SOAP-ENV:Envelope>
+                    `
+                })
+                .then((res) => res.text())
+                .then((resp) => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(resp,"text/xml");
+                    const result = xml.querySelector('CreatePhotoResult')
+                    const response = JSON.parse(result.innerHTML);
+                    return response
+                })
+
+                if (response.errorMessage) {
+                    alert(response.errorMessage);
+                } else {
+                    window.location.reload();
+                }
+
+                event.preventDefault();
+            }
+
+            async function editPhoto(event) {
+                const form = document.getElementById('theForm');
+                const data = new FormData(form);
+                const obj = Object.fromEntries(data.entries())
+                const body = JSON.stringify(obj);
+                const photoId = obj.id;
+
+                const response = await fetch('http://localhost:52773/csp/user/Blog.PhotoService.cls', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/xml; charset=utf-8',
+                        'SOAPAction': '"urn:http://tempuri.org/EditPhoto"'
+                    },
+                    body: `<?xml version="1.0" encoding="UTF-8" ?>
+                    <SOAP-ENV:Envelope 
+                        xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' 
+                        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+                        xmlns:s='http://www.w3.org/2001/XMLSchema'>
+                            <SOAP-ENV:Body>
+                                <EditPhoto xmlns="http://tempuri.org">
+                                    <id>${photoId}</id>
+                                    <JsonBody>${body}</JsonBody>
+                                </EditPhoto>
+                            </SOAP-ENV:Body>
+                    </SOAP-ENV:Envelope>
+                    `
+                })
+                .then((res) => res.text())
+                .then((resp) => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(resp,"text/xml");
+                    const result = xml.querySelector('EditPhotoResult')
+                    const response = JSON.parse(result.innerHTML);
+                    return response
+                })
+
+                if (response.errorMessage) {
+                    alert(response.errorMessage);
+                } else {
+                    window.location.reload();
+                }
+
+                event.preventDefault();
+            }
+
+            async function deletePhoto(event) {
+                const form = document.getElementById('theForm');
+                const data = new FormData(form);
+                const obj = Object.fromEntries(data.entries())
+                const photoId = obj.id;
+
+                const response = await fetch('http://localhost:52773/csp/user/Blog.PhotoService.cls', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/xml; charset=utf-8',
+                        'SOAPAction': '"urn:http://tempuri.org/DeletePhoto"'
+                    },
+                    body: `<?xml version="1.0" encoding="UTF-8" ?>
+                    <SOAP-ENV:Envelope 
+                        xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' 
+                        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+                        xmlns:s='http://www.w3.org/2001/XMLSchema'>
+                            <SOAP-ENV:Body>
+                                <DeletePhoto xmlns="http://tempuri.org">
+                                    <id>${photoId}</id>
+                                </DeletePhoto>
+                            </SOAP-ENV:Body>
+                    </SOAP-ENV:Envelope>
+                    `
+                })
+                .then((res) => res.text())
+                .then((resp) => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(resp,"text/xml");
+                    const result = xml.querySelector('DeletePhotoResult')
+                    const response = JSON.parse(result.innerHTML);
+                    return response;
+                })
+
+                console.log({ response });
+                if (response.errorMessage) {
+                    alert(response.errorMessage);
+                } else {
+                    window.location.reload();
+                }
+
+                event.preventDefault();
+            }
+    </script>
+</body>
+</html>]]></CSP>
+</Export>

@@ -1,0 +1,1428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2020.1 (Build 215U)" ts="2020-12-20 18:42:03">
+<Class name="Office.Blackboard">
+<Super>%Persistent</Super>
+<TimeChanged>65720,53280.026644</TimeChanged>
+<TimeCreated>65692,40480.031339</TimeCreated>
+
+<Index name="IDKEY">
+<IdKey>1</IdKey>
+<Properties>Id</Properties>
+</Index>
+
+<Property name="Id">
+<Type>%Integer</Type>
+</Property>
+
+<Property name="Type">
+<Type>%String</Type>
+</Property>
+
+<Property name="Width">
+<Type>%Float</Type>
+</Property>
+
+<Property name="Height">
+<Type>%Float</Type>
+</Property>
+
+<Property name="Size">
+<Type>%String</Type>
+<Calculated>1</Calculated>
+</Property>
+
+<Method name="GetHeight">
+<ReturnType>%String</ReturnType>
+<ServerOnly>1</ServerOnly>
+<Implementation><![CDATA[
+		if ..Type = "Double horisontal board" {quit ..Height*2}
+		else {quit ..Height}
+]]></Implementation>
+</Method>
+
+<Method name="SizeGet">
+<ReturnType>%String</ReturnType>
+<ServerOnly>1</ServerOnly>
+<Implementation><![CDATA[
+
+	quit "Height"_..Height_"Width"_..Width
+]]></Implementation>
+</Method>
+
+<Method name="GetData">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	&sql(declare EC cursor for
+		select Type, Width, Height
+		into :type, :width, :height
+		from Office.Blackboard)
+	&sql(open EC)
+	for {
+	    &sql(fetch EC) 
+	    quit:(SQLCODE '= 0)
+	    write !, %ROWCOUNT, ?5, type, ?30, width, ?10, height, ?10
+	}
+	&sql(close EC)
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetResultSet">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	SET myquery="SELECT Type,Width,Height FROM Office.Blackboard WHERE Height > ? AND Height < ?"
+    SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+    SET sc=rset.Prepare(myquery)
+    SET sc=rset.Execute(5,7)
+    WHILE rset.Next() 
+    {
+    	WRITE rset.Data("Type"),", ",rset.Data("Width"),", ",rset.Data("Height"),!
+    }
+    Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Office.BlackboardD</DataLocation>
+<DefaultData>BlackboardDefaultData</DefaultData>
+<IdLocation>^Office.BlackboardD</IdLocation>
+<IndexLocation>^Office.BlackboardI</IndexLocation>
+<StreamLocation>^Office.BlackboardS</StreamLocation>
+<Data name="BlackboardDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Type</Value>
+</Value>
+<Value name="3">
+<Value>Width</Value>
+</Value>
+<Value name="4">
+<Value>Heigh</Value>
+</Value>
+<Value name="5">
+<Value>Height</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Office.Furniture">
+<Super>%Persistent</Super>
+<TimeChanged>65720,55508.846977</TimeChanged>
+<TimeCreated>65692,40479.47766</TimeCreated>
+
+<Property name="StudentsWorkspace">
+<Type>Office.StudentsWorkspace</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Tables</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Id">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Age">
+<Type>%Date</Type>
+</Property>
+
+<Property name="Type">
+<Type>%String</Type>
+</Property>
+
+<Method name="Print">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[	quit " id "_..Id_" Age "_..Age_" Type "_..Type
+]]></Implementation>
+</Method>
+
+<Method name="GetAge">
+<ReturnType>%String</ReturnType>
+<ServerOnly>1</ServerOnly>
+<Implementation><![CDATA[
+
+	quit "days from 1 January 1970:"_..Age
+]]></Implementation>
+</Method>
+
+<Method name="FindFurniture">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>Fid:%Integer</FormalSpec>
+<ReturnType>%ObjectHandle</ReturnType>
+<Implementation><![CDATA[
+	&Sql(select id into :id from Office.Furniture where Id = :Fid)
+	if SQLCODE quit $$$NULLOREF
+	quit ##class(Office.Furniture).%OpenId(id)
+]]></Implementation>
+</Method>
+
+<Query name="GetFurnitureType">
+<Type>%Query</Type>
+<FormalSpec>Fid:%Integer</FormalSpec>
+<SqlProc>1</SqlProc>
+<SqlQuery><![CDATA[	SELECT ID, TYPE, StudentsWorkspace->Location  FROM Office.Furniture WHERE (ID = :Fid)]]></SqlQuery>
+<Parameter name="ROWSPEC" value="Object No.%Integer is %String"/>
+</Query>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Office.FurnitureD</DataLocation>
+<DefaultData>FurnitureDefaultData</DefaultData>
+<IdLocation>^Office.FurnitureD</IdLocation>
+<IndexLocation>^Office.FurnitureI</IndexLocation>
+<StreamLocation>^Office.FurnitureS</StreamLocation>
+<Data name="FurnitureDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>StudentsWorkspace</Value>
+</Value>
+<Value name="3">
+<Value>Id</Value>
+</Value>
+<Value name="4">
+<Value>Age</Value>
+</Value>
+<Value name="5">
+<Value>Type</Value>
+</Value>
+</Data>
+</Storage>
+
+<Query name="GetFurniture">
+<Type>%Query</Type>
+<FormalSpec>Id:%Integer</FormalSpec>
+<SqlQuery>	SELECT ID, TYPE  FROM Office.Furniture WHERE (ID = :Id)</SqlQuery>
+<Parameter name="ROWSPEC" value="Id:%Integer:id,Age:%Date:AgeOfFurniture,Type:%String:TypeOfFurniture"/>
+</Query>
+
+<Method name="GetFurnitureExecute">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&qHandle:%Binary,Id:%Integer]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	&sql(select Furniture.Type into :list from Office.Furniture where Furniture.Id = :Id)
+	IF SQLCODE '= 0 { 
+    	quit $$$ERROR(SQLCODE,"Error in query") } 
+    set qHandle = $lb(list, 1) 
+
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetFurnitureClose">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&qHandle:%Binary]]></FormalSpec>
+<PlaceAfter>GetFurnitureExecute</PlaceAfter>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	Set qHandle=""
+	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="GetFurnitureFetch">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&qHandle:%Binary,&Row:%List,&AtEnd:%Integer=0]]></FormalSpec>
+<PlaceAfter>GetFurnitureExecute</PlaceAfter>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set rs=$get(qHandle) 
+	if $ll($li(rs,1))=0 
+	{ 
+      set Row="", AtEnd=1 
+      quit $$$OK 
+    } 
+    if $li(rs,2) <= $ll($li(rs,1)) 
+    { 
+      set Row=$lb($li($li(rs, 1), $li(rs,2))) 
+      set AtEnd=0 
+      set $li(qHandle,2) = $li(rs,2)+1 
+    } else 
+    { 
+      set Row="", AtEnd=1 
+    } 
+	Quit $$$OK
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="Office.Office">
+<Super>%Persistent</Super>
+<TimeChanged>65720,49188.055468</TimeChanged>
+<TimeCreated>65692,40479.865902</TimeCreated>
+
+<Index name="IDKEY">
+<IdKey>1</IdKey>
+<Properties>Id</Properties>
+</Index>
+
+<Property name="Id">
+<Type>%Integer</Type>
+</Property>
+
+<Property name="StudentsWorkspace">
+<Type>Office.StudentsWorkspace</Type>
+</Property>
+
+<Property name="TeacherWorkspace">
+<Type>Office.TeacherWorkspace</Type>
+</Property>
+
+<Property name="Blackboard">
+<Type>Blackboard</Type>
+</Property>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Office.OfficeD</DataLocation>
+<DefaultData>OfficeDefaultData</DefaultData>
+<IdLocation>^Office.OfficeD</IdLocation>
+<IndexLocation>^Office.OfficeI</IndexLocation>
+<StreamLocation>^Office.OfficeS</StreamLocation>
+<Data name="OfficeDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>StudentsWorkspace</Value>
+</Value>
+<Value name="3">
+<Value>Blackboard</Value>
+</Value>
+<Value name="4">
+<Value>TeacherWorkspace</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Project name="Office" LastModified="2020-12-20 18:42:03.611145" Target="^Untitled1" TargetType="2">
+  <Items>
+    <ProjectItem name="Office.Blackboard" type="CLS"></ProjectItem>
+    <ProjectItem name="Office.Furniture" type="CLS"></ProjectItem>
+    <ProjectItem name="Office.Office" type="CLS"></ProjectItem>
+    <ProjectItem name="Office.StudentsWorkspace" type="CLS"></ProjectItem>
+    <ProjectItem name="Office.TeacherWorkspace" type="CLS"></ProjectItem>
+    <ProjectItem name="Office.TesrClass1" type="CLS"></ProjectItem>
+    <ProjectItem name="Untitled1.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="Untitled3.MAC" type="MAC"></ProjectItem>
+    <ProjectItem name="User" type="PKG"></ProjectItem>
+    <ProjectItem name="csp/user/ContactUpdated.CSP" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/LibrarianUpdated.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/book.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/chapter.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/contact.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/librarian.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/libraryhouse.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/mycspProgram.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/reader.csp" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/user/rest.CSP" type="CSP"></ProjectItem>
+  </Items>
+</Project>
+
+
+<Class name="Office.StudentsWorkspace">
+<Super>%Persistent,%Populate</Super>
+<TimeChanged>65715,11372.718335</TimeChanged>
+<TimeCreated>65692,40479.69625</TimeCreated>
+
+<Property name="Tables">
+<Type>Office.Furniture</Type>
+<Cardinality>many</Cardinality>
+<Inverse>StudentsWorkspace</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Property name="Chairs">
+<Type>Office.Furniture</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="Location">
+<Type>%String</Type>
+<Parameter name="POPSPEC" value=".MakeLocation()"/>
+</Property>
+
+<Method name="MakeLocation">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+	s t1=$lb("North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West")
+	Quit $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Method name="FindWorkspace">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>location:%String</FormalSpec>
+<ReturnType>%ObjectHandle</ReturnType>
+<Implementation><![CDATA[
+	&Sql(select id into :id from Office.StudentsWorkspace where Location = :location)
+	if SQLCODE quit $$$NULLOREF
+	quit ##class(Office.StudentsWorkspace).%OpenId(id)
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Office.StudentsWorkspaceD</DataLocation>
+<DefaultData>StudentsWorkspaceDefaultData</DefaultData>
+<IdLocation>^Office.StudentsWorkspaceD</IdLocation>
+<IndexLocation>^Office.StudentsWorkspaceI</IndexLocation>
+<StreamLocation>^Office.StudentsWorkspaceS</StreamLocation>
+<Data name="StudentsWorkspaceDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Office</Value>
+</Value>
+<Value name="3">
+<Value>Location</Value>
+</Value>
+<Value name="4">
+<Value>Chairs</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Office.TeacherWorkspace">
+<Super>%Persistent,%Populate</Super>
+<TimeChanged>65720,53131.933093</TimeChanged>
+<TimeCreated>65692,46554.815321</TimeCreated>
+
+<Method name="MakeLocation">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+	s t1=$lb("North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West")
+	Quit $li(t1,$r($ll(t1))+1)
+]]></Implementation>
+</Method>
+
+<Property name="Location">
+<Type>%String</Type>
+<Parameter name="POPSPEC" value=".MakeLocation()"/>
+</Property>
+
+<Property name="WritingStuff">
+<Type>%String</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="TeachersTable">
+<Type>Office.Furniture</Type>
+</Property>
+
+<Property name="TeachersChair">
+<Type>Office.Furniture</Type>
+</Property>
+
+<Trigger name="LogChanges">
+<Code>	set ^log({ID},{%%OPERATION},$H,"Location") ={Location}
+	set ^log({ID},{%%OPERATION},$H,"WritingStuff") ={WritingStuff}
+	write !,"TRIGGERED"</Code>
+<Event>INSERT/UPDATE</Event>
+<Time>AFTER</Time>
+<Foreach>row/object</Foreach>
+</Trigger>
+
+<Method name="PrintDatabyLocation">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+	set tStatement = ##class(%SQL.Statement).%New(,"Sample")
+	set myquery="SELECT Location, WritingStuff FROM Office.TeacherWorkspace WHERE Location = ?"
+  	set tStatement = ##class(%SQL.Statement).%New()
+ 	set qStatus = tStatement.%Prepare(myquery)
+ 	IF qStatus'=1 {WRITE "%Prepare failed:" DO $System.Status.DisplayError(qStatus) QUIT qStatus}
+ 	DO tStatement.%Display()
+ 	WRITE !,"End of %Prepare display"
+ 	Quit $$$OK
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^Office.TeacherWorkspaceD</DataLocation>
+<DefaultData>TeacherWorkspaceDefaultData</DefaultData>
+<IdLocation>^Office.TeacherWorkspaceD</IdLocation>
+<IndexLocation>^Office.TeacherWorkspaceI</IndexLocation>
+<StreamLocation>^Office.TeacherWorkspaceS</StreamLocation>
+<Data name="TeacherWorkspaceDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Location</Value>
+</Value>
+<Value name="3">
+<Value>WritingStuff</Value>
+</Value>
+<Value name="4">
+<Value>TeachersTable</Value>
+</Value>
+<Value name="5">
+<Value>TeachersChair</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Office.TesrClass1">
+<Super>%UnitTest.TestCase</Super>
+<TimeChanged>65706,49594.036258</TimeChanged>
+<TimeCreated>65706,42093.020806</TimeCreated>
+
+<Method name="OnAfterAllTests">
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+
+		return ##class(Office.Furniture).%KillExtent()
+]]></Implementation>
+</Method>
+
+<Method name="TestFurniture">
+<Implementation><![CDATA[
+		set f = ##class(Office.Furniture).%New()
+
+		do $$$AssertTrue($isobject(f), "Create new furniture")
+
+
+		set status = f.%Save()
+
+		do $$$AssertStatusNotOK(status, "ID needed (ID is Required)")
+		
+		set f.Id = 1
+		set status = f.%Save() 
+		
+		do $$$AssertStatusOK(status, "Saved")
+		
+		set f2 = ##class(Office.Furniture).%New()
+		set f2.Id = 3
+		w f2.%Save()
+		
+		set sw = ##class(Office.StudentsWorkspace).%New()
+		do sw.Tables.Insert(f)
+		do sw.Tables.Insert(f2)
+		
+		set status2 = ##class(Office.StudentsWorkspace).%DeleteId(sw.%Id())
+		
+		do $$$AssertStatusNotOK(sw.%Exists(), "Deleted parent not exist")
+		do $$$LogMessage(status2)
+		
+		set status3 = ##class(Office.Furniture).%DeleteId(f2.%Id())
+		
+		do $$$AssertStatusOK(status3, "Deleted child")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Routine name="Untitled1" type="MAC" languagemode="0" timestamp="65720,55540.062699"><![CDATA[
+
+ set tcrspace5 = ##class(Office.TeacherWorkspace).%New()
+ 
+ set tcrspace5.Location = "North-East"
+ do tcrspace5.WritingStuff.Insert("pen")
+ do tcrspace5.WritingStuff.Insert("pencil")
+ 
+ 
+ do tcrspace5.PrintDatabyLocation()
+ 
+ set class5 = ##class(Office.Office).%New()
+ set stdspace5 = ##class(Office.StudentsWorkspace).%New()
+ set board5 = ##class(Office.Blackboard).%New()
+ set chair50 = ##class(Office.Furniture).%New()
+ set chair51 = ##class(Office.Furniture).%New()
+ 
+ set class5.Blackboard = board5
+ set class5.StudentsWorkspace = stdspace5
+ set class5.TeacherWorkspace = tcrspace5
+ 
+ set chair51.Age = 45000
+ set chair51.Id = 1
+ set chair51.Type = "Student's table"
+ set chair51.StudentsWorkspace = stdspace5 
+ 
+ w !, chair51.FindFurniture(1).Print()
+
+
+ 
+ set board5.Height = 0.7
+ set board5.Width = 3.2
+ set board5.Type = "Classical blackboard"
+ 
+ do board5.GetData()
+ 
+ do board5.GetResultSet()
+ 
+ 
+ 
+ w tcrspace5.%Save()
+]]></Routine>
+
+
+<Routine name="Untitled3" type="MAC" languagemode="0" timestamp="65726,79920.555893"><![CDATA[
+ set class5 = ##class(Office.Office).%New()
+ set stdspace5 = ##class(Office.StudentsWorkspace).%New()
+ set tcrspace5 = ##class(Office.TeacherWorkspace).%New()
+ set board5 = ##class(Office.Blackboard).%New()
+ set chair50 = ##class(Office.Furniture).%New()
+ set chair51 = ##class(Office.Furniture).%New()
+ set chair52 = ##class(Office.Furniture).%New()
+ set chair53 = ##class(Office.Furniture).%New()
+ set table50 = ##class(Office.Furniture).%New()
+ set table51 = ##class(Office.Furniture).%New()
+ set table52 = ##class(Office.Furniture).%New()
+ set table53 = ##class(Office.Furniture).%New()
+ 
+ set class6 = ##class(Office.Office).%New()
+ set stdspace6 = ##class(Office.StudentsWorkspace).%New()
+ set tcrspace6 = ##class(Office.TeacherWorkspace).%New()
+ set board6 = ##class(Office.Blackboard).%New()
+ set board7 = ##class(Office.Blackboard).%New()
+ set board8 = ##class(Office.Blackboard).%New()
+ set board9 = ##class(Office.Blackboard).%New()
+ set board10 = ##class(Office.Blackboard).%New()
+ set board11 = ##class(Office.Blackboard).%New()
+ set board12 = ##class(Office.Blackboard).%New()
+ set chair60 = ##class(Office.Furniture).%New()
+ set chair61 = ##class(Office.Furniture).%New()
+ set chair62 = ##class(Office.Furniture).%New()
+ set chair63 = ##class(Office.Furniture).%New()
+ set table60 = ##class(Office.Furniture).%New()
+ set table61 = ##class(Office.Furniture).%New()
+ set table62 = ##class(Office.Furniture).%New()
+ set table63 = ##class(Office.Furniture).%New()
+ 
+ 
+ 
+ set class5.Blackboard = board5
+ set class5.StudentsWorkspace = stdspace5
+ set class5.TeacherWorkspace = tcrspace5
+ 
+ set chair51.Age = 45000
+ set chair51.Id = 1
+ set chair51.Type = "Student's table"
+ set chair51.StudentsWorkspace = stdspace5 
+ 
+ set chair52.Age = 45100
+ set chair52.Id = 2
+ set chair52.Type = "Student's table"
+ set chair52.StudentsWorkspace = stdspace5
+  
+ set chair53.Age = 45120
+ set chair53.Id = 3
+ set chair53.Type = "Student's table"
+ set chair53.StudentsWorkspace = stdspace5
+
+ set stdspace5.Location = "Northern part of Office"
+ set stdspace5.Chairs = $LISTBUILD(chair51, chair52, chair53)
+ 
+ set chair50.Age = 47000
+ set chair50.Id = 4
+ set chair50.Type = "Teachers's chair"
+ set chair50.StudentsWorkspace = stdspace5 
+ 
+ set table50.Age = 47100
+ set table50.Id = 5
+ set table50.Type = "Teachers's table"
+ set table50.StudentsWorkspace = stdspace5
+ 
+ set tcrspace5.Location = "Southern part of Office"
+ do tcrspace5.WritingStuff.Insert("pen")
+ do tcrspace5.WritingStuff.Insert("pencil")
+ set tcrspace5.TeachersChair = chair50
+ set tcrspace5.TeachersTable = table50
+ 
+
+ set board5.Height = 0.7
+ set board5.Width = 3.2
+ set board5.Id = 101
+ set board5.Type = "Classical blackboard"
+ 
+ set table51.Age = 45000
+ set table51.Id = 6
+ set table51.Type = "Student's table"
+ set table51.StudentsWorkspace = stdspace5 
+ 
+ set table52.Age = 45100
+ set table52.Id = 7
+ set table52.Type = "Student's table"
+ set table52.StudentsWorkspace = stdspace5
+  
+ set table53.Age = 45120
+ set table53.Id = 8
+ set table53.Type = "Student's table"
+ set table53.StudentsWorkspace = stdspace5
+ 
+ 
+  
+ set class6.Blackboard = board6
+ set class6.StudentsWorkspace = stdspace6
+ set class6.TeacherWorkspace = tcrspace6
+ 
+ set chair61.Age = 45000
+ set chair61.Id = 9
+ set chair61.Type = "Student's table"
+ set chair61.StudentsWorkspace = stdspace6 
+ 
+ set chair62.Age = 45100
+ set chair62.Id = 10
+ set chair62.Type = "Student's table"
+ set chair62.StudentsWorkspace = stdspace6
+  
+ set chair63.Age = 45120
+ set chair63.Id = 11
+ set chair63.Type = "Student's table"
+ set chair63.StudentsWorkspace = stdspace6
+
+ set stdspace6.Location = "Eastern part of Office"
+ set stdspace6.Chairs = $LISTBUILD(chair61, chair62, chair63)
+ 
+ set chair60.Age = 47000
+ set chair60.Id = 12
+ set chair60.Type = "Teachers's chair"
+ set chair60.StudentsWorkspace = stdspace6 
+ 
+ set table60.Age = 47100
+ set table60.Id = 13
+ set table60.Type = "Teachers's table"
+ set table60.StudentsWorkspace = stdspace6
+ 
+ set tcrspace6.Location = "Western part of Office"
+ set tcrspace6.WritingStuff = $LISTBUILD("Pen", "Pencil")
+ set tcrspace6.TeachersChair = chair60
+ set tcrspace6.TeachersTable = table60
+ 
+
+ set board6.Height = 0.7
+ set board6.Width = 3.2
+ set board6.Id = 102
+ set board6.Type = "Classical blackboard"
+ 
+ set board7.Height = 0.7
+ set board7.Width = 3.2
+ set board7.Id = 103
+ set board7.Type = "Classical blackboard"
+ 
+ set board8.Height = 0.7
+ set board8.Width = 3.2
+ set board8.Id = 104
+ set board8.Type = "Classical blackboard"
+ 
+ set board9.Height = 0.7
+ set board9.Width = 3.2
+ set board9.Id = 105
+ set board9.Type = "Classical blackboard"
+ 
+ set board10.Width = 3.2
+ set board10.Id = 106
+ set board10.Type = "Classical blackboard"
+ 
+ set board11.Width = 3.2
+ set board11.Id = 107
+ set board11.Type = "Classical blackboard"
+ 
+ 
+ set board12.Width = 3.2
+ set board12.Id = 108
+ set board12.Type = "Classical blackboard"
+
+ 
+ set table61.Age = 45000
+ set table61.Id = 14
+ set table61.Type = "Student's table"
+ set table61.StudentsWorkspace = stdspace6 
+ 
+ set table62.Age = 45100
+ set table62.Id = 15
+ set table62.Type = "Student's table"
+ set table62.StudentsWorkspace = stdspace6
+  
+ set table63.Age = 45120
+ set table63.Id = 16
+ set table63.Type = "Student's table"
+ set table63.StudentsWorkspace = stdspace6
+ 
+ w class5.%Save()
+ w stdspace5.%Save()
+ w tcrspace5.%Save()
+ w board5.%Save()
+ w chair50.%Save()
+ w chair51.%Save()
+ w chair52.%Save()
+ w chair53.%Save()
+ w table50.%Save()
+ w table51.%Save()
+ w table52.%Save()
+ w table53.%Save()
+ 
+ w class6.%Save()
+ w stdspace6.%Save()
+ w tcrspace6.%Save()
+ w board6.%Save()
+ w board7.%Save()
+ w board8.%Save()
+ w board9.%Save()
+ w board10.%Save()
+ w board11.%Save()
+ w board12.%Save()
+ w chair60.%Save()
+ w chair61.%Save()
+ w chair62.%Save()
+ w chair63.%Save()
+ w table60.%Save()
+ w table61.%Save()
+ w table62.%Save()
+ w table63.%Save()
+
+]]></Routine>
+
+
+<Package name="User"/>
+
+
+<CSP name="ContactUpdated.CSP" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Lab7</title>
+</head>
+<body>
+	<p>Create Contact</p>
+	<form name="Create" method="POST" action="ContactUpdated.csp">
+		<table>
+			<tr>
+				<td>City <input type="Text" name="City"></td>
+				<td>Street <input type="Text" name="Street"></td>
+				<td><input type="submit" name="Action" value="Create"></td>
+			</tr>
+		</table>
+	</form>
+	<p>Update Contact</p>
+	<form name="Update" method="POST" action="ContactUpdated.csp">
+		<table>
+			<tr>
+				<td>ID: <input type="Text" name="ID"></td>
+				<td>City <input type="Text" name="City"></td>
+				<td>Street <input type="Text" name="Street"></td>
+				<td><input type="submit" name="Action" value="Update"></td>
+			</tr>
+		</table>
+	</form>
+	<p>Delete Contact by ID</p>
+	<form name="Delete" method="POST" action="ContactUpdated.csp">
+		<table>
+			<tr>
+				<td>ID: <input type="Text" name="ID"></td>
+				<td><input type="submit" name="Action" value="Delete"></td>
+				</tr>
+		</table>
+	</form>
+	<table style="width: 100%; background: #ddd; text-align: center">
+		<csp:SQLQUERY NAME='query'>
+			SELECT ID, City, Street FROM Library.Contact
+		</csp:SQLQUERY>
+		<tr style="font-size: 24px; font-weight: bold; text-transform: uppercase">
+				<td width="200">ID</td>
+				<td width="400" >City</td>
+				<td width="600">Street</td>
+		</tr>
+		<csp:while condition="query.Next()">
+			<tr>
+				<td width="200">#(query.Get("ID"))#</td>
+				<td width="400">#(query.Get("City"))#</td>
+				<td width="600">#(query.Get("Street"))#</td>
+			</tr>
+		</csp:while>
+	</table>
+	<a href="/csp/user/ContactUpdated.csp">Reload</a>
+</body>
+</html>
+<script language="Cache" runat="SERVER">  
+   If ($Data(%request.Data("Action",1))) {
+
+      If (%request.Data("Action", 1)="Create"){
+	      set city = %request.Data("City", 1)
+	      set street = %request.Data("Street", 1)
+	      
+	      SET myquery="INSERT INTO Library.Contact (City, Street) VALUES(:city, :street)"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(city, street)
+ 		 
+      }
+      If (%request.Data("Action", 1)="Delete"){
+	      set ID = %request.Data("ID", 1)
+	      SET myquery="Delete Library.Contact Where ID = :ID"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(ID)
+      }
+      If (%request.Data("Action", 1)="Update"){
+	      set id = %request.Data("ID", 1)
+	      set city = %request.Data("City", 1)
+	      set street = %request.Data("Street", 1)
+	      
+	      SET myquery="UPDATE Library.Contact SET City = :city, Street = :street WHERE ID = :id"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(city, street, id)
+      }
+   }
+   
+   quit "/csp/user/ContactUpdated.csp"
+</script>
+
+
+]]></CSP>
+
+
+<CSP name="LibrarianUpdated.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Lab7</title>
+<style>
+ tr:nth-child(odd) {background: #CCC}
+ form {
+	text-align: center; 
+	padding: 10px;
+  }
+ form > div {
+	 padding: 5px 0;
+ }
+ p {
+	 text-transform: uppercase;
+	 text-decoration: underline;
+	 text-align: center;
+ }
+</style>
+</head>
+<body>
+	<p>Create Librarian</p>
+	<form name="Create" method="POST" action="LibrarianUpdated.csp" style="background: rgba(255, 0, 0, 0.1);">
+		<div>Name <input type="Text" name="Name"></div>
+		<div>Surname <input type="Text" name="Surname"></div>
+		<div>IdLibrarian <input type="Text" name="IdLibrarian"></div>
+		<div>Post <input type="Text" name="Post"></div>
+		<div><input type="submit" name="Action" value="Create"></div>
+	</form>
+	<p>Update Librarian</p>
+	<form name="Update" method="POST" action="LibrarianUpdated.csp" style="background: rgba(0, 255, 0, 0.1);">
+		<div>ID: <input type="Text" name="ID"></div>
+		<div>Name <input type="Text" name="Name"></div>
+		<div>Surname <input type="Text" name="Surname"></div>
+		<div>IdLibrarian <input type="Text" name="IdLibrarian"></div>
+		<div>Post <input type="Text" name="Post"></div>
+		<div><input type="submit" name="Action" value="Update"></div>
+	</form>
+	<p>Delete Librarian by ID</p>
+	<form name="Delete" method="POST" action="LibrarianUpdated.csp" style="background: rgba(0, 0, 255, 0.1);">
+		<div>ID: <input type="Text" name="ID"></div>
+		<div><input type="submit" name="Action" value="Delete"></div>
+	</form>
+	<table style="width: 100%; text-align: center">
+		<csp:SQLQUERY NAME='query'>
+			SELECT ID, Name, Surname, IdLibrarian, Post FROM Library.Librarian
+		</csp:SQLQUERY>
+		<tr style="font-size: 24px; background: #fff; font-weight: bold; text-transform: uppercase">
+				<td width="200">ID</td>
+				<td>Name</td>
+				<td>Surname</td>
+				<td>IdLibrarian</td>
+				<td>Post</td>
+		</tr>
+		<csp:while condition="query.Next()">
+			<tr>
+				<td width="200">#(query.Get("ID"))#</td>
+				<td width="400">#(query.Get("Name"))#</td>
+				<td width="600">#(query.Get("Surname"))#</td>
+				<td width="600">#(query.Get("IdLibrarian"))#</td>
+				<td width="600">#(query.Get("Post"))#</td>
+			</tr>
+		</csp:while>
+	</table>
+	<a href="/csp/user/LibrarianUpdated.csp">Reload</a>
+</body>
+</html>
+<script language="Cache" runat="SERVER">  
+   If ($Data(%request.Data("Action",1))) {
+
+      If (%request.Data("Action", 1)="Create"){
+	      set name = %request.Data("Name", 1)
+	      set surname = %request.Data("Surname", 1)
+	      set idLibrarian = %request.Data("IdLibrarian", 1)
+	      set post = %request.Data("Post", 1)
+	      
+	      SET myquery="INSERT INTO Library.Librarian (Name, Surname, IdLibrarian, Post) VALUES(:name, :surname, :idLibrarian, :post)"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(name, surname, idLibrarian, post)
+ 		 
+      }
+      If (%request.Data("Action", 1)="Delete"){
+	      set ID = %request.Data("ID", 1)
+	      SET myquery="Delete Library.Librarian Where ID = :ID"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(ID)
+      }
+      If (%request.Data("Action", 1)="Update"){
+	      set id = %request.Data("ID", 1)
+	      set name = %request.Data("Name", 1)
+	      set surname = %request.Data("Surname", 1)
+	      set idLibrarian = %request.Data("IdLibrarian", 1)
+	      set post = %request.Data("Post", 1)
+	      
+	      SET myquery="UPDATE Library.Librarian SET Name = :name, Surname = :surname, IdLibrarian = :idLibrarian, Post = :post WHERE ID = :id"
+ 	   	  SET rset=##class(%ResultSet).%New("%DynamicQuery:SQL")
+ 		  SET sc=rset.Prepare(myquery)
+ 		  SET sc=rset.Execute(name, surname, idLibrarian, post, id)
+      }
+   }
+      
+   quit "/csp/user/LibrarianUpdated.csp"
+</script>
+
+
+]]></CSP>
+
+
+<CSP name="book.csp" application="/csp/user/" default="1"><![CDATA[
+
+<head>
+<title>Cache Server Page - Library.Book (USER)</title>
+</head>
+<h1 align='center'>Library.Book</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+<!--
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+// -->
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Book' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Book' where='IdBook' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><b><div align='right'>*Author:</div></b></td>
+		<td><input type='text' name='Author' cspbind='Author' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*IdBook:</div></b></td>
+		<td><input type='text' name='IdBook' cspbind='IdBook' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+]]></CSP>
+
+
+<CSP name="chapter.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.Chapter (USER)</title>
+</head>
+
+<body>
+
+<h1 align='center'>Library.Chapter</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Chapter' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Chapter' where='%Id()' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><font color='#666666'><b><div align='right'>*Book:</div></b></font></td>
+		<td><input type='text' name='Book' cspbind='Book' size='10' csprequired readonly></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Page:</div></b></td>
+		<td><input type='text' name='Page' cspbind='Page' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="contact.csp" application="/csp/user/" default="1"><![CDATA[
+
+<head>
+<title>Cache Server Page - Library.Contact (USER)</title>
+</head>
+<h1 align='center'>Library.Contact</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+<!--
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+// -->
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Contact' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Contact' where='%Id()' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><b><div align='right'>Street:</div></b></td>
+		<td><input type='text' name='Street' cspbind='Street' size='50'></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>City:</div></b></td>
+		<td><input type='text' name='City' cspbind='City' size='50'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+</table>
+</center>
+</form>
+]]></CSP>
+
+
+<CSP name="librarian.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.Librarian (USER)</title>
+</head>
+<body>
+<h1 align='center'>Library.Librarian</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+function updateContact(id)
+{
+     #server(..formContactLoad(id))#;
+     return true;
+}
+
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Librarian' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Librarian' where='IdLibrarian' options='popup,nopredicates' onselect='update'>
+
+<csp:search name='findContact' classname='Library.Contact' where='City' options='popup,nopredicates' caption='Contact City' startvalues='ContactCity' onselect='updateContact'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><input type='hidden' size='10' name='ContactID' cspbind='Contact'>
+	<a href='javascript:findContact();'><b><div align='right'>Contact City:</div></b></a></td>
+		<td><input type='text' name='Contact' cspbind='Contact.City' size='10' readonly></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*IdLibrarian:</div></b></td>
+		<td><input type='text' name='IdLibrarian' cspbind='IdLibrarian' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>Post:</div></b></td>
+		<td><input type='text' name='Post' cspbind='Post' size='50'></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Surname:</div></b></td>
+		<td><input type='text' name='Surname' cspbind='Surname' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="libraryhouse.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.LibraryHouse (USER)</title>
+</head>
+<body>
+<h1 align='center'>Library.LibraryHouse</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+function updateContact(id)
+{
+     #server(..formContactLoad(id))#;
+     return true;
+}
+
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.LibraryHouse' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.LibraryHouse' where='IdLibrary' options='popup,nopredicates' onselect='update'>
+
+<csp:search name='findContact' classname='Library.Contact' where='City' options='popup,nopredicates' caption='Contact City' startvalues='ContactCity' onselect='updateContact'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><input type='hidden' size='10' name='ContactID' cspbind='Contact'>
+	<a href='javascript:findContact();'><b><div align='right'>Contact City:</div></b></a></td>
+		<td><input type='text' name='Contact' cspbind='Contact.City' size='10' readonly></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*IdLibrary:</div></b></td>
+		<td><input type='text' name='IdLibrary' cspbind='IdLibrary' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="mycspProgram.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+
+<!-- Put your page Title here -->
+<title>	Cache Server Page </title>
+
+</head>
+
+<body>
+
+		<!-- Put your page code here -->
+		My page body 1
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="reader.csp" application="/csp/user/" default="1"><![CDATA[
+<html>
+<head>
+<title>Cache Server Page - Library.Reader (USER)</title>
+</head>
+<body>
+<h1 align='center'>Library.Reader</h1>
+<!-- This function is needed by the search button on the form -->
+<script language='javascript'>
+
+function update(id)
+{
+     #server(..formLoad(id))#;
+     return true;
+}
+
+
+</script>
+
+<!-- set the domain so error messages could be properly localized -->
+<csp:class DOMAIN='%CSPBind'>
+
+<!-- use CSP:OBJECT tag to create a reference to an instance of the class -->
+<csp:object name='objForm' classname='Library.Reader' OBJID='#(%request.Get("OBJID"))#'>
+
+<!-- use csp:search tag to create a javascript function to invoke a search page --> 
+<csp:search name='form_search' classname='Library.Reader' where='IdReader,IdReader' options='popup,nopredicates' onselect='update'>
+
+<form name='form' cspbind='objForm' cspjs='All' onsubmit='return form_validate();'>
+<center>
+<table cellpadding='3'>
+	<tr>
+		<td><b><div align='right'>*IdReader:</div></b></td>
+		<td><input type='text' name='IdReader' cspbind='IdReader' size='10' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Name:</div></b></td>
+		<td><input type='text' name='Name' cspbind='Name' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td><b><div align='right'>*Surname:</div></b></td>
+		<td><input type='text' name='Surname' cspbind='Surname' size='50' csprequired></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type='button' name='btnClear' value='#(%response.GetText("","%CSPSearch","ClearBtn","clear"))#' onclick='form_new();'>
+	<input type='button' name='btnSave' value='#(%response.GetText("","%CSPSearch","SaveBtn","save"))#' onclick='form_save();'>
+	<input type='button' name='btnSearch' value='#(%response.GetText("","%CSPSearch","SearchBtn","search"))#' onclick='form_search();'></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><font color='#000088' size='2'>#(%response.GetText("","%CSPSearch","RequiredNote","(* Denotes required fields)"))#'</font></td>
+	</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+]]></CSP>
+
+
+<CSP name="rest.CSP" application="/csp/user/" default="1"><![CDATA[
+<!doctype html>
+<html>
+<head>
+<title>REST</title>
+<script language="javascript">
+var data = [];
+var url = "http://localhost:52773/rest";
+
+
+function getLibrarians() {
+    // ?????? GET ? RESTful web API
+    fetch(url + "/librarians", { method: "GET" }).then(function(response) { return response.json() }).then(function(data) {
+		var div = document.createElement("div");
+		div.textContent = JSON.stringify(data);
+		document.body.append(div);    
+	})
+};
+
+getLibrarians();
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>]]></CSP>
+</Export>
