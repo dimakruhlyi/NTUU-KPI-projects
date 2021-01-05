@@ -1,0 +1,11 @@
+D:\Варава\Магистратура\Кусекод_2\DotNetRemoting\MyProduct\bin\Debug\MyProduct.dll
+D:\Варава\Магистратура\Кусекод_2\DotNetRemoting\MyProduct\bin\Debug\MyProduct.pdb
+D:\Варава\Магистратура\Кусекод_2\DotNetRemoting\MyProduct\obj\Debug\TheWorker.csproj.CoreCompileInputs.cache
+D:\Варава\Магистратура\Кусекод_2\DotNetRemoting\MyProduct\obj\Debug\MyProduct.dll
+D:\Варава\Магистратура\Кусекод_2\DotNetRemoting\MyProduct\obj\Debug\MyProduct.pdb
+C:\Users\dima1\Desktop\DotNetRemoting\MyProduct\bin\Debug\MyProduct.dll
+C:\Users\dima1\Desktop\DotNetRemoting\MyProduct\bin\Debug\MyProduct.pdb
+C:\Users\dima1\Desktop\DotNetRemoting\MyProduct\obj\Debug\TheWorker.csprojAssemblyReference.cache
+C:\Users\dima1\Desktop\DotNetRemoting\MyProduct\obj\Debug\TheWorker.csproj.CoreCompileInputs.cache
+C:\Users\dima1\Desktop\DotNetRemoting\MyProduct\obj\Debug\MyProduct.dll
+C:\Users\dima1\Desktop\DotNetRemoting\MyProduct\obj\Debug\MyProduct.pdb

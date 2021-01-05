@@ -1,0 +1,5 @@
+D:\Варава\Магистратура\Lab2_4\DotNetRemoting\MyProduct\bin\Debug\MyProduct.dll
+D:\Варава\Магистратура\Lab2_4\DotNetRemoting\MyProduct\bin\Debug\MyProduct.pdb
+D:\Варава\Магистратура\Lab2_4\DotNetRemoting\MyProduct\obj\Debug\MyProduct.csproj.CoreCompileInputs.cache
+D:\Варава\Магистратура\Lab2_4\DotNetRemoting\MyProduct\obj\Debug\MyProduct.dll
+D:\Варава\Магистратура\Lab2_4\DotNetRemoting\MyProduct\obj\Debug\MyProduct.pdb
