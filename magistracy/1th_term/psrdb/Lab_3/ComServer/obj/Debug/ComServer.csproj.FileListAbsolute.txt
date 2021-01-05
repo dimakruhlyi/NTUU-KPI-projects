@@ -1,0 +1,14 @@
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\bin\Debug\ComServer.dll
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\bin\Debug\ComServer.pdb
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\obj\Debug\ComServer.csprojAssemblyReference.cache
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\obj\Debug\ComServer.csproj.CoreCompileInputs.cache
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\obj\Debug\ComServer.dll
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\obj\Debug\ComServer.pdb
+C:\Users\Alexandr\Desktop\uni\varava\33\ComServer\bin\Debug\ComServer.tlb
+C:\Users\dima1\Desktop\33\ComServer\bin\Debug\ComServer.dll
+C:\Users\dima1\Desktop\33\ComServer\bin\Debug\ComServer.pdb
+C:\Users\dima1\Desktop\33\ComServer\obj\Debug\ComServer.csprojAssemblyReference.cache
+C:\Users\dima1\Desktop\33\ComServer\obj\Debug\ComServer.csproj.CoreCompileInputs.cache
+C:\Users\dima1\Desktop\33\ComServer\obj\Debug\ComServer.dll
+C:\Users\dima1\Desktop\33\ComServer\obj\Debug\ComServer.pdb
+C:\Users\dima1\Desktop\33\ComServer\bin\Debug\ComServer.tlb
