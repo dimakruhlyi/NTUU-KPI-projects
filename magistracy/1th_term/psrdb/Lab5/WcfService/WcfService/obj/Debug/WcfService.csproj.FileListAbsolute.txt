@@ -1,0 +1,14 @@
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\bin\WcfService.dll.config
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\bin\WcfService.dll
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\bin\WcfService.pdb
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\obj\Debug\WcfService.csproj.CoreCompileInputs.cache
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\obj\Debug\WcfService.dll
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\obj\Debug\WcfService.pdb
+D:\Варава\Магистратура\Lab5\WcfService\WcfService\obj\Debug\WcfService.csprojAssemblyReference.cache
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\bin\WcfService.dll.config
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\bin\WcfService.dll
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\bin\WcfService.pdb
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\obj\Debug\WcfService.csprojAssemblyReference.cache
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\obj\Debug\WcfService.csproj.CoreCompileInputs.cache
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\obj\Debug\WcfService.dll
+C:\Users\dima1\Desktop\Lab5\WcfService\WcfService\obj\Debug\WcfService.pdb
