@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+}
+canvas{
+    display: block;
+}
+.control__panel{
+    width: 150px;
+    color:#fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.control__panel input[type = 'text']{
+    width:50px;
+}
